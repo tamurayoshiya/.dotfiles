@@ -185,7 +185,6 @@ alias git-archive-all='~/.dotfiles/git-archive-all'
 # cd && ll
 cd() {
     builtin cd "$@"
-    echo "success"
 }
 cdls ()
 {
