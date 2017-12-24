@@ -1,31 +1,10 @@
-## 文字コードの設定
-export LANG=ja_JP.UTF-8
-## 環境変数
-export PATH="/usr/local/mysql/bin:/sbin:$PATH"
-
+# --------------------------------------------------------------
+# --------------------- fundamental
 # --------------------------------------------------------------
 
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
-# .oh-my-zshの自動更新を停止
-export DISABLE_AUTO_UPDATE="true"
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="risto"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-# nodebrewへのパス
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+export LANG=ja_JP.UTF-8
+export PATH="/usr/local/mysql/bin:/sbin:$PATH"
+source "$HOME/.zprezto/init.zsh"
 
 # --------------------------------------------------------------
 # --------------------- 一般設定
