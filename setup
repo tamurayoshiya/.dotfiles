@@ -25,4 +25,6 @@ if [ ! -e $target ]; then
 fi
 
 # make vimproc
-cd $BASEDIR/files/.vim/bundle/vimproc/; make
+if [ ! -e $BASEDIR/files/.vim/bundle/vimproc/ ]; then
+    cd $BASEDIR/files/.vim/bundle/vimproc/; make
+fi
