@@ -1,0 +1,22 @@
+# Win
+Thumbs.db
+  
+# Mac
+.DS_Store
+ 
+# Vim
+*.sw?
+*~
+._*
+.vimundo/*
+.vimbakcup/*
+!.vimundo/empty
+!.vimbakcup/empty
+
+# Eclipse
+.project
+.settings
+.buildpath
+
+.oh-my-zsh/cache/*
+.vim/.netrwhist

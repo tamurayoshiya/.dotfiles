@@ -1,0 +1,28 @@
+#!/bin/sh
+
+cd `dirname $0`/
+BASEDIR=`pwd`
+
+# clone git submodules
+cd $BASEDIR
+git submodule update --init
+
+# put symlinks to the home directory
+cd $BASEDIR/files
+for file in `ls -a`
+do
+    if [ ! -e $HOME/$file ]; then
+        echo put $file symlink to home directory
+        ln -s $HOME/.dotfiles/files/$file $HOME/$file
+    fi
+done
+
+# copy tagbar-phpctags and make executable
+target=$BASEDIR/files/.vim/bin/phpctags
+if [ ! -e $target ]; then
+    cp $BASEDIR/files/.vim/bundle/tagbar-phpctags/bin/phpctags $target
+    chmod +x $target
+fi
+
+# make vimproc
+cd $BASEDIR/files/.vim/bundle/vimproc/; make

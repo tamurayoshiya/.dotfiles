@@ -1,0 +1,1 @@
+/home/y_tamura/.vimrc

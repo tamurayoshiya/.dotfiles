@@ -1,2 +1,7 @@
 # ctags
 files/.vim/bin/phpctags
+# vim plugin 
+files/.vim/bundle/*
+files/.vim/nerdtree_plugin
+# z 
+lib/z

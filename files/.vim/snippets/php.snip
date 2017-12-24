@@ -1,0 +1,225 @@
+# ===================================
+# fundamental
+# ===================================
+
+snippet a
+options word
+	[${1}]
+
+snippet d
+options word
+	debug(${1});
+
+snippet e
+options word
+	empty(${1})
+
+snippet g
+options word
+	$this->Twb->g('${1}')
+
+snippet n
+options word
+	NULL
+
+snippet m
+options word
+	$this->${1}->${2}
+
+snippet p
+	<?= ${1} ?>
+
+snippet this
+options word
+	$this->
+
+snippet kv
+	'${1}' => ${2}
+
+snippet foreach
+	foreach (${1} as ${2}) {
+		${3}
+	}
+
+snippet if
+	if (${1}) {
+		${2}
+    } elseif (${3}) {
+    } else {
+	}
+
+snippet try
+	try {
+        ${1}
+    } catch (RuntimeException $ex) {
+        return false;
+	}
+
+snippet public
+	/**
+	 * ${1}
+	 *
+	 * @param
+	 * @return
+	 */
+	public function ${2} ()
+	{
+		${3}
+	}
+
+snippet protected
+	/**
+	 * ${1}
+	 *
+	 * @param
+	 * @return
+	 */
+	protected function ${2} ()
+	{
+		${3}
+	}
+
+snippet private
+	/**
+	 * ${1}
+	 *
+	 * @param
+	 * @return
+	 */
+	private function ${2} ()
+	{
+		${3}
+	}
+
+# ===================================
+# shortcut
+# ===================================
+
+snippet set
+	$this->set(compact(
+		'${1}'
+	));
+
+snippet data
+	$this->request->data
+
+snippet log
+	$this->log(${1}, 'debug');
+
+snippet find
+	$this->find(
+		'${1}',
+		[
+            'recursive' => -1,
+            'contain' => [],
+			'conditions' => [
+				${2}
+			],
+		]
+	);
+
+snippet findById
+	$this->findById(${1});
+
+snippet findCount
+	$this->find(
+		'count',
+		[
+			'conditions' => [
+				${1}
+			],
+		]
+	);
+
+snippet redirect
+	$this->redirect(['controller' => '${1}', 'action' => '${2}']);
+
+snippet HashGet
+    Hash::get(${1}, '${2}');
+
+snippet setFlash 
+    $this->setFlash(${1});
+
+# ===================================
+# example
+# ===================================
+
+snippet if_request_method_switcher
+    if ($this->request->is('GET')) {
+            ${1}
+    } elseif ($this->request->is('POST')) {
+            ${2}
+    } elseif ($this->request->is('PUT') || $this->request->is('PATCH')) {
+            ${3}
+    } elseif ($this->request->is('DELETE')) {
+            ${4}
+    } else {
+            ${5}
+    }
+
+snippet transaction
+    // トランザクション開始
+    $this->begin();
+    $result = true;
+
+    // トランザクション終了
+    if ($result) {
+        $this->commit();
+        return true;
+    } else {
+        $this->rollback();
+        return false;
+    }
+
+# ===================================
+# view
+# ===================================
+
+snippet foreachv
+	<?php foreach (${1} as ${2}): ?>
+		${3}
+	<?php endforeach ?>
+
+snippet ifv
+	<?php if (${1}): ?>
+		${2}
+	<?php elseif (${3}): ?>
+	<?php else: ?>
+	<?php endif ?>
+
+snippet dv
+	<?php debug(${1}); ?>
+
+snippet element
+	<?= $this->element('${1}', [${2}]); ?>
+
+snippet link
+	<?= $this->Html->link(
+		"${1}",
+		['controller' => '${2}', 'action' => '${3}'],
+		['class' => '${4}', 'escape' => false]
+	); ?>
+
+snippet input
+	<?= $this->Form->input(
+		"${1}",
+		['label' => false, 'div' => false, 'class' => 'form-control input-sm inline', 'escape' => false]
+	); ?>
+
+# ===================================
+# bootstrap
+# ===================================
+
+snippet label
+    <span class="label label-success">${1}</span>
+
+snippet panel
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        ${1}
+        <!-- /.panel-heading --></div>
+        <div class="panel-body">
+        ${2}
+        <!-- /.panel-body --></div>
+    <!-- /.panel.panel-default --></div>
+

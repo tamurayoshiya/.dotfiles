@@ -1,0 +1,6 @@
+# hide note
+set show-notes = no
+# set window size of horizontal split view
+set split-view-height = 80%
+# how many above(below) lines to show from a modified line
+set diff-context = 6
