@@ -128,3 +128,6 @@
 [submodule "files/.zprezto"]
 	path = files/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "files/.vim/bundle/neomru"]
+	path = files/.vim/bundle/neomru
+	url = https://github.com/Shougo/neomru.vim
