@@ -5,6 +5,10 @@
 export LANG=ja_JP.UTF-8
 export PATH="/usr/local/mysql/bin:/sbin:$PATH"
 source "$HOME/.zprezto/init.zsh"
+# Add plugins
+plugins+=(git ssh-agent)
+# Z
+source ~/.dotfiles/lib/z/z.sh
 
 # --------------------------------------------------------------
 # --------------------- 一般設定
@@ -101,45 +105,8 @@ then
 fi
 
 # --------------------------------------------------------------
-# --------------------- 拡張設定
-# --------------------------------------------------------------
-
-# SSH agentを起動
-# ssh-add ~/.ssh/id_dsa で鍵とパスフレーズを紐つけて登録
-echo -n "ssh-agent: "
-if [ -e ~/.ssh-agent-info ]; then
-    source ~/.ssh-agent-info
-fi
-
-ssh-add -l >&/dev/null
-if [ $? = 2 ] ; then
-    echo -n "ssh-agent: restart...."
-    ssh-agent >~/.ssh-agent-info
-    source ~/.ssh-agent-info
-fi
-
-if ssh-add -l >&/dev/null ; then
-    echo "ssh-agent: Identity is already stored."
-else
-    ssh-add
-fi
-
-# mosh
-# known_hostsを使ってエイリアス名の入力補完をしたい場合は、
-# .zshrcに以下を追記するとsshを使うときと同様にサーバのエイリアス名の補完機能を使えるようになります。
-compdef mosh=ssh
-
-
-# Z
-# http://qiita.com/takc923/items/36ace951569160068527
-# https://github.com/rupa/z
-
-source ~/.dotfiles/lib/z/z.sh
-
-# --------------------------------------------------------------
 # --------------------- エイリアス
 # --------------------------------------------------------------
-
 
 ## エイリアス - 一般
 setopt complete_aliases
