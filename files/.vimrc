@@ -1,9 +1,6 @@
 set encoding=utf-8
-" set fileencodings=iso-2022-jp,euc-jp,sjis,utf8
 
 "pathogen.vimを使ってbundle配下のプラグインをpathに加える
-"call pathogen#incubate()
-"call pathogen#helptags()
 execute pathogen#infect()
 
 " --------------------------------------------------------------

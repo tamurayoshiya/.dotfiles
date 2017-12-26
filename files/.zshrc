@@ -9,6 +9,8 @@ source "$HOME/.zprezto/init.zsh"
 plugins+=(git ssh-agent)
 # Z
 source ~/.dotfiles/lib/z/z.sh
+# XDG Configuratino for NeoVim
+export XDG_CONFIG_HOME=$HOME/.config
 
 # --------------------------------------------------------------
 # --------------------- 一般設定
