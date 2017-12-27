@@ -20,10 +20,6 @@ repo = 'scrooloose/nerdtree'
 [[plugins]]
 repo = 'h1mesuke/unite-outline'
 [[plugins]]
-repo = 'majutsushi/tagbar'
-[[plugins]]
-repo = 'vim-scripts/tagbar-phpctags'
-[[plugins]]
 repo = 'tomtom/tcomment_vim'
 [[plugins]]
 repo = 'jimsei/winresizer'
@@ -40,13 +36,14 @@ repo = 'vim-scripts/AnsiEsc.vim'
 
 [[plugins]]
 repo = 'neomake/neomake'                  
- hook_add = '''                            
- autocmd! BufWritePost * Neomake           
- '''  
+hook_add = '''                            
+autocmd! BufWritePost * Neomake           
+'''  
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 hook_post_update = '''
+  if dein#util#_is_windows()
     let cmd = 'tools\\update-dll-mingw'
   elseif dein#util#_is_cygwin()
     let cmd = 'make -f make_cygwin.mak'
