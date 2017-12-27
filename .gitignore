@@ -1,2 +1,8 @@
 # ctags
 files/.vim/bin/phpctags
+
+# dein.vim
+files/.vim/bundle/.cache
+files/.vim/bundle/cache_nvim
+files/.vim/bundle/state_nvim.vim
+files/.vim/bundle/repos
