@@ -1,0 +1,28 @@
+- defaults:
+    link:
+        create: true
+        relink: true
+        force:  true
+
+- clean: ['~']
+
+- link:
+    ~/.vim: files/.vim
+    ~/.vimbackup: files/.vimbackup
+    ~/.vimundo: files/.vimundo
+    ~/.zprezto: files/.zprezto
+    ~/.gitignore: files/.gitignore
+    ~/.tigrc: files/.tigrc
+    ~/.tmux.conf: files/.tmux.conf
+    ~/.vimrc: files/.vimrc
+    ~/.zlogin: files/.zlogin
+    ~/.zlogout: files/.zlogout
+    ~/.zshenv: files/.zshenv
+    ~/.zshrc: files/.zshrc
+    ~/.config/nvim: files/.vim
+    ~/.config/nvim/init.vim: files/.vimrc
+    ~/files/.vim/bin/phpctags: files/.vim/bundle/repos/github.com/vim-scripts/tagbar-phpctags/bin/phpctags
+
+- shell:
+    - [git submodule update --init, Installing submodules]
+    - [chmod +x ~/files/.vim/bin/phpctags, Make phpctags executable]

@@ -4,3 +4,9 @@
 [submodule "files/.zprezto"]
 	path = files/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+[submodule "files/.vim/nerdtree_plugin"]
+	path = files/.vim/nerdtree_plugin
+	url = https://gist.github.com/414375.git
