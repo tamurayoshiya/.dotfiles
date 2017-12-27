@@ -1,8 +1,5 @@
 set encoding=utf-8
 
-"pathogen.vimを使ってbundle配下のプラグインをpathに加える
-execute pathogen#infect()
-
 " --------------------------------------------------------------
 " --------------------- dein.vim (install if not exits)
 " --------------------------------------------------------------
@@ -236,68 +233,68 @@ map <silent> [Tag]p :tabprevious<CR>
 " tp 前のタブ
 
 
-" --------------------------------------------------------------
-" --------------------- 拡張設定 (Unite)
-" --------------------------------------------------------------
+" " --------------------------------------------------------------
+" " --------------------- denite.vim
+" " --------------------------------------------------------------
 
 
-" unite.vim
-"unite prefix key.
-nnoremap [unite] <Nop>
-nmap <Space>f [unite]
-
-"unite general settings
-"インサートモードで開始
-let g:unite_enable_start_insert = 0
-
-"最近開いたファイル履歴の保存数
-let g:unite_source_file_mru_limit = 50
-
-"file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
-let g:unite_source_file_mru_filename_format = ''
-
-"現在開いているファイルのディレクトリ下のファイル一覧。
-"開いていない場合はカレントディレクトリ
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-"バッファ一覧
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-"レジスタ一覧
-nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-"最近使用したファイル一覧
-nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-"ブックマーク一覧
-nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
-"ブックマークに追加
-nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-"全部のせ
-nnoremap <silent> [unite]<Space> :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
-
-"uniteを開いている間のキーマッピング
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()
-  " ESCでuniteを終了
-  nmap <buffer> <ESC> <Plug>(unite_exit)
-  "入力モードのときjjでノーマルモードに移動
-  imap <buffer> jj <Plug>(unite_insert_leave)
-  "入力モードのときctrl+wでバックスラッシュも削除
-  imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
-  "Shift+Enterで横に分割して開く
-  nnoremap <silent> <buffer> <expr> <S-Enter> unite#do_action('vsplit')
-  inoremap <silent> <buffer> <expr> <S-Enter> unite#do_action('vsplit')
-  "Control+Enterでタブに分割して開く
-  nnoremap <silent> <buffer> <expr> <C-Enter> unite#do_action('tab-drop')
-  inoremap <silent> <buffer> <expr> <C-Enter> unite#do_action('tab-drop')
-  "ctrl+oでその場所に開く
-  nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
-  inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
-endfunction
-
-" unite-outline(開いているファイルのクラスのメンバ一覧表示)
-nnoremap <silent><Space>fo : <C-u>Unite -vertical -winwidth=40 outline<CR>
-
-" sort unite buffer by path
-call unite#custom_source('buffer', 'sorters', 'sorter_word')
-
+" " unite.vim
+" "unite prefix key.
+" nnoremap [unite] <Nop>
+" nmap <Space>f [unite]
+"
+" "unite general settings
+" "インサートモードで開始
+" let g:unite_enable_start_insert = 0
+"
+" "最近開いたファイル履歴の保存数
+" let g:unite_source_file_mru_limit = 50
+"
+" "file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
+" let g:unite_source_file_mru_filename_format = ''
+"
+" "現在開いているファイルのディレクトリ下のファイル一覧。
+" "開いていない場合はカレントディレクトリ
+" nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" "バッファ一覧
+" nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+" "レジスタ一覧
+" nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+" "最近使用したファイル一覧
+" nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+" "ブックマーク一覧
+" nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
+" "ブックマークに追加
+" nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
+" "全部のせ
+" nnoremap <silent> [unite]<Space> :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+"
+" "uniteを開いている間のキーマッピング
+" autocmd FileType unite call s:unite_my_settings()
+" function! s:unite_my_settings()
+"   " ESCでuniteを終了
+"   nmap <buffer> <ESC> <Plug>(unite_exit)
+"   "入力モードのときjjでノーマルモードに移動
+"   imap <buffer> jj <Plug>(unite_insert_leave)
+"   "入力モードのときctrl+wでバックスラッシュも削除
+"   imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+"   "Shift+Enterで横に分割して開く
+"   nnoremap <silent> <buffer> <expr> <S-Enter> unite#do_action('vsplit')
+"   inoremap <silent> <buffer> <expr> <S-Enter> unite#do_action('vsplit')
+"   "Control+Enterでタブに分割して開く
+"   nnoremap <silent> <buffer> <expr> <C-Enter> unite#do_action('tab-drop')
+"   inoremap <silent> <buffer> <expr> <C-Enter> unite#do_action('tab-drop')
+"   "ctrl+oでその場所に開く
+"   nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
+"   inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
+" endfunction
+"
+" " unite-outline(開いているファイルのクラスのメンバ一覧表示)
+" nnoremap <silent><Space>fo : <C-u>Unite -vertical -winwidth=40 outline<CR>
+"
+" " sort unite buffer by path
+" call unite#custom_source('buffer', 'sorters', 'sorter_word')
+"
 " --------------------------------------------------------------
 " --------------------- 拡張設定 (vim-indent-guides)
 " --------------------------------------------------------------
@@ -523,21 +520,25 @@ let NERDTreeShowHidden = 1
 "   endif
 " endfunction
 
+
+
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_enable_signs = 1
-let g:syntastic_echo_current_error = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go'] }
-let g:syntastic_go_checkers = ['go', 'golint']
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['haskell'] }
-let g:syntastic_haskell_checkers = ['hlint', 'ghc_mod']
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_enable_signs = 1
+" let g:syntastic_echo_current_error = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_enable_highlighting = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go'] }
+" let g:syntastic_go_checkers = ['go', 'golint']
+" let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['haskell'] }
+" let g:syntastic_haskell_checkers = ['hlint', 'ghc_mod']
+
+
 
 " auto-ctags.vim
 let g:auto_ctags = 1
@@ -557,26 +558,7 @@ highlight GitGutterChange ctermbg=3 ctermfg=15
 highlight GitGutterDelete ctermbg=124
 highlight GitGutterChangeDelete ctermbg=13
 
-" yankround-vim
-nmap p <Plug>(yankround-p)
-xmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-xmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap yp <Plug>(yankround-prev)
-nmap yn <Plug>(yankround-next)
 
-" vim-airline
-set laststatus=2
-let g:airline_theme = 'kalisi'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#tab_nr_type= 2
-let g:airline#extensions#tabline#show_tab_type = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-" カッコよくなるがfontのインストールが必要
-"let g:airline_powerline_fonts = 1
 
 " tagbar-phpctags
 let g:tagbar_phpctags_bin='~/.dotfiles/files/.vim/bin/phpctags'
@@ -586,57 +568,6 @@ let g:tagbar_left = 1
 let g:tagbar_map_togglesort = "r"
 let g:tagbar_autofocus = 1
 nmap <C-y> :TagbarToggle<CR>
-
-" --------------------------------------------------------------
-" --------------------- その他
-" --------------------------------------------------------------
-
-" 閉じタグコメントの生成(<!-- /.hoge -->など)
-function! Endtagcomment()
-    let reg_save = @@
-
-    try
-        silent normal vaty
-    catch
-        execute "normal \<Esc>"
-        echohl ErrorMsg
-        echo 'no match html tags'
-        echohl None
-        return
-    endtry
-
-    let html = @@
-
-    let start_tag = matchstr(html, '\v(\<.{-}\>)')
-    let tag_name  = matchstr(start_tag, '\v([a-zA-Z]+)')
-
-    let id = ''
-    let id_match = matchlist(start_tag, '\vid\=["'']([^"'']+)["'']')
-    if exists('id_match[1]')
-        let id = '#' . id_match[1]
-    endif
-
-    let class = ''
-    let class_match = matchlist(start_tag, '\vclass\=["'']([^"'']+)["'']')
-    if exists('class_match[1]')
-        let class = '.' . join(split(class_match[1], '\v\s+'), '.')
-    endif
-
-    execute "normal `>va<\<Esc>`<"
-
-    let comment = g:endtagcommentFormat
-    let comment = substitute(comment, '%tag_name', tag_name, 'g')
-    let comment = substitute(comment, '%id', id, 'g')
-    let comment = substitute(comment, '%class', class, 'g')
-    let @@ = comment
-
-    normal ""P
-
-    let @@ = reg_save
-endfunction
-
-let g:endtagcommentFormat = '<!-- /%id%class -->'
-nnoremap .t :<C-u>call Endtagcomment()<CR>
 
 
 "-------------------

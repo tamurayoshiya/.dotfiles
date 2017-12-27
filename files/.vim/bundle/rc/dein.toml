@@ -1,0 +1,138 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+[[plugins]]
+repo = 'Shougo/neocomplcache'
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+[[plugins]]
+repo = 'Shougo/neocomplete'
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+[[plugins]]
+repo = 'thinca/vim-guicolorscheme'
+[[plugins]]
+repo = 'mattn/emmet-vim'
+[[plugins]]
+repo = 'itchyny/vim-haskell-indent'
+[[plugins]]
+repo = 'vim-scripts/AnsiEsc.vim'
+[[plugins]]
+repo = 'h1mesuke/unite-outline'
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+[[plugins]]
+repo = 'groenewege/vim-less'
+[[plugins]]
+repo = 'tpope/vim-pathogen'
+[[plugins]]
+repo = 'jimsei/winresizer'
+[[plugins]]
+repo = 'fatih/vim-go'
+[[plugins]]
+repo = 'soramugi/auto-ctags.vim'
+[[plugins]]
+repo = 'kien/ctrlp.vim'
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
+[[plugins]]
+repo = 'cespare/vim-toml'
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+[[plugins]]
+repo = 'elzr/vim-json'
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+[[plugins]]
+repo = 'majutsushi/tagbar'
+[[plugins]]
+repo = 'vim-scripts/tagbar-phpctags'
+[[plugins]]
+repo = 'eagletmt/ghcmod-vim'
+[[plugins]]
+repo = 'godoctor/godoctor.vim'
+[[plugins]]
+repo = 'neovimhaskell/haskell-vim'
+[[plugins]]
+repo = 'eagletmt/neco-ghc'
+[[plugins]]
+repo = 'kovisoft/slimv'
+[[plugins]]
+repo = 'guns/vim-clojure-static'
+[[plugins]]
+repo = 'tpope/vim-fireplace'
+[[plugins]]
+repo = 'Twinside/vim-hoogle'
+[[plugins]]
+repo = 'nbouscal/vim-stylish-haskell'
+[[plugins]]
+repo = 'tpope/vim-surround'
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
+
+[[plugins]]                               
+repo = 'neomake/neomake'                  
+hook_add = '''                            
+autocmd! BufWritePost * Neomake           
+'''
+
+[[plugins]]                               
+repo = 'Shougo/denite.nvim'
+depends = ['neomru.vim']
+on_event = 'BufRead'
+hook_add = '''
+nnoremap [denite] <Nop>
+nmap <Space>f [denite]
+
+nmap <silent> [denite]f :<C-u>Denite file<CR>
+nmap <silent> [denite]m :<C-u>Denite file_mru<CR>
+nmap <silent> [denite]l :<C-u>Denite line<CR>
+nmap <silent> [denite]y :<C-u>Denite neoyank<CR>
+nmap <silent> [denite]b :<C-u>Denite buffer<CR>
+nmap <silent> [denite]o :<C-u>Denite outline<CR>
+nmap <silent> [denite]g :<C-u>Denite grep<CR>
+
+"Denite filetype<CR>
+"Denite file_rec<CR>
+"Denite grep<CR>
+"DeniteCursorWord grep<CR>
+"Denite -resume<CR>
+""Denite -resume -immediately -select=+1<CR>
+nmap <silent> <C-u>- :<C-u>Denite -resume -immediately -select=-1<CR>
+nmap <silent> <C-u><C-d> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/dotfiles']}])<CR>
+nnoremap ml :<C-u>call denite#start([{'name': 'file_rec', 'args': [g:memolist_path]}])<CR>
+'''
+
+hook_post_source = '''
+call denite#custom#var('file_rec', 'command',
+\ ['pt', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', ''])
+call denite#custom#var('grep', 'command',
+\ ['pt', '--nogroup', '--nocolor', '--smart-case', '--hidden'])
+call denite#custom#var('grep', 'default_opts', [])
+call denite#custom#var('grep', 'recursive_opts', [])
+'''
