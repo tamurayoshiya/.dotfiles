@@ -1,1 +1,63 @@
+# language plugins (html, css, js)
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'css', 'php', 'eruby']
+[[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = ['pug']
 
+# language plugins (go)
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+[[plugins]]
+repo = 'godoctor/godoctor.vim'
+on_ft = ['go']
+
+# language plugins (haskell)
+[[plugins]]
+repo = 'itchyny/vim-haskell-indent'
+on_ft = ['haskell']
+[[plugins]]
+repo = 'eagletmt/ghcmod-vim'
+on_ft = ['haskell']
+[[plugins]]
+repo = 'nbouscal/vim-stylish-haskell'
+on_ft = ['haskell']
+[[plugins]]
+repo = 'Twinside/vim-hoogle'
+on_ft = ['haskell']
+[[plugins]]
+repo = 'eagletmt/neco-ghc'
+on_ft = ['haskell']
+[[plugins]]
+repo = 'neovimhaskell/haskell-vim'
+on_ft = ['haskell']
+
+# language plugins (clojure)
+[[plugins]]
+repo = 'guns/vim-clojure-static'
+on_ft = ['clojure']
+[[plugins]]
+repo = 'tpope/vim-fireplace'
+on_ft = ['clojure']
+
+# language plugins (other)
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = ['json']
+[[plugins]]
+repo = 'groenewege/vim-less'
+on_ft = ['less']
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = ['coffeescript']
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+on_ft = ['pu', 'uml', 'plantuml']
+[[plugins]]
+repo = 'kovisoft/slimv'
+on_ft = ['lisp']

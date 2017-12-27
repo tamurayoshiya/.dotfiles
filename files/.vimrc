@@ -30,27 +30,23 @@ if dein#check_install()
 endif
 
 " --------------------------------------------------------------
-" --------------------- 配色
+" --------------------- colors
 " --------------------------------------------------------------
 
 set t_Co=256
 syntax on
-
-"autocmd ColorScheme * highlight LineNr term=underline ctermfg=0 ctermbg=232 guibg=#465457
-""autocmd ColorScheme * highlight Visual term=reverse ctermbg=206 guibg=#403D3D
 
 if !exists("colors_name")
     colorscheme molokai
 endif
 " iTerm2で半透明にしているが、vimのcolorschemeを設定すると背景も変更されるため"
 highlight Normal ctermbg=none
-
 " markdownのハイライトを有効にする
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " --------------------------------------------------------------
-" --------------------- 一般設定
+" --------------------- fundamentals
 " --------------------------------------------------------------
 
 " Set to auto read when a file is changed from the outside
@@ -131,10 +127,6 @@ nmap <ESC><ESC> :nohlsearch<CR><ESC>
 set softtabstop=4
 set shiftwidth=4
 
-"HTMLのインデントを無効にする.
-"autocmd FileType html set indentexpr&
-"autocmd FileType xhtml set indentexpr&
-
 "閉じタグ補完
 inoremap { {}<LEFT>
 inoremap [ []<LEFT>
@@ -147,13 +139,6 @@ vnoremap ( "zdi^V(<C-R>z)<ESC>
 vnoremap " "zdi^V"<C-R>z^V"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 
-" gitu
-nnoremap gu :Gitu<CR>
-" gitv
-autocmd FileType git :setlocal foldlevel=99
-nnoremap gv :Gitv<CR>
-"fugitive
-nnoremap gst :Gstatus<CR>
 "インサートモードでjjを押下するとESC相当 + l相当
 inoremap <silent> jj <ESC>l
 "インサートモードでcountrol + jを押下するとESC
@@ -184,7 +169,7 @@ let mapleader = ","
 set synmaxcol=1000
 
 " --------------------------------------------------------------
-" --------------------- 拡張設定 (Vim タブ関連)
+" --------------------- tabs
 " --------------------------------------------------------------
 
 " Anywhere SID.
@@ -237,6 +222,9 @@ map <silent> [Tag]p :tabprevious<CR>
 " " --------------------- denite.vim
 " " --------------------------------------------------------------
 
+call denite#custom#option('default', 'prompt', '>')
+call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
+call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
 
 " " unite.vim
 " "unite prefix key.
@@ -315,40 +303,6 @@ let g:indent_guides_color_change_percent = 100
 let g:indent_guides_guide_size = 1
 
 " --------------------------------------------------------------
-" --------------------- 拡張設定 (cake-vim)
-" --------------------------------------------------------------
-
-let g:cakephp_enable_auto_mode = 1
-let g:cakephp_enable_fix_mode = 1
-
-" バッファで開くキーバインド設定
-nnoremap <Space>cc :Ccontroller
-nnoremap <Space>cm :Cmodel
-nnoremap <Space>cv :Cview
-nnoremap <Space>cvw :Ccontrollerview
-nnoremap <Space>cs :Cshell
-nnoremap <Space>ct :Ctask
-nnoremap <Space>ccf :Cconfig
-nnoremap <Space>ccp :Ccomponent
-nnoremap <Space>cl :Clog
-
-" splitで開くキーバインド設定
-nnoremap <Space>ccs :Ccontrollersp 
-nnoremap <Space>cms :Cmodelsp
-nnoremap <Space>cvs :Cviewsp
-nnoremap <Space>cvws :Ccontrollerviewsp
-nnoremap <Space>ccfs :Cconfigsp
-nnoremap <Space>ccps :Ccomponentsp
-
-" vsplitで開くキーバインド設定
-nnoremap <Space>ccv :Ccontrollervsp
-nnoremap <Space>cmv :Cmodelvsp
-nnoremap <Space>cvv :Cviewvsp
-nnoremap <Space>cvwv :Ccontrollerviewvsp
-nnoremap <Space>ccfv :Cconfigvsp
-nnoremap <Space>ccpv :Ccomponentvsp
-
-" --------------------------------------------------------------
 " --------------------- 拡張設定 (neosnippet)
 " --------------------------------------------------------------
 
@@ -414,17 +368,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 set completeopt-=preview
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -438,10 +382,6 @@ autocmd FileType go setlocal omnifunc=go#complete#Complete
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"
 let g:neocomplete#auto_complete_delay = 1000
 
 let g:haskellmode_completion_ghc = 0 " Disable haskell-vim omnifunc
@@ -451,10 +391,7 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 " --------------------- 拡張設定 (その他)
 " --------------------------------------------------------------
 
-" neocomplcache(コード補完)を有効化
-let g:neocomplcache_enable_at_startup = 0
-
-" zencodingの設定
+" emmet-vim (zencoding)
 let g:user_emmet_expandabbr_key = '<c-e>'
 let g:user_emmet_expandword_key = '<c-e>'
 
@@ -462,64 +399,6 @@ let g:user_emmet_expandword_key = '<c-e>'
 let g:NERDTreeWinPos = "right"
 nmap <C-i> :<C-u>NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
-
-
-
-" " quickfix
-" " Maximize the window after entering it, be sure to keep the quickfix window
-" " at the specified height.
-" au WinEnter * call MaximizeAndResizeQuickfix(8)
-"
-" " Maximize current window and set the quickfix window to the specified height.
-" function MaximizeAndResizeQuickfix(quickfixHeight)
-"   " Redraw after executing the function.
-"   set lazyredraw
-"   " Ignore WinEnter events for now.
-"   set ei=WinEnter
-"   " Maximize current window.
-"   wincmd _
-"   " If the current window is the quickfix window
-"   if (getbufvar(winbufnr(winnr()), "&buftype") == "quickfix")
-"     " Maximize previous window, and resize the quickfix window to the
-"     " specified height.
-"     wincmd p
-"     resize
-"     wincmd p
-"     exe "resize " . a:quickfixHeight
-"   else
-"     " Current window isn't the quickfix window, loop over all windows to
-"     " find it (if it exists...)
-"     let i = 1
-"     let currBufNr = winbufnr(i)
-"     while (currBufNr != -1)
-"       " If the buffer in window i is the quickfix buffer.
-"       if (getbufvar(currBufNr, "&buftype") == "quickfix")
-"         " Go to the quickfix window, set height to quickfixHeight, and jump to the previous
-"         " window.
-"         exe i . "wincmd w"
-"         exe "resize " . a:quickfixHeight
-"         wincmd p
-"         break
-"       endif
-"       let i = i + 1
-"       let currBufNr = winbufnr(i)
-"     endwhile
-"   endif
-"   set ei-=WinEnter
-"   set nolazyredraw
-" endfunction
-"
-" " Remap ,m to make and open error window if there are any errors. If there
-" " weren't any errors, the current window is maximized.
-" map <silent> ,m :mak<CR><CR>:cw<CR>:call MaximizeIfNotQuickfix()<CR>
-"
-" " Maximizes the current window if it is not the quickfix window.
-" function MaximizeIfNotQuickfix()
-"   if (getbufvar(winbufnr(winnr()), "&buftype") != "quickfix")
-"     wincmd _
-"   endif
-" endfunction
-
 
 
 " syntastic
@@ -558,8 +437,6 @@ highlight GitGutterChange ctermbg=3 ctermfg=15
 highlight GitGutterDelete ctermbg=124
 highlight GitGutterChangeDelete ctermbg=13
 
-
-
 " tagbar-phpctags
 let g:tagbar_phpctags_bin='~/.dotfiles/files/.vim/bin/phpctags'
 let g:tagbar_width = 30
@@ -568,7 +445,6 @@ let g:tagbar_left = 1
 let g:tagbar_map_togglesort = "r"
 let g:tagbar_autofocus = 1
 nmap <C-y> :TagbarToggle<CR>
-
 
 "-------------------
 "vim-go
@@ -612,3 +488,13 @@ au BufNewFile,BufRead *.hs map <buffer> <Leader>hh :HoogleClose<CR>
 
 
 au BufRead,BufNewFile *.qmu set filetype=qmu
+
+"-------------------
+" neomake
+"-------------------
+" When writing a buffer.
+call neomake#configure#automake('w')
+" When writing a buffer, and on normal mode changes (after 750ms).
+call neomake#configure#automake('nw', 750)
+" When reading a buffer (after 1s), and when writing.
+call neomake#configure#automake('rw', 1000)

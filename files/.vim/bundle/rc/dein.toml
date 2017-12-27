@@ -1,7 +1,6 @@
+# funtamental plugins
 [[plugins]]
 repo = 'Shougo/dein.vim'
-[[plugins]]
-repo = 'Shougo/neocomplcache'
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 [[plugins]]
@@ -15,71 +14,35 @@ repo = 'Shougo/neocomplete'
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-[[plugins]]
-repo = 'thinca/vim-guicolorscheme'
-[[plugins]]
-repo = 'mattn/emmet-vim'
-[[plugins]]
-repo = 'itchyny/vim-haskell-indent'
-[[plugins]]
-repo = 'vim-scripts/AnsiEsc.vim'
-[[plugins]]
-repo = 'h1mesuke/unite-outline'
-[[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-[[plugins]]
-repo = 'groenewege/vim-less'
-[[plugins]]
-repo = 'tpope/vim-pathogen'
-[[plugins]]
-repo = 'jimsei/winresizer'
-[[plugins]]
-repo = 'fatih/vim-go'
-[[plugins]]
 repo = 'soramugi/auto-ctags.vim'
 [[plugins]]
-repo = 'kien/ctrlp.vim'
+repo = 'scrooloose/nerdtree'
 [[plugins]]
-repo = 'aklt/plantuml-syntax'
-[[plugins]]
-repo = 'AndrewRadev/splitjoin.vim'
-[[plugins]]
-repo = 'cespare/vim-toml'
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-[[plugins]]
-repo = 'elzr/vim-json'
-[[plugins]]
-repo = 'digitaltoad/vim-pug'
+repo = 'h1mesuke/unite-outline'
 [[plugins]]
 repo = 'majutsushi/tagbar'
 [[plugins]]
 repo = 'vim-scripts/tagbar-phpctags'
 [[plugins]]
-repo = 'eagletmt/ghcmod-vim'
+repo = 'tomtom/tcomment_vim'
 [[plugins]]
-repo = 'godoctor/godoctor.vim'
+repo = 'jimsei/winresizer'
 [[plugins]]
-repo = 'neovimhaskell/haskell-vim'
+repo = 'airblade/vim-gitgutter'
 [[plugins]]
-repo = 'eagletmt/neco-ghc'
+repo = 'nathanaelkane/vim-indent-guides'
 [[plugins]]
-repo = 'kovisoft/slimv'
-[[plugins]]
-repo = 'guns/vim-clojure-static'
-[[plugins]]
-repo = 'tpope/vim-fireplace'
-[[plugins]]
-repo = 'Twinside/vim-hoogle'
-[[plugins]]
-repo = 'nbouscal/vim-stylish-haskell'
+repo = 'AndrewRadev/splitjoin.vim'
 [[plugins]]
 repo = 'tpope/vim-surround'
 [[plugins]]
-repo = 'kchmck/vim-coffee-script'
+repo = 'vim-scripts/AnsiEsc.vim'
+
+[[plugins]]
+repo = 'neomake/neomake'                  
+ hook_add = '''                            
+ autocmd! BufWritePost * Neomake           
+ '''  
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -110,12 +73,16 @@ nnoremap [denite] <Nop>
 nmap <Space>f [denite]
 
 nmap <silent> [denite]f :<C-u>Denite file<CR>
+nmap <silent> [denite]t :<C-u>Denite filetype<CR>
+nmap <silent> [denite]r :<C-u>Denite file_rec<CR>
 nmap <silent> [denite]m :<C-u>Denite file_mru<CR>
 nmap <silent> [denite]l :<C-u>Denite line<CR>
 nmap <silent> [denite]y :<C-u>Denite neoyank<CR>
 nmap <silent> [denite]b :<C-u>Denite buffer<CR>
 nmap <silent> [denite]o :<C-u>Denite outline<CR>
 nmap <silent> [denite]g :<C-u>Denite grep<CR>
+" ctrlp
+nnoremap <silent> <C-p> :<C-u>Denite file_rec<CR>
 
 "Denite filetype<CR>
 "Denite file_rec<CR>
