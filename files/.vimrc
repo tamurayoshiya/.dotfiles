@@ -63,8 +63,6 @@ set undodir=~/.vimundo undofile
 set directory=$HOME/.vimbackup
 "ファイル保存ダイアログの初期ディレクトリをバッファファイル位置に設定
 set browsedir=buffer
-"クリップボードをWindowsと連携
-set clipboard=unnamed
 "Vi互換をオフ
 set nocompatible
 "タブの代わりに空白文字を挿入する
@@ -79,8 +77,6 @@ set incsearch
 set listchars=eol:$,tab:>\ ,extends:<
 "行番号を表示する
 set number
-"シフト移動幅
-"set shiftwidth=4
 "検索時に大文字を含んでいたら大/小を区別
 set smartcase
 "新しい行を作ったときに高度な自動インデントを行う
@@ -96,8 +92,6 @@ set ts=4
 "検索時に大文字、小文字を区別しない
 set ignorecase
 set smartcase
-"コメント入力中改行時に*を自動追加
-"set formatoptions+=r
 "インサートモードでバックスペースで削除出来るように
 set backspace=start,eol,indent
 " :W sudo saves the file 
@@ -114,7 +108,6 @@ set hlsearch
 set showmatch 
 " How many tenths of a second to blink when matching brackets
 set mat=2"
-" Add a bit extra margin to the left
 
 "画面分割時にcontrol + l, h, j, kで移動
 map <C-j> <C-W>j
@@ -227,64 +220,15 @@ map <silent> [Tag]p :tabprevious<CR>
 call denite#custom#option('default', 'prompt', '>')
 call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
 call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
+call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_ignore_globs'])
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      \ [
+      \ '.git/', 'build/', '__pycache__/',
+      \ 'images/', '*.o', '*.make',
+      \ '*.min.*',
+      \ 'img/', 'fonts/'])
+call denite#custom#option('_', 'auto_resize', 'true')
 
-" " unite.vim
-" "unite prefix key.
-" nnoremap [unite] <Nop>
-" nmap <Space>f [unite]
-"
-" "unite general settings
-" "インサートモードで開始
-" let g:unite_enable_start_insert = 0
-"
-" "最近開いたファイル履歴の保存数
-" let g:unite_source_file_mru_limit = 50
-"
-" "file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
-" let g:unite_source_file_mru_filename_format = ''
-"
-" "現在開いているファイルのディレクトリ下のファイル一覧。
-" "開いていない場合はカレントディレクトリ
-" nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" "バッファ一覧
-" nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-" "レジスタ一覧
-" nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-" "最近使用したファイル一覧
-" nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-" "ブックマーク一覧
-" nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
-" "ブックマークに追加
-" nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-" "全部のせ
-" nnoremap <silent> [unite]<Space> :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
-"
-" "uniteを開いている間のキーマッピング
-" autocmd FileType unite call s:unite_my_settings()
-" function! s:unite_my_settings()
-"   " ESCでuniteを終了
-"   nmap <buffer> <ESC> <Plug>(unite_exit)
-"   "入力モードのときjjでノーマルモードに移動
-"   imap <buffer> jj <Plug>(unite_insert_leave)
-"   "入力モードのときctrl+wでバックスラッシュも削除
-"   imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
-"   "Shift+Enterで横に分割して開く
-"   nnoremap <silent> <buffer> <expr> <S-Enter> unite#do_action('vsplit')
-"   inoremap <silent> <buffer> <expr> <S-Enter> unite#do_action('vsplit')
-"   "Control+Enterでタブに分割して開く
-"   nnoremap <silent> <buffer> <expr> <C-Enter> unite#do_action('tab-drop')
-"   inoremap <silent> <buffer> <expr> <C-Enter> unite#do_action('tab-drop')
-"   "ctrl+oでその場所に開く
-"   nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
-"   inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
-" endfunction
-"
-" " unite-outline(開いているファイルのクラスのメンバ一覧表示)
-" nnoremap <silent><Space>fo : <C-u>Unite -vertical -winwidth=40 outline<CR>
-"
-" " sort unite buffer by path
-" call unite#custom_source('buffer', 'sorters', 'sorter_word')
-"
 " --------------------------------------------------------------
 " --------------------- 拡張設定 (vim-indent-guides)
 " --------------------------------------------------------------
@@ -327,69 +271,6 @@ let g:neosnippet#snippets_directory='~/.dotfiles/files/.vim/snippets/'
 let g:neosnippet#disable_runtime_snippets = {'_' : 1}
 
 " --------------------------------------------------------------
-" --------------------- 拡張設定 (neocomplete)
-" --------------------------------------------------------------
-
-"Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-set completeopt-=preview
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType go setlocal omnifunc=go#complete#Complete
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#auto_complete_delay = 1000
-
-let g:haskellmode_completion_ghc = 0 " Disable haskell-vim omnifunc
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-
-" --------------------------------------------------------------
 " --------------------- 拡張設定 (その他)
 " --------------------------------------------------------------
 
@@ -401,31 +282,6 @@ let g:user_emmet_expandword_key = '<c-e>'
 let g:NERDTreeWinPos = "right"
 nmap <C-i> :<C-u>NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
-
-
-" syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_enable_signs = 1
-" let g:syntastic_echo_current_error = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_enable_highlighting = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go'] }
-" let g:syntastic_go_checkers = ['go', 'golint']
-" let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['haskell'] }
-" let g:syntastic_haskell_checkers = ['hlint', 'ghc_mod']
-
-
-
-" auto-ctags.vim
-let g:auto_ctags = 1
-let g:auto_ctags_directory_list = ['.git']
-set tags+=.git/tags
-nnoremap <C-]> g<C-]>
 
 " vim-gitgutter 
 let g:gitgutter_highlight_lines = 0
@@ -439,24 +295,14 @@ highlight GitGutterChange ctermbg=3 ctermfg=15
 highlight GitGutterDelete ctermbg=124
 highlight GitGutterChangeDelete ctermbg=13
 
-" tagbar-phpctags
-let g:tagbar_phpctags_bin='~/.dotfiles/files/.vim/bin/phpctags'
-let g:tagbar_width = 30
-let g:tagbar_autoshowtag = 1
-let g:tagbar_left = 1
-let g:tagbar_map_togglesort = "r"
-let g:tagbar_autofocus = 1
-nmap <C-y> :TagbarToggle<CR>
 
 "-------------------
 "vim-go
 "-------------------
-
-autocmd BufWrite *.{go} :GoImports
-
-let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
+"
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
 
 "-------------------
 "slimv (lisp)
@@ -487,7 +333,6 @@ let g:hoogle_search_count=15
 let g:hoogle_search_buf_name='Hoogle'
 au BufNewFile,BufRead *.hs map <silent> <leader>h :Hoogle<CR>
 au BufNewFile,BufRead *.hs map <buffer> <Leader>hh :HoogleClose<CR>
-
 
 au BufRead,BufNewFile *.qmu set filetype=qmu
 

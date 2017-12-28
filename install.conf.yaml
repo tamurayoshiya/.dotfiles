@@ -21,6 +21,7 @@
     ~/.zshrc: files/.zshrc
     ~/.config/nvim: files/.vim
     ~/.config/nvim/init.vim: files/.vimrc
+    ~/.globalrc: files/.globalrc
 
 - shell:
     - [git submodule update --init, Installing submodules]
