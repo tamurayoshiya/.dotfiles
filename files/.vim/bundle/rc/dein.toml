@@ -118,8 +118,9 @@ on_event = 'BufRead'
 hook_add = '''
     nnoremap [denite] <Nop>
     nmap <Space>f [denite]
-    nmap <silent> [denite]f :<C-u>Denite file -highlight-mode-insert=Search<CR>
-    nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
+    nmap <silent> [denite]f :<C-u>DeniteBufferDir file_rec -highlight-mode-insert=Search -sorters=sorter_word<CR>
+    nmap <silent> [denite]d :<C-u>Denite file -highlight-mode-insert=Search -sorters=sorter_word<CR>
+    nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=Search -sorters=sorter_word<CR>
     nmap <silent> [denite]l :<C-u>Denite line -highlight-mode-insert=Search<CR>
     nmap <silent> [denite]m :<C-u>Denite file_mru -highlight-mode-insert=Search<CR>
     nmap <silent> [denite]y :<C-u>Denite neoyank -highlight-mode-insert=Search<CR>

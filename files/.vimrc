@@ -37,9 +37,9 @@ syntax on
 
 if !exists("colors_name")
     "colorscheme molokai
-    colorscheme tender
     "colorscheme libertine
     "colorscheme blame
+    colorscheme tender
 endif
 " iTerm2で半透明にしているが、vimのcolorschemeを設定すると背景も変更されるため"
 highlight Normal ctermbg=none
@@ -321,7 +321,7 @@ let g:paredit_electric_return = 0
 "-------------------
 "ghcmod.vim (haskell)
 "-------------------
-"
+
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 let g:necoghc_enable_detailed_browse = 1
 hi ghcmodType ctermbg=lightcyan
@@ -339,9 +339,11 @@ au BufRead,BufNewFile *.qmu set filetype=qmu
 "-------------------
 " neomake
 "-------------------
+
 " When writing a buffer.
 call neomake#configure#automake('w')
 " When writing a buffer, and on normal mode changes (after 750ms).
 call neomake#configure#automake('nw', 750)
 " When reading a buffer (after 1s), and when writing.
 call neomake#configure#automake('rw', 1000)
+
