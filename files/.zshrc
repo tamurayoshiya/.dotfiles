@@ -292,3 +292,11 @@ test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_in
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# anyframe
+if [ `which peco` ]; then
+	fpath=($HOME/.zsh/anyframe(N-/) $fpath)
+	autoload -Uz anyframe-init
+	anyframe-init
+fi
+alias h=anyframe-widget-execute-history

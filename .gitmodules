@@ -10,3 +10,6 @@
 [submodule "files/.vim/nerdtree_plugin"]
 	path = files/.vim/nerdtree_plugin
 	url = https://gist.github.com/414375.git
+[submodule "files/.zsh/anyframe"]
+	path = files/.zsh/anyframe
+	url = https://github.com/mollifier/anyframe.git
