@@ -153,8 +153,14 @@ let g:vim_json_syntax_conceal = 0
 imap <C-f> <C-x><C-o>
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
-" Turn off paste mode when leaving insert
-autocmd InsertLeave * set nopaste
+" Into insert mode with :set paste mode
+nnoremap ,i :<C-u>set paste<Return>i
+
+" Turn off paste mode when leaving insert.
+" Usually used 'InsertLeave', but anyhow it doesn't work
+" as it supporsed to be on Vim8 nor NeoVim, so workaround with
+" 'CursorMoved' -> https://github.com/neovim/neovim/issues/4609
+autocmd CursorMoved * set nopaste
 
 " set <Space> for Leader
 " http://postd.cc/how-to-boost-your-vim-productivity/
