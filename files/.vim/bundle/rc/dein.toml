@@ -80,6 +80,10 @@ hook_add = '''
 # ---------------------------------------
 
 [[plugins]]
+repo = 'NLKNguyen/papercolor-theme'
+[[plugins]]
+repo = 'rakr/vim-one'
+[[plugins]]
 repo = 'jacoborus/tender.vim'
 [[plugins]]
 repo = 'hauleth/blame.vim'
