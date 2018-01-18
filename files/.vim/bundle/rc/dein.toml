@@ -80,6 +80,8 @@ hook_add = '''
 # ---------------------------------------
 
 [[plugins]]
+repo = 'zcodes/vim-colors-basic'
+[[plugins]]
 repo = 'NLKNguyen/papercolor-theme'
 [[plugins]]
 repo = 'rakr/vim-one'

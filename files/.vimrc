@@ -37,8 +37,9 @@ syntax on
 
 if !exists("colors_name")
     set background=light
-    colorscheme PaperColor
+    colorscheme basic-light
     "colorscheme one
+    "colorscheme PaperColor
     "colorscheme molokai
     "colorscheme libertine
     "colorscheme blame
@@ -249,9 +250,9 @@ let g:indent_guides_start_level=1
 " 自動カラーを無効にする
 let g:indent_guides_auto_colors=0
 " 奇数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=252
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=255
 " 偶数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#393939 ctermbg=253
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#393939 ctermbg=255
 " ハイライト色の変化の幅
 let g:indent_guides_color_change_percent = 100
 " ガイドの幅
