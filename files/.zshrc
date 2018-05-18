@@ -4,6 +4,14 @@
 
 export LANG=ja_JP.UTF-8
 export PATH="/usr/local/mysql/bin:/sbin:$PATH"
+
+# oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
+export DISABLE_AUTO_UPDATE="true"
+ZSH_THEME="minimal"
+pluigins=(git)
+source $ZSH/oh-my-zsh.sh
+
 # Add plugins
 plugins+=(git ssh-agent)
 # Z

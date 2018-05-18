@@ -19,6 +19,7 @@
     ~/.zshenv: files/.zshenv
     ~/.zshrc: files/.zshrc
     ~/.zsh: files/.zsh
+    ~/.oh-my-zsh: files/.oh-my-zsh
     ~/.config/nvim: files/.vim
     ~/.config/nvim/init.vim: files/.vimrc
     ~/.globalrc: files/.globalrc
