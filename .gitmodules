@@ -1,9 +1,6 @@
 [submodule "lib/z"]
 	path = lib/z
 	url = https://github.com/rupa/z.git
-[submodule "files/.zprezto"]
-	path = files/.zprezto
-	url = https://github.com/sorin-ionescu/prezto.git
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot

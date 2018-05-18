@@ -4,7 +4,6 @@
 
 export LANG=ja_JP.UTF-8
 export PATH="/usr/local/mysql/bin:/sbin:$PATH"
-source "$HOME/.zprezto/init.zsh"
 # Add plugins
 plugins+=(git ssh-agent)
 # Z

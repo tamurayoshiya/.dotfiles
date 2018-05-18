@@ -10,7 +10,6 @@
     ~/.vim: files/.vim
     ~/.vimbackup: files/.vimbackup
     ~/.vimundo: files/.vimundo
-    ~/.zprezto: files/.zprezto
     ~/.gitignore: files/.gitignore
     ~/.tigrc: files/.tigrc
     ~/.tmux.conf: files/.tmux.conf
