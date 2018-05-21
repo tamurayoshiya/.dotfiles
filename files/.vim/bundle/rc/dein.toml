@@ -72,8 +72,16 @@ hook_add = '''
 [[plugins]]
 repo = 'jsfaint/gen_tags.vim'
 hook_add = '''
+    " Disable ctags
+    let g:loaded_gentags#ctags = 1
+    " Enable gtags
+    let g:loaded_gentags#gtags = 0
+    " Generate gtags in background
     let g:gen_tags#gtags_auto_gen = 1
-    let g:gen_tags#use_cache_dir = 1
+    " Do not generate ctags in background
+    let g:gen_tags#ctags_auto_gen = 0
+    " Do not use cache dir, store tags in git dir
+    let g:gen_tags#use_cache_dir = 0
 '''
 
 [[plugins]]

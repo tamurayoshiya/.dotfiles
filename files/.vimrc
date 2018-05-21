@@ -36,10 +36,14 @@ endif
 syntax on
 
 if !exists("colors_name")
-    set background=light
-    colorscheme basic-light
+    set background=light "dark or light
+
+    "===== light theme
+    "colorscheme basic-light
     "colorscheme one
     "colorscheme PaperColor
+
+    "===== dark theme
     "colorscheme molokai
     "colorscheme libertine
     "colorscheme blame
