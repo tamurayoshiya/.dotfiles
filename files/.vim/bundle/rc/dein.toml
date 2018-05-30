@@ -39,7 +39,6 @@ on_i = 1
 on_event = 'InsertCharPre'
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 0
   let g:deoplete#auto_complete_start_length = 1
   let g:deoplete#enable_camel_case = 0
   let g:deoplete#enable_ignore_case = 0
@@ -51,6 +50,9 @@ hook_source = '''
         \ neosnippet#expandable_or_jumpable() ?
         \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
+
+[[plugins]]
+repo = 'kovisoft/slimv'
 
 # ---------------------------------------
 # gtags
@@ -99,6 +101,8 @@ hook_add = '''
 # themes
 # ---------------------------------------
 
+[[plugins]]
+repo = 'iCyMind/NeoSolarized'
 [[plugins]]
 repo = 'zcodes/vim-colors-basic'
 [[plugins]]

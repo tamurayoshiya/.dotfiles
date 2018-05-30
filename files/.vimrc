@@ -39,8 +39,9 @@ if !exists("colors_name")
     set background=light "dark or light
 
     "===== light theme
+    "colorscheme NeoSolarized
     "colorscheme basic-light
-    "colorscheme one
+    colorscheme one
     "colorscheme PaperColor
 
     "===== dark theme
@@ -179,6 +180,11 @@ let mapleader = ","
 
 " http://qiita.com/szk3/items/e33df9acea5050f29a07
 set synmaxcol=1000
+
+" 空白行でエスケープした時にインデントを消さない
+inoremap <CR> <CR>x<BS>
+nnoremap o ox<BS>
+nnoremap O Ox<BS>
 
 " --------------------------------------------------------------
 " --------------------- tabs
@@ -324,11 +330,10 @@ autocmd FileType go nmap <leader>b  <Plug>(go-build)
 "slimv (lisp)
 "-------------------
 
-let g:slimv_swank_cmd = '! tmux new-window -d -n REPL-CLISP "clisp -i ~/.vim/bundle/slimv/slime/start-swank.lisp"'
 let g:slimv_repl_split = 4
 let g:slimv_repl_name = 'REPL'
 let g:slimv_repl_simple_eval = 0
-let g:slimv_lisp = '/usr/local/bin/clisp'
+"let g:slimv_lisp = '/usr/bin/clisp'
 let g:slimv_impl = 'clisp'
 let g:slimv_preferred = 'clisp'
 let g:lisp_rainbow=1
@@ -363,3 +368,16 @@ call neomake#configure#automake('nw', 750)
 " When reading a buffer (after 1s), and when writing.
 call neomake#configure#automake('rw', 1000)
 
+"-------------------
+" neomru
+"-------------------
+
+let g:neomru#file_mru_limit = 200
+let g:neomru#directory_mru_limit = 200
+
+"-------------------
+" neomru
+"-------------------
+
+let g:php_baselib       = 1
+let g:php_htmlInStrings = 1
