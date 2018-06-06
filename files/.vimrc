@@ -242,7 +242,14 @@ map <silent> [Tag]p :tabprevious<CR>
 call denite#custom#option('default', 'prompt', '>')
 call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
 call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
-call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_ignore_globs'])
+call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
+call denite#custom#source('file', 'matchers', ['matcher_regexp'])
+call denite#custom#source('buffer', 'matchers', ['matcher_regexp'])
+call denite#custom#source('line', 'matchers', ['matcher_regexp'])
+call denite#custom#source('file_mru', 'matchers', ['matcher_regexp'])
+call denite#custom#source('neoyank', 'matchers', ['matcher_regexp'])
+call denite#custom#source('outline', 'matchers', ['matcher_regexp'])
+call denite#custom#source('grep', 'matchers', ['matcher_regexp'])
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
       \ [
       \ '.git/', 'build/', '__pycache__/',
@@ -338,6 +345,8 @@ let g:slimv_impl = 'clisp'
 let g:slimv_preferred = 'clisp'
 let g:lisp_rainbow=1
 let g:paredit_electric_return = 0
+au FileType lisp IndentGuidesDisable
+au FileType lisp inoremap ' '
 
 "-------------------
 "ghcmod.vim (haskell)
