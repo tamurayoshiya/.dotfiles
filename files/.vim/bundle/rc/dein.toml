@@ -42,7 +42,7 @@ hook_source = '''
   let g:deoplete#auto_complete_start_length = 1
   let g:deoplete#enable_camel_case = 0
   let g:deoplete#enable_ignore_case = 0
-  let g:deoplete#enable_refresh_always = 0
+  let g:deoplete#enable_refresh_always = 1
   let g:deoplete#enable_smart_case = 1
   let g:deoplete#file#enable_buffer_path = 1
   let g:deoplete#max_list = 10000
@@ -76,14 +76,8 @@ hook_add = '''
 [[plugins]]
 repo = 'jsfaint/gen_tags.vim'
 hook_add = '''
-    " Disable ctags
-    let g:loaded_gentags#ctags = 0
-    " Enable gtags
-    let g:loaded_gentags#gtags = 1
     " Generate gtags in background
     let g:gen_tags#gtags_auto_gen = 1
-    " Do not generate ctags in background
-    let g:gen_tags#ctags_auto_gen = 0
     " Do not use cache dir, store tags in git dir
     let g:gen_tags#use_cache_dir = 0
 '''
@@ -98,6 +92,13 @@ hook_add = '''
     nnoremap [denite-gtags]r :<C-u>DeniteCursorWord -buffer-name=gtags_ref -mode=normal gtags_ref<CR>
     nnoremap [denite-gtags]c :<C-u>DeniteCursorWord -buffer-name=gtags_context -mode=normal gtags_context<CR>
 '''
+
+# ---------------------------------------
+# syntax hilight
+# ---------------------------------------
+
+#[[plugins]]
+#repo = 'StanAngeloff/php.vim'
 
 # ---------------------------------------
 # themes
@@ -115,6 +116,10 @@ repo = 'rakr/vim-one'
 repo = 'jacoborus/tender.vim'
 [[plugins]]
 repo = 'hauleth/blame.vim'
+[[plugins]]
+repo = 'raphamorim/lucario'
+[[plugins]]
+repo = 'dikiaap/minimalist'
 
 [[plugins]]
 repo = 'neomake/neomake'                  

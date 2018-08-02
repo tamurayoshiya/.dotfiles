@@ -36,20 +36,24 @@ endif
 syntax on
 
 if !exists("colors_name")
-    set background=light "dark or light
-
     "===== light theme
-    "colorscheme NeoSolarized
-    "colorscheme basic-light
-    colorscheme one
-    "colorscheme PaperColor
+    "set background=light
+    "colorscheme one
 
     "===== dark theme
-    "colorscheme molokai
+    set background=dark
+    "colorscheme minimalist
     "colorscheme libertine
-    "colorscheme blame
-    "colorscheme tender
+    colorscheme molokai
+
 endif
+
+" vim-indent-guides
+" 奇数インデントのカラー
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=239
+" 偶数インデントのカラー
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#393939 ctermbg=238
+
 " iTerm2で半透明にしているが、vimのcolorschemeを設定すると背景も変更されるため"
 highlight Normal ctermbg=none
 " markdownのハイライトを有効にする
@@ -268,10 +272,6 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=1
 " 自動カラーを無効にする
 let g:indent_guides_auto_colors=0
-" 奇数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=255
-" 偶数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#393939 ctermbg=255
 " ハイライト色の変化の幅
 let g:indent_guides_color_change_percent = 100
 " ガイドの幅
