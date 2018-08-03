@@ -97,8 +97,9 @@ hook_add = '''
 # syntax hilight
 # ---------------------------------------
 
-#[[plugins]]
-#repo = 'StanAngeloff/php.vim'
+[[plugins]]
+repo = 'StanAngeloff/php.vim'
+
 
 # ---------------------------------------
 # themes
@@ -122,10 +123,7 @@ repo = 'raphamorim/lucario'
 repo = 'dikiaap/minimalist'
 
 [[plugins]]
-repo = 'neomake/neomake'                  
-hook_add = '''                            
-    autocmd! BufWritePost * Neomake           
-'''  
+repo = 'w0rp/ale'
 
 [[plugins]]
     repo = 'Shougo/vimproc.vim'
@@ -140,12 +138,6 @@ hook_add = '''
         let cmd = 'make'
     endif
     let g:dein#plugin.build = cmd
-'''
-
-[[plugins]]                               
-repo = 'neomake/neomake'                  
-hook_add = '''                            
-    autocmd! BufWritePost * Neomake           
 '''
 
 [[plugins]]                               

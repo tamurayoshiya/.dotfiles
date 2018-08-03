@@ -367,17 +367,6 @@ au BufNewFile,BufRead *.hs map <buffer> <Leader>hh :HoogleClose<CR>
 au BufRead,BufNewFile *.qmu set filetype=qmu
 
 "-------------------
-" neomake
-"-------------------
-
-" When writing a buffer.
-call neomake#configure#automake('w')
-" When writing a buffer, and on normal mode changes (after 750ms).
-call neomake#configure#automake('nw', 750)
-" When reading a buffer (after 1s), and when writing.
-call neomake#configure#automake('rw', 1000)
-
-"-------------------
 " neomru
 "-------------------
 
@@ -385,8 +374,46 @@ let g:neomru#file_mru_limit = 200
 let g:neomru#directory_mru_limit = 200
 
 "-------------------
-" neomru
+" ale
+"-------------------
+
+" エラー行に表示するマーク
+let g:ale_sign_error = '⨉'
+let g:ale_sign_warning = '⚠'
+" エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" エラー表示の列を常時表示
+let g:ale_sign_column_always = 1
+
+" ファイルを開いたときにlint実行
+let g:ale_lint_on_enter = 1
+" ファイルを保存したときにlint実行
+let g:ale_lint_on_save = 1
+" 編集中のlintはしない
+let g:ale_lint_on_text_changed = 'never'
+
+" lint結果をロケーションリストとQuickFixには表示しない
+" 出てると結構うざいしQuickFixを書き換えられるのは困る
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 0
+let g:ale_open_list = 0
+let g:ale_keep_list_window_open = 0
+
+" 有効にするlinter
+let g:ale_linters = {
+\   'php': ['php', 'phpmd'],
+\}
+" ALE用プレフィックス
+nmap [ale] <Nop>
+map <C-k> [ale]
+" エラー行にジャンプ
+nmap <silent> [ale]<C-P> <Plug>(ale_previous)
+nmap <silent> [ale]<C-N> <Plug>(ale_next)
+
+"-------------------
+" other
 "-------------------
 
 let g:php_baselib       = 1
 let g:php_htmlInStrings = 1
+
