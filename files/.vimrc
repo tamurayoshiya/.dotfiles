@@ -180,7 +180,7 @@ autocmd CursorMoved * set nopaste
 
 " set <Space> for Leader
 " http://postd.cc/how-to-boost-your-vim-productivity/
-let mapleader = ","
+let mapleader = "."
 
 " http://qiita.com/szk3/items/e33df9acea5050f29a07
 set synmaxcol=1000
@@ -402,6 +402,7 @@ let g:ale_keep_list_window_open = 0
 " 有効にするlinter
 let g:ale_linters = {
 \   'php': ['php', 'phpmd'],
+\   'go': ['gobuild', 'golint', 'gofmt'],
 \}
 " ALE用プレフィックス
 nmap [ale] <Nop>

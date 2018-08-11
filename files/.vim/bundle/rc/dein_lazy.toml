@@ -1,7 +1,7 @@
 # language plugins (html, css, js)
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'css', 'php', 'eruby']
+on_ft = ['html', 'htmldjango', 'css', 'php', 'eruby']
 [[plugins]]
 repo = 'digitaltoad/vim-pug'
 on_ft = ['pug']
@@ -18,7 +18,7 @@ hook_source = '''
     \ 'append_file': 0,
     \ 'errorformat': '%f:%l:%c:\ %m, %f:%l:%c\ %#%m',
     \ }
-  let g:neomake_go_enabled_makers = ['golint', 'govet', 'errcheck']
+  let g:neomake_go_enabled_makers = ['go', 'golint', 'govet', 'errcheck']
 '''
 [[plugins]]
 repo  = 'zchee/deoplete-go'
