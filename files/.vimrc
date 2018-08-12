@@ -60,6 +60,24 @@ highlight Normal ctermbg=none
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
+
+" --------------------------------------------------------------
+" --------------------- indent
+" --------------------------------------------------------------
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.vue setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.pug setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.yml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    
+    autocmd BufNewFile,BufRead *.html setlocal tabstop=4 softtabstop=4 shiftwidth=4
+augroup END
+
 " --------------------------------------------------------------
 " --------------------- fundamentals
 " --------------------------------------------------------------
