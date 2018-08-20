@@ -424,7 +424,7 @@ let g:ale_linters = {
 \}
 " ALE用プレフィックス
 nmap [ale] <Nop>
-map <C-k> [ale]
+map <C-y> [ale]
 " エラー行にジャンプ
 nmap <silent> [ale]<C-P> <Plug>(ale_previous)
 nmap <silent> [ale]<C-N> <Plug>(ale_next)

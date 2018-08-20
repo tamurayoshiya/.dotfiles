@@ -14,6 +14,7 @@
     ~/.tigrc: files/.tigrc
     ~/.tmux.conf: files/.tmux.conf
     ~/.vimrc: files/.vimrc
+    ~/.gvimrc: files/.gvimrc
     ~/.zlogin: files/.zlogin
     ~/.zlogout: files/.zlogout
     ~/.zshenv: files/.zshenv
