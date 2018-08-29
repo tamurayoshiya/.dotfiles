@@ -139,6 +139,8 @@ set hlsearch
 set showmatch 
 " How many tenths of a second to blink when matching brackets
 set mat=2"
+" Do not yank when paste
+vnoremap <silent> p "0p<CR>
 
 "画面分割時にcontrol + l, h, j, kで移動
 map <C-j> <C-W>j
