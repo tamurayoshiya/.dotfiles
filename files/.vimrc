@@ -436,3 +436,9 @@ nmap <silent> [ale]<C-N> <Plug>(ale_next)
 let g:php_baselib       = 1
 let g:php_htmlInStrings = 1
 
+" vue
+autocmd FileType vue syntax sync fromstart
+
+" clip board
+set clipboard+=unnamedplus
+

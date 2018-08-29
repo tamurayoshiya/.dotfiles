@@ -14,3 +14,5 @@ set cmdheight=1
 set transparency=6
 "起動時にフルスクリーン
 set fuoptions=maxvert,maxhorz
+
+set clipboard=unnamed,autoselect
