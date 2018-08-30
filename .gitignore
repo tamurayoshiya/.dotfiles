@@ -8,3 +8,4 @@ files/.vim/bundle/state_nvim.vim
 files/.vim/bundle/cache_vim
 files/.vim/bundle/state_vim.vim
 files/.vim/bundle/repos
+files/.vim/init.vim
