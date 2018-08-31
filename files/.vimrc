@@ -36,6 +36,10 @@ endif
 syntax on
 
 if !exists("colors_name")
+    " https://github.com/hnakamur/vim-go-tutorial-ja#vimrc-%E3%81%AE%E6%94%B9%E5%96%84-4
+    let g:rehash256 = 1
+    let g:molokai_original = 1
+    ""
     "===== light theme
     "set background=light
     "colorscheme one
@@ -44,7 +48,8 @@ if !exists("colors_name")
     set background=dark
     "colorscheme minimalist
     "colorscheme libertine
-    colorscheme molokai
+
+    colorscheme molokai " fatih/molokai 
 
 endif
 
@@ -444,3 +449,17 @@ autocmd FileType vue syntax sync fromstart
 " clip board
 set clipboard+=unnamedplus
 
+" VimShowHlItem: Show highlight item name under a cursor
+command! VimShowHlItem echo synIDattr(synID(line("."), col("."), 1), "name")
+
+" vim-go additional highlight
+  hi def link   goVarDefs           Identifier
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 0
+let g:go_highlight_function_arguments = 1
+colorscheme molokai

@@ -21,6 +21,8 @@ hook_source = '''
   let g:neomake_go_enabled_makers = ['go', 'golint', 'govet', 'errcheck']
 '''
 [[plugins]]
+repo = 'fatih/molokai'
+[[plugins]]
 repo  = 'zchee/deoplete-go'
 if    = 'has("python3")'
 on_ft = 'go'
