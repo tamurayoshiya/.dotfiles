@@ -136,11 +136,14 @@ alias du="du -h"
 alias df="df -h"
 alias duu="du -d 1"
 
+## エイリアス - vim
+alias v="vim"
+
 ## エイリアス - tmux
 alias tm="tmux a"
 alias tmn="tmux new -s"
 alias tig='tig --all'
-alias t='TIG_LS_REMOTE="git ls-remote . master dev origin/* develop development i*" tig'
+alias t='tig --all'
 
 ## エイリアス - git
 alias gco="git checkout"
