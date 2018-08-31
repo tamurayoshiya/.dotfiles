@@ -403,8 +403,8 @@ let g:neomru#directory_mru_limit = 200
 "-------------------
 
 " エラー行に表示するマーク
-let g:ale_sign_error = '⨉'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = 'X'
+let g:ale_sign_warning = '>'
 " エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " エラー表示の列を常時表示
