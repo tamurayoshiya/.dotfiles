@@ -34,36 +34,44 @@ endif
 " --------------------------------------------------------------
 
 syntax on
+"
+" vim-go additional highlight
+hi def link   goVarDefs           Identifier
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 0
+let g:go_highlight_function_arguments = 1
 
-if !exists("colors_name")
-    " vim-go additional highlight
-    hi def link   goVarDefs           Identifier
-    let g:go_highlight_types = 1
-    let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
-    let g:go_highlight_operators = 1
-    let g:go_highlight_extra_types = 1
-    let g:go_highlight_variable_declarations = 1
-    let g:go_highlight_variable_assignments = 0
-    let g:go_highlight_function_arguments = 1
+" https://github.com/hnakamur/vim-go-tutorial-ja#vimrc-%E3%81%AE%E6%94%B9%E5%96%84-4
+let g:rehash256 = 1
+let g:molokai_original = 1
+""
+"===== light theme
+"set background=light
+"colorscheme one
 
-    " https://github.com/hnakamur/vim-go-tutorial-ja#vimrc-%E3%81%AE%E6%94%B9%E5%96%84-4
-    let g:rehash256 = 1
-    let g:molokai_original = 1
-    ""
-    "===== light theme
-    "set background=light
-    "colorscheme one
+"===== dark theme
+set background=dark
+"colorscheme minimalist
+"colorscheme libertine
+colorscheme molokai " fatih/molokai 
 
-    "===== dark theme
-    set background=dark
-    "colorscheme minimalist
-    "colorscheme libertine
-    colorscheme molokai " fatih/molokai 
-    
-    " tab color
-    highlight TabLineFill ctermfg=237 ctermbg=237
-endif
+" tab color
+highlight TabLineFill ctermfg=237 ctermbg=237
+
+" status line color
+highlight StatusLine ctermfg=243 ctermbg=236
+highlight StatusLineNC ctermfg=240 ctermbg=234
+
+" color of pane splitter
+set fillchars+=vert:\ 
+set foldcolumn=0
+highlight foldcolumn ctermbg=237 guibg=237
+highlight VertSplit ctermbg=237 guibg=237 guifg=237
 
 " vim-indent-guides
 " 奇数インデントのカラー
