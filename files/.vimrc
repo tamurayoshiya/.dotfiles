@@ -55,9 +55,9 @@ endif
 
 " vim-indent-guides
 " 奇数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=239
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=237
 " 偶数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#393939 ctermbg=238
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#393939 ctermbg=236
 
 " iTerm2で半透明にしているが、vimのcolorschemeを設定すると背景も変更されるため"
 highlight Normal ctermbg=none
@@ -291,7 +291,7 @@ call denite#custom#source('outline', 'matchers', ['matcher_regexp'])
 call denite#custom#source('grep', 'matchers', ['matcher_regexp'])
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
       \ [
-      \ '.git/', 'build/', '__pycache__/',
+      \ '.git/', 'build/', '__pycache__/', 'node_modules/',
       \ 'images/', '*.o', '*.make',
       \ '*.min.*',
       \ 'img/', 'fonts/'])

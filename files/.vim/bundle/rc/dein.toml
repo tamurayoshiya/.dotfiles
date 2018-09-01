@@ -147,7 +147,7 @@ on_event = 'BufRead'
 hook_add = '''
     nnoremap [denite] <Nop>
     nmap <Space>f [denite]
-    nmap <silent> [denite]f :<C-u>DeniteBufferDir file_rec -highlight-mode-insert=Search -sorters=sorter_word<CR>
+    nmap <silent> [denite]f :<C-u>Denite file_rec -highlight-mode-insert=Search -sorters=sorter_word<CR>
     nmap <silent> [denite]d :<C-u>Denite file -highlight-mode-insert=Search -sorters=sorter_word<CR>
     nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=Search -sorters=sorter_word<CR>
     nmap <silent> [denite]l :<C-u>Denite line -highlight-mode-insert=Search<CR>
@@ -155,12 +155,12 @@ hook_add = '''
     nmap <silent> [denite]y :<C-u>Denite neoyank -highlight-mode-insert=Search<CR>
     nmap <silent> [denite]o :<C-u>Denite outline -highlight-mode-insert=Search<CR>
     nmap <silent> [denite]g :<C-u>Denite grep -highlight-mode-insert=Search<CR>
-    nmap <silent> <C-p> :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
+    nmap <silent> [denite]p :<C-u>DeniteBufferDir file_rec -highlight-mode-insert=Search<CR>
     if executable('rg')
       call denite#custom#var('file_rec', 'command',
-            \ ['rg', '--files', '--glob', '!.git'])
+            \ ['rg', '--files', '--glob', '!.git', '!node_modules'])
       call denite#custom#var('grep', 'command', ['rg'])
-    endif
+    endi
 '''
 
 hook_post_source = '''
