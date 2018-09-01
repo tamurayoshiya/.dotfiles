@@ -36,6 +36,17 @@ endif
 syntax on
 
 if !exists("colors_name")
+    " vim-go additional highlight
+    hi def link   goVarDefs           Identifier
+    let g:go_highlight_types = 1
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
+    let g:go_highlight_operators = 1
+    let g:go_highlight_extra_types = 1
+    let g:go_highlight_variable_declarations = 1
+    let g:go_highlight_variable_assignments = 0
+    let g:go_highlight_function_arguments = 1
+
     " https://github.com/hnakamur/vim-go-tutorial-ja#vimrc-%E3%81%AE%E6%94%B9%E5%96%84-4
     let g:rehash256 = 1
     let g:molokai_original = 1
@@ -50,7 +61,6 @@ if !exists("colors_name")
     "colorscheme libertine
 
     colorscheme molokai " fatih/molokai 
-
 endif
 
 " vim-indent-guides
@@ -60,7 +70,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=236
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#393939 ctermbg=235
 
 " iTerm2で半透明にしているが、vimのcolorschemeを設定すると背景も変更されるため"
-highlight Normal ctermbg=none
+"highlight Normal ctermbg=none
 " markdownのハイライトを有効にする
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -352,11 +362,11 @@ let g:gitgutter_highlight_lines = 0
 let g:gitgutter_sign_removed = '-'
 highlight GitGutterAddLine gui=bold ctermbg=233
 highlight GitGutterChangeLine gui=bold ctermbg=233
-highlight GitGutterDeleteLine gui=bold ctermbg=233
+highlight GitGutterDeleteLine gui=bold ctermbg=52
 highlight GitGutterChangeDeleteLine gui=bold ctermbg=233
 highlight GitGutterAdd ctermbg=34 ctermfg=15
 highlight GitGutterChange ctermbg=3 ctermfg=15
-highlight GitGutterDelete ctermbg=124
+highlight GitGutterDelete ctermbg=52
 highlight GitGutterChangeDelete ctermbg=13
 
 
@@ -413,7 +423,7 @@ let g:neomru#directory_mru_limit = 200
 "-------------------
 
 " エラー行に表示するマーク
-let g:ale_sign_error = 'X'
+let g:ale_sign_error = 'ER'
 let g:ale_sign_warning = '>'
 " エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -446,6 +456,10 @@ map <C-y> [ale]
 nmap <silent> [ale]<C-P> <Plug>(ale_previous)
 nmap <silent> [ale]<C-N> <Plug>(ale_next)
 
+let g:ale_set_highlights = 1
+highlight ALEErrorSign gui=bold ctermfg=15 ctermbg=160
+highlight ALEWarningSign gui=bold ctermfg=241
+
 "-------------------
 " other
 "-------------------
@@ -461,15 +475,3 @@ set clipboard+=unnamedplus
 
 " VimShowHlItem: Show highlight item name under a cursor
 command! VimShowHlItem echo synIDattr(synID(line("."), col("."), 1), "name")
-
-" vim-go additional highlight
-  hi def link   goVarDefs           Identifier
-let g:go_highlight_types = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_variable_declarations = 1
-let g:go_highlight_variable_assignments = 0
-let g:go_highlight_function_arguments = 1
-colorscheme molokai
