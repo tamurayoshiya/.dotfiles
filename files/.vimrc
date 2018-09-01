@@ -59,8 +59,10 @@ if !exists("colors_name")
     set background=dark
     "colorscheme minimalist
     "colorscheme libertine
-
     colorscheme molokai " fatih/molokai 
+    
+    " tab color
+    highlight TabLineFill ctermfg=237 ctermbg=237
 endif
 
 " vim-indent-guides
