@@ -366,10 +366,10 @@ highlight GitGutterAddLine gui=bold ctermbg=233
 highlight GitGutterChangeLine gui=bold ctermbg=233
 highlight GitGutterDeleteLine gui=bold ctermbg=52
 highlight GitGutterChangeDeleteLine gui=bold ctermbg=233
-highlight GitGutterAdd ctermbg=34 ctermfg=15
-highlight GitGutterChange ctermbg=3 ctermfg=15
-highlight GitGutterDelete ctermbg=52
-highlight GitGutterChangeDelete ctermbg=13
+highlight GitGutterAdd ctermbg=235 ctermfg=34
+highlight GitGutterChange ctermbg=235 ctermfg=3
+highlight GitGutterDelete ctermbg=235 ctermfg=52
+highlight GitGutterChangeDelete ctermbg=235 ctermfg=13
 
 
 "-------------------
