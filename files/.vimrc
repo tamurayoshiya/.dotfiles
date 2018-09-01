@@ -55,9 +55,9 @@ endif
 
 " vim-indent-guides
 " 奇数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=237
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=236
 " 偶数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#393939 ctermbg=236
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#393939 ctermbg=235
 
 " iTerm2で半透明にしているが、vimのcolorschemeを設定すると背景も変更されるため"
 highlight Normal ctermbg=none
