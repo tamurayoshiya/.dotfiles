@@ -149,9 +149,10 @@ alias t='tig --all'
 alias gco="git checkout"
 alias gst="git status"
 alias ga="git add ."
-alias gc="git commit"
+alias gc="git commit -m"
 alias gdi="git diff"
 alias gbr="git branch"
+alias gpom="git push origin master"
 
 ## 上書き確認
 
