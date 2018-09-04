@@ -366,6 +366,9 @@ let g:user_emmet_expandword_key = '<c-e>'
 let g:NERDTreeWinPos = "right"
 nmap <C-i> :<C-u>NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI = 1
+
+highlight Directory guifg=#AAAAAA ctermfg=245
 
 " vim-gitgutter 
 let g:gitgutter_highlight_lines = 0
