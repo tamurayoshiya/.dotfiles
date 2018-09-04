@@ -379,7 +379,7 @@ highlight GitGutterDeleteLine gui=bold ctermbg=52
 highlight GitGutterChangeDeleteLine gui=bold ctermbg=233
 highlight GitGutterAdd ctermbg=235 ctermfg=34
 highlight GitGutterChange ctermbg=235 ctermfg=3
-highlight GitGutterDelete ctermbg=235 ctermfg=52
+highlight GitGutterDelete ctermbg=235 ctermfg=124
 highlight GitGutterChangeDelete ctermbg=235 ctermfg=13
 
 
