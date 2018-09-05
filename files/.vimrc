@@ -167,16 +167,14 @@ set showmatch
 set mat=2"
 
 " Do not yank when paste
-nnoremap x "xx
-vnoremap x "xx
-nnoremap d "xd
-vnoremap d "xd
-nnoremap y "xy
-vnoremap y "xy
-nnoremap p "xp
-vnoremap p "xp
-nnoremap P "xP
-vnoremap P "xP
+nnoremap x "0x
+vnoremap x "0x
+nnoremap d "0d
+vnoremap d "0d
+nnoremap p "0p
+vnoremap p "0p
+nnoremap P "0P
+vnoremap P "0P
 
 "画面分割時にcontrol + l, h, j, kで移動
 map <C-j> <C-W>j
