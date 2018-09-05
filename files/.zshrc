@@ -152,6 +152,7 @@ alias ga="git add ."
 alias gc="git commit -m"
 alias gdi="git diff"
 alias gbr="git branch"
+alias gpo="git push origin"
 alias gpom="git push origin master"
 
 ## 上書き確認
