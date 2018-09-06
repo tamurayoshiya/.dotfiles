@@ -517,3 +517,5 @@ set clipboard+=unnamedplus
 
 " VimShowHlItem: Show highlight item name under a cursor
 command! VimShowHlItem echo synIDattr(synID(line("."), col("."), 1), "name")
+
+au BufNewFile,BufRead Jenkinsfile setf groovy

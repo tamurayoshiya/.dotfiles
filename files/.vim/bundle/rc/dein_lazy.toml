@@ -74,3 +74,6 @@ on_ft = ['pu', 'uml', 'plantuml']
 [[plugins]]
 repo = 'kovisoft/slimv'
 on_ft = ['lisp']
+[[plugins]]
+repo = 'vim-scripts/groovy.vim'
+on_ft = ['groovy']

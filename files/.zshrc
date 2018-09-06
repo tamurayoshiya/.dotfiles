@@ -8,7 +8,12 @@ export PATH="/usr/local/mysql/bin:/sbin:$PATH"
 # oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
 export DISABLE_AUTO_UPDATE="true"
-ZSH_THEME="minimal"
+
+if [ $HOST = 'dorm' ]; then
+    ZSH_THEME="af-magic"
+else
+    ZSH_THEME="minimal"
+fi
 pluigins=(git)
 source $ZSH/oh-my-zsh.sh
 
