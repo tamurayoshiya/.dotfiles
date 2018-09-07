@@ -14,7 +14,8 @@ if [ $HOST = 'dorm' ]; then
 else
     #ZSH_THEME="minimal"
     #ZSH_THEME="lambda"
-    ZSH_THEME="wezm"
+    #ZSH_THEME="wezm"
+    ZSH_THEME="clean"
 fi
 pluigins=(git)
 source $ZSH/oh-my-zsh.sh
