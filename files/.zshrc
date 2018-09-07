@@ -12,7 +12,9 @@ export DISABLE_AUTO_UPDATE="true"
 if [ $HOST = 'dorm' ]; then
     ZSH_THEME="af-magic"
 else
-    ZSH_THEME="minimal"
+    #ZSH_THEME="minimal"
+    #ZSH_THEME="lambda"
+    ZSH_THEME="wezm"
 fi
 pluigins=(git)
 source $ZSH/oh-my-zsh.sh

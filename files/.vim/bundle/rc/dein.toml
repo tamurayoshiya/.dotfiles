@@ -121,6 +121,8 @@ repo = 'hauleth/blame.vim'
 repo = 'raphamorim/lucario'
 [[plugins]]
 repo = 'dikiaap/minimalist'
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
 repo = 'w0rp/ale'

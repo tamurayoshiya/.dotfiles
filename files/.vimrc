@@ -59,6 +59,7 @@ set background=dark
 "colorscheme minimalist
 "colorscheme libertine
 "colorscheme NeoSolarized
+"colorscheme iceberg
 colorscheme molokai " fatih/molokai 
 
 " tab color
