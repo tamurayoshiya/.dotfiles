@@ -182,9 +182,9 @@ cdls ()
 }
 alias cd="cdls"
 
-# colordiff
-if type colordiff 2>/dev/null 1>/dev/null; then
-    alias diff='colordiff'
+# diff
+if type nvim 2>/dev/null 1>/dev/null; then
+    alias diff='nvim -d'
 fi
 
 # ctags
@@ -321,3 +321,4 @@ if [ `which peco` ]; then
 	anyframe-init
 fi
 alias h=anyframe-widget-execute-history
+
