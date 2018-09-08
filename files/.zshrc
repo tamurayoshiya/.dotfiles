@@ -10,7 +10,8 @@ ZSH=$HOME/.oh-my-zsh
 export DISABLE_AUTO_UPDATE="true"
 
 if [ $HOST = 'dorm' ]; then
-    ZSH_THEME="af-magic"
+    #ZSH_THEME="af-magic"
+    ZSH_THEME="cloud"
 else
     #ZSH_THEME="minimal"
     #ZSH_THEME="lambda"
