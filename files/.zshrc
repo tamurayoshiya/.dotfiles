@@ -11,7 +11,7 @@ export DISABLE_AUTO_UPDATE="true"
 
 if [ $HOST = 'dorm' ]; then
     #ZSH_THEME="af-magic"
-    ZSH_THEME="cloud"
+    ZSH_THEME="lambda"
 else
     #ZSH_THEME="minimal"
     #ZSH_THEME="lambda"
