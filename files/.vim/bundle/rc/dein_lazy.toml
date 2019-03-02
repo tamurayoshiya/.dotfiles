@@ -1,4 +1,4 @@
-# language plugins (html, css, js)
+# Language Support: HTML, CSS, JavaScript
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'htmldjango', 'css', 'php', 'eruby']
@@ -6,11 +6,11 @@ on_ft = ['html', 'htmldjango', 'css', 'php', 'eruby']
 repo = 'digitaltoad/vim-pug'
 on_ft = ['pug']
 
-# language plugins (php)
+# Language Support: PHP
 [[plugins]]
 repo = 'StanAngeloff/php.vim'
 
-# language plugins (go)
+# Language Support: Go
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
@@ -31,7 +31,7 @@ repo  = 'zchee/deoplete-go'
 if    = 'has("python3")'
 on_ft = 'go'
 
-# language plugins (haskell)
+# Language Support: Haskell
 [[plugins]]
 repo = 'itchyny/vim-haskell-indent'
 on_ft = ['haskell']
@@ -51,7 +51,7 @@ on_ft = ['haskell']
 repo = 'neovimhaskell/haskell-vim'
 on_ft = ['haskell']
 
-# language plugins (clojure)
+# Language Support: Clojure
 [[plugins]]
 repo = 'guns/vim-clojure-static'
 on_ft = ['clojure']
@@ -59,7 +59,21 @@ on_ft = ['clojure']
 repo = 'tpope/vim-fireplace'
 on_ft = ['clojure']
 
-# language plugins (other)
+# Language Support: TypeScript
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+hook_source = '''
+let g:typescript_indent_disable = 1
+'''
+[[plugins]]
+repo  = 'Quramy/tsuquyomi'
+on_ft = ['typescript']
+[[plugins]]
+repo  = 'jason0x43/vim-js-indent'
+on_ft = ['typescript']
+
+# Language Support: etc
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
