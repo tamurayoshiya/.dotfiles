@@ -6,6 +6,10 @@ on_ft = ['html', 'htmldjango', 'css', 'php', 'eruby']
 repo = 'digitaltoad/vim-pug'
 on_ft = ['pug']
 
+# language plugins (php)
+[[plugins]]
+repo = 'StanAngeloff/php.vim'
+
 # language plugins (go)
 [[plugins]]
 repo = 'fatih/vim-go'

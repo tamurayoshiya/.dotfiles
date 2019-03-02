@@ -92,15 +92,6 @@ hook_add = '''
     nnoremap [denite-gtags]r :<C-u>DeniteCursorWord -buffer-name=gtags_ref -mode=normal gtags_ref<CR>
     nnoremap [denite-gtags]c :<C-u>DeniteCursorWord -buffer-name=gtags_context -mode=normal gtags_context<CR>
 '''
-
-# ---------------------------------------
-# syntax hilight
-# ---------------------------------------
-
-[[plugins]]
-repo = 'StanAngeloff/php.vim'
-
-
 # ---------------------------------------
 # themes
 # ---------------------------------------
