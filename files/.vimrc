@@ -491,7 +491,13 @@ let g:ale_keep_list_window_open = 0
 let g:ale_linters = {
 \   'php': ['php', 'phpmd'],
 \   'go': ['gobuild', 'golint', 'gofmt'],
+\   'vue': ['tsserver'],
+\   'javascript': [],
+\   'typescript': ['tsserver']
 \}
+"let g:ale_linter_aliases = {'vue': 'typescript'}
+"let g:ale_typescript_tsserver_use_global = 1
+let g:ale_typescript_tsserver_config_path  = '~/tsconfig.json'
 " ALE用プレフィックス
 nmap [ale] <Nop>
 map <C-y> [ale]
@@ -511,7 +517,8 @@ let g:php_baselib       = 1
 let g:php_htmlInStrings = 1
 
 " vue
-autocmd FileType vue syntax sync fromstart
+"autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript.typescript
 
 " clip board
 set clipboard+=unnamedplus

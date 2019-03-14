@@ -5,6 +5,13 @@ on_ft = ['html', 'htmldjango', 'css', 'php', 'eruby']
 [[plugins]]
 repo = 'digitaltoad/vim-pug'
 on_ft = ['pug']
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
+[[plugins]]
+repo = 'vuejs/eslint-plugin-vue'
+on_ft = ['vue']
+
 
 # Language Support: PHP
 [[plugins]]
