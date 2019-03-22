@@ -1,7 +1,9 @@
-# Language Support: HTML, CSS, JavaScript
+# Language Support: HTML, CSS
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'htmldjango', 'css', 'php', 'eruby']
+
+# Language Support:  JavaScript
 [[plugins]]
 repo = 'digitaltoad/vim-pug'
 on_ft = ['pug']
@@ -11,6 +13,38 @@ on_ft = ['vue']
 [[plugins]]
 repo = 'vuejs/eslint-plugin-vue'
 on_ft = ['vue']
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = ['javascript', 'javascript.jsx']
+[[plugins]]
+repo = 'othree/es.next.syntax.vim'
+on_ft = ['javascript', 'javascript.jsx']
+[[plugins]]
+repo = 'othree/javascript-libraries-syntax.vim'
+on_ft = ['javascript', 'javascript.jsx']
+
+
+# Language Support: TypeScript
+
+[[plugins]]
+repo  = 'Quramy/tsuquyomi'
+on_ft = ['typescript', 'typescript.tsx']
+[[plugins]]
+repo  = 'jason0x43/vim-js-indent'
+on_ft = ['typescript', 'typescript.tsx']
+
+[[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+on_ft = ['typescript', 'typescript.tsx']
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+on_ft = ['typescript', 'typescript.tsx']
+
 
 
 # Language Support: PHP
@@ -66,19 +100,6 @@ on_ft = ['clojure']
 repo = 'tpope/vim-fireplace'
 on_ft = ['clojure']
 
-# Language Support: TypeScript
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
-hook_source = '''
-let g:typescript_indent_disable = 1
-'''
-[[plugins]]
-repo  = 'Quramy/tsuquyomi'
-on_ft = ['typescript']
-[[plugins]]
-repo  = 'jason0x43/vim-js-indent'
-on_ft = ['typescript']
 
 # Language Support: etc
 [[plugins]]

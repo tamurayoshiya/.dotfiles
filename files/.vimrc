@@ -493,7 +493,8 @@ let g:ale_linters = {
 \   'go': ['gobuild', 'golint', 'gofmt'],
 \   'vue': ['tsserver'],
 \   'javascript': [],
-\   'typescript': ['tsserver']
+\   'typescript': ['tsserver'],
+\   'scss': []
 \}
 "let g:ale_linter_aliases = {'vue': 'typescript'}
 "let g:ale_typescript_tsserver_use_global = 1
@@ -519,6 +520,9 @@ let g:php_htmlInStrings = 1
 " vue
 "autocmd FileType vue syntax sync fromstart
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript.typescript
+
+" tsx
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
 " clip board
 set clipboard+=unnamedplus
