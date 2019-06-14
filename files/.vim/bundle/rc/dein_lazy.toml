@@ -45,6 +45,11 @@ on_ft = ['typescript', 'typescript.tsx']
 repo = 'peitalin/vim-jsx-typescript'
 on_ft = ['typescript', 'typescript.tsx']
 
+[[plugins]]
+repo = 'mhartington/nvim-typescript'
+hook_add = '''
+    let g:nvim_typescript#vue_support = 1
+'''
 
 
 # Language Support: PHP

@@ -81,8 +81,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=236
 " 偶数インデントのカラー
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#393939 ctermbg=235
 
-" iTerm2で半透明にしているが、vimのcolorschemeを設定すると背景も変更されるため"
-"highlight Normal ctermbg=none
+" alacrittyで背景半透明に
+highlight Normal ctermbg=none guibg=none
 " markdownのハイライトを有効にする
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -491,7 +491,6 @@ let g:ale_linters = {
 \}
 "let g:ale_linter_aliases = {'vue': 'typescript'}
 "let g:ale_typescript_tsserver_use_global = 1
-let g:ale_typescript_tsserver_config_path  = '~/tsconfig.json'
 " ALE用プレフィックス
 nmap [ale] <Nop>
 map <C-y> [ale]
@@ -509,10 +508,6 @@ highlight ALEWarningSign gui=bold ctermfg=241
 
 let g:php_baselib       = 1
 let g:php_htmlInStrings = 1
-
-" vue
-"autocmd FileType vue syntax sync fromstart
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript.typescript
 
 " tsx
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
