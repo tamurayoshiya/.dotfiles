@@ -43,9 +43,6 @@ compinit -u
 # プロンプトの設定
 autoload colors
 colors
-# zmv
-autoload -Uz zmv
-alias zmv='noglob zmv -W'
 # コアダンプサイズを制限
 limit coredumpsize 102400
 # 出力の文字列末尾に改行コードが無い場合でも表示
@@ -145,8 +142,12 @@ alias du="du -h"
 alias df="df -h"
 alias duu="du -d 1"
 
-## エイリアス - vim
-alias v="vim"
+## エイリアス - neovim
+alias v="nvim"
+alias vimrc="nvim ~/.vimrc"
+alias zshrc="nvim ~/.zshrc"
+alias dein="nvim ~/.vim/bundle/rc/dein.toml"
+alias dein_lazy="nvim ~/.vim/bundle/rc/dein_lazy.toml"
 
 ## エイリアス - tmux
 alias tm="tmux a"
@@ -165,7 +166,6 @@ alias gpo="git push origin"
 alias gpom="git push origin master"
 
 ## 上書き確認
-
 alias mv='mv -i'
 alias cp='cp -i'
 

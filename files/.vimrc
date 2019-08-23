@@ -34,7 +34,6 @@ endif
 " --------------------------------------------------------------
 
 syntax on
-"
 " vim-go additional highlight
 hi def link   goVarDefs           Identifier
 let g:go_highlight_types = 1
@@ -72,21 +71,20 @@ highlight StatusLineNC ctermfg=240 ctermbg=234
 " color of pane splitter
 set fillchars+=vert:\ 
 set foldcolumn=0
-highlight foldcolumn ctermbg=237 guibg=237
-highlight VertSplit ctermbg=237 guibg=237 guifg=237
+highlight foldcolumn ctermbg=236 guibg=NONE
+highlight VertSplit ctermbg=236 guibg=NONE guifg=NONE
 
 " vim-indent-guides
 " 奇数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=236
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=NONE ctermbg=236
 " 偶数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#393939 ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=NONE ctermbg=235
 
 " alacrittyで背景半透明に
-highlight Normal ctermbg=none guibg=none
+highlight Normal ctermbg=none guibg=NONE
 " markdownのハイライトを有効にする
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
-
 
 " --------------------------------------------------------------
 " --------------------- indent
@@ -101,7 +99,6 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.yml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    
     autocmd BufNewFile,BufRead *.html setlocal tabstop=4 softtabstop=4 shiftwidth=4
 augroup END
 
@@ -341,7 +338,7 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
 call denite#custom#option('_', 'auto_resize', 'true')
 
 " --------------------------------------------------------------
-" --------------------- 拡張設定 (vim-indent-guides)
+" --------------------- vim-indent-guides
 " --------------------------------------------------------------
 
 " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
@@ -356,7 +353,7 @@ let g:indent_guides_color_change_percent = 100
 let g:indent_guides_guide_size = 1
 
 " --------------------------------------------------------------
-" --------------------- 拡張設定 (neosnippet)
+" --------------------- neosnippet
 " --------------------------------------------------------------
 
 " Plugin key-mappings.
@@ -378,7 +375,7 @@ let g:neosnippet#snippets_directory='~/.dotfiles/files/.vim/snippets/'
 let g:neosnippet#disable_runtime_snippets = {'_' : 1}
 
 " --------------------------------------------------------------
-" --------------------- 拡張設定 (その他)
+" --------------------- etc
 " --------------------------------------------------------------
 
 " emmet-vim (zencoding)
@@ -404,7 +401,6 @@ highlight GitGutterAdd ctermbg=235 ctermfg=34
 highlight GitGutterChange ctermbg=235 ctermfg=3
 highlight GitGutterDelete ctermbg=235 ctermfg=124
 highlight GitGutterChangeDelete ctermbg=235 ctermfg=13
-
 
 "-------------------
 "vim-go
@@ -518,6 +514,7 @@ set clipboard+=unnamed
 " VimShowHlItem: Show highlight item name under a cursor
 command! VimShowHlItem echo synIDattr(synID(line("."), col("."), 1), "name")
 
+" Jenkinsfile
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
 " antlr4

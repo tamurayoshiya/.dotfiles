@@ -1,0 +1,10 @@
+# .dotfiles
+
+## dependencies
+
+memo
+
+* vim
+    * ag
+    * python3
+    * rg
