@@ -128,7 +128,9 @@ on_ft = ['lisp']
 [[plugins]]
 repo = 'vim-scripts/groovy.vim'
 on_ft = ['groovy']
-
 [[plugins]]
 repo = 'dylon/vim-antlr'
 on_ft = ['antlr']
+[[plugins]]
+repo = 'ElmCast/elm-vim'
+on_ft = ['elm']

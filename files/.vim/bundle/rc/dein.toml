@@ -147,23 +147,47 @@ repo = 'Shougo/denite.nvim'
 depends = ['neomru.vim']
 on_event = 'BufRead'
 hook_add = '''
-    nnoremap [denite] <Nop>
-    nmap <Space>f [denite]
-    nmap <silent> [denite]f :<C-u>Denite file_rec -highlight-mode-insert=Search -sorters=sorter_word<CR>
-    nmap <silent> [denite]d :<C-u>Denite file -highlight-mode-insert=Search -sorters=sorter_word<CR>
-    nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=Search -sorters=sorter_word<CR>
-    nmap <silent> [denite]l :<C-u>Denite line -highlight-mode-insert=Search<CR>
-    nmap <silent> [denite]m :<C-u>Denite file_mru -highlight-mode-insert=Search<CR>
-    nmap <silent> [denite]y :<C-u>Denite neoyank -highlight-mode-insert=Search<CR>
-    nmap <silent> [denite]o :<C-u>Denite outline -highlight-mode-insert=Search<CR>
-    nmap <silent> [denite]g :<C-u>Denite grep -highlight-mode-insert=Search<CR>
-    nmap <silent> [denite]p :<C-u>DeniteBufferDir file_rec -highlight-mode-insert=Search<CR>
-    if executable('rg')
-      call denite#custom#var('file_rec', 'command',
-            \ ['rg', '--files', '--glob', '!.git', '!node_modules'])
-      call denite#custom#var('grep', 'command', ['rg'])
-    endi
+" Define mappings
+nnoremap [denite] <Nop>
+nmap <Space>f [denite]
+nnoremap <silent> [denite]f :<C-u> Denite file/rec<CR>
+nnoremap <silent> [denite]g :<C-u> Denite grep<CR>
+nnoremap <silent> [denite]b :<C-u> Denite buffer<CR>
+nnoremap <silent> [denite]m :<C-u> Denite file_mru<CR>
+nnoremap <silent> [denite]d :<C-u> Denite file<CR>
+nnoremap <silent> [denite]l :<C-u> Denite line<CR>
+nnoremap <silent> [denite]y :<C-u> Denite neoyank<CR>
+nnoremap <silent> [denite]o :<C-u> Denite outline<CR>
+nnoremap <silent> [denite]p :<C-u> Denite file_rec<CR>
+nnoremap <silent> [denite]h :<C-u> Denite command_history<CR>
+
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+	  nnoremap <silent><buffer><expr> <CR>      denite#do_map('do_action')
+	  nnoremap <silent><buffer><expr> d         denite#do_map('do_action', 'delete')
+	  nnoremap <silent><buffer><expr> p         denite#do_map('do_action', 'preview')
+	  nnoremap <silent><buffer><expr> q         denite#do_map('quit')
+	  nnoremap <silent><buffer><expr> <C-c>     denite#do_map('quit')
+	  nnoremap <silent><buffer><expr> i         denite#do_map('open_filter_buffer')
+	  nnoremap <silent><buffer><expr> <Space>   denite#do_map('toggle_select').'j'
+endfunction
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+	function! s:denite_filter_my_settings() abort
+	  imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
+endfunction
+
+if executable('rg')
+    call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+    call denite#custom#var('grep', 'command', ['rg'])
+    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep', '--no-heading'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+endif
 '''
+
+
 
 hook_post_source = '''
     call denite#custom#var('file_rec', 'command',

@@ -324,7 +324,7 @@ set laststatus=2
 call denite#custom#option('default', 'prompt', '>')
 call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
 call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
-call denite#custom#source('file_rec', 'matchers', ['matcher_regexp'])
+call denite#custom#source('file_mru', 'matchers', ['matcher_regexp'])
 call denite#custom#source('file', 'matchers', ['matcher_regexp'])
 call denite#custom#source('buffer', 'matchers', ['matcher_regexp'])
 call denite#custom#source('line', 'matchers', ['matcher_regexp'])
@@ -522,3 +522,6 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 
 " antlr4
 autocmd BufNewFile,BufRead *.g4  set filetype=antlr
+
+" elm
+autocmd BufNewFile,BufRead *.elm  set filetype=elm
