@@ -519,3 +519,6 @@ set clipboard+=unnamed
 command! VimShowHlItem echo synIDattr(synID(line("."), col("."), 1), "name")
 
 au BufNewFile,BufRead Jenkinsfile setf groovy
+
+" antlr4
+autocmd BufNewFile,BufRead *.g4  set filetype=antlr
