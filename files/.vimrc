@@ -218,7 +218,7 @@ filetype plugin indent on
 let g:vim_json_syntax_conceal = 0
 
 " オムニ補完
-imap <C-f> <C-x><C-o>
+"imap <C-f> <C-x><C-o>
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Into insert mode with :set paste mode
@@ -522,3 +522,15 @@ autocmd BufNewFile,BufRead *.g4  set filetype=antlr
 
 " elm
 autocmd BufNewFile,BufRead *.elm  set filetype=elm
+
+if executable('gopls')
+  augroup LspGo
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'go-lang',
+        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+    autocmd FileType go setlocal omnifunc=lsp#complete
+  augroup END
+endif

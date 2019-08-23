@@ -1,4 +1,15 @@
 # ---------------------------------------
+# for Vim8 to activate denite and deoplete
+# ---------------------------------------
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+if = "!has('nvim')"
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+if = "!has('nvim')"
+
+# ---------------------------------------
 # funtamental plugins
 # ---------------------------------------
 
@@ -33,103 +44,13 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'vim-scripts/AnsiEsc.vim'
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if = "has('nvim')"
-on_i = 1
-on_event = 'InsertCharPre'
-#hook_source = '''
-#  let g:deoplete#enable_at_startup = 1
-#  let g:deoplete#auto_complete_start_length = 1
-#  let g:deoplete#enable_camel_case = 0
-#  let g:deoplete#enable_ignore_case = 0
-#  let g:deoplete#enable_refresh_always = 1
-#  let g:deoplete#enable_smart_case = 1
-#  let g:deoplete#file#enable_buffer_path = 1
-#  let g:deoplete#max_list = 10000
-#  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-#        \ neosnippet#expandable_or_jumpable() ?
-#        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-#'''
-
-[[plugins]]
-repo = 'kovisoft/slimv'
-[[plugins]]
 repo = 'Shougo/context_filetype.vim'
-
-# ---------------------------------------
-# gtags
-# ---------------------------------------
-
-[[plugins]]
-repo = 'lighttiger2505/gtags.vim'
-hook_add = '''
-    " Options
-    let g:Gtags_Auto_Map = 0
-    let g:Gtags_OpenQuickfixWindow = 1
-    " Keymap
-    " Show definetion of function cousor word on quickfix
-    nmap <silent> K :<C-u>exe("Gtags ".expand('<cword>'))<CR>
-    " Show reference of cousor word on quickfix
-    nmap <silent> R :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>''
-'''
-
-[[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-hook_add = '''
-    " Generate gtags in background
-    let g:gen_tags#gtags_auto_gen = 1
-    " Do not use cache dir, store tags in git dir
-    let g:gen_tags#use_cache_dir = 0
-'''
-
-[[plugins]]
-repo = 'ozelentok/denite-gtags'
-hook_add = '''
-    " Keymap
-    noremap [denite-gtags]  <Nop>
-    nmap ,t [denite-gtags]
-    nnoremap [denite-gtags]d :<C-u>DeniteCursorWord -buffer-name=gtags_def -mode=normal gtags_def<CR>
-    nnoremap [denite-gtags]r :<C-u>DeniteCursorWord -buffer-name=gtags_ref -mode=normal gtags_ref<CR>
-    nnoremap [denite-gtags]c :<C-u>DeniteCursorWord -buffer-name=gtags_context -mode=normal gtags_context<CR>
-'''
-
-# ---------------------------------------
-# syntax hilight
-# ---------------------------------------
-
-[[plugins]]
-repo = 'StanAngeloff/php.vim'
-
-
-# ---------------------------------------
-# themes
-# ---------------------------------------
-
-[[plugins]]
-repo = 'iCyMind/NeoSolarized'
-[[plugins]]
-repo = 'zcodes/vim-colors-basic'
-[[plugins]]
-repo = 'NLKNguyen/papercolor-theme'
-[[plugins]]
-repo = 'rakr/vim-one'
-[[plugins]]
-repo = 'jacoborus/tender.vim'
-[[plugins]]
-repo = 'hauleth/blame.vim'
-[[plugins]]
-repo = 'raphamorim/lucario'
-[[plugins]]
-repo = 'dikiaap/minimalist'
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
-
 [[plugins]]
 repo = 'w0rp/ale'
 
 [[plugins]]
-    repo = 'Shougo/vimproc.vim'
-    hook_post_update = '''
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
     if dein#util#_is_windows()
         let cmd = 'tools\\update-dll-mingw'
     elseif dein#util#_is_cygwin()
@@ -141,6 +62,10 @@ repo = 'w0rp/ale'
     endif
     let g:dein#plugin.build = cmd
 '''
+
+# ---------------------------------------
+# denite
+# ---------------------------------------
 
 [[plugins]]                               
 repo = 'Shougo/denite.nvim'
@@ -194,3 +119,104 @@ hook_post_source = '''
     call denite#custom#var('grep', 'default_opts', [])
     call denite#custom#var('grep', 'recursive_opts', [])
 '''
+
+# ---------------------------------------
+# deoplete and other completion plugins
+# ---------------------------------------
+
+#[[plugins]]
+#repo = 'Shougo/deoplete.nvim'
+#if = "has('nvim')"
+#on_i = 1
+#on_event = 'InsertCharPre'
+##hook_source = '''
+#  let g:deoplete#enable_at_startup = 1
+#  let g:deoplete#auto_complete_start_length = 1
+#  let g:deoplete#enable_camel_case = 0
+#  let g:deoplete#enable_ignore_case = 0
+#  let g:deoplete#enable_refresh_always = 1
+#  let g:deoplete#enable_smart_case = 1
+#  let g:deoplete#file#enable_buffer_path = 1
+#  let g:deoplete#max_list = 10000
+#  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+#        \ neosnippet#expandable_or_jumpable() ?
+#        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+#'''
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+[[plugins]]
+repo =  'prabirshrestha/asyncomplete.vim'
+hook_add = '''
+    let g:asyncomplete_auto_popup = 0
+    imap <C-f> <Plug>(asyncomplete_force_refresh)
+    set completeopt-=preview
+    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+'''
+[[plugins]]
+repo =  'prabirshrestha/asyncomplete-lsp.vim'
+[[plugins]]
+repo =  'natebosch/vim-lsc'
+
+# ---------------------------------------
+# gtags
+# ---------------------------------------
+
+[[plugins]]
+repo = 'lighttiger2505/gtags.vim'
+hook_add = '''
+    " Options
+    let g:Gtags_Auto_Map = 0
+    let g:Gtags_OpenQuickfixWindow = 1
+    " Keymap
+    " Show definetion of function cousor word on quickfix
+    nmap <silent> K :<C-u>exe("Gtags ".expand('<cword>'))<CR>
+    " Show reference of cousor word on quickfix
+    nmap <silent> R :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>''
+'''
+
+[[plugins]]
+repo = 'jsfaint/gen_tags.vim'
+hook_add = '''
+    " Generate gtags in background
+    let g:gen_tags#gtags_auto_gen = 1
+    " Do not use cache dir, store tags in git dir
+    let g:gen_tags#use_cache_dir = 0
+'''
+
+[[plugins]]
+repo = 'ozelentok/denite-gtags'
+hook_add = '''
+    " Keymap
+    noremap [denite-gtags]  <Nop>
+    nmap ,t [denite-gtags]
+    nnoremap [denite-gtags]d :<C-u>DeniteCursorWord -buffer-name=gtags_def gtags_def<CR>
+    nnoremap [denite-gtags]r :<C-u>DeniteCursorWord -buffer-name=gtags_ref gtags_ref<CR>
+    nnoremap [denite-gtags]c :<C-u>DeniteCursorWord -buffer-name=gtags_context gtags_context<CR>
+'''
+
+# ---------------------------------------
+# themes
+# ---------------------------------------
+
+[[plugins]]
+repo = 'iCyMind/NeoSolarized'
+[[plugins]]
+repo = 'zcodes/vim-colors-basic'
+[[plugins]]
+repo = 'NLKNguyen/papercolor-theme'
+[[plugins]]
+repo = 'rakr/vim-one'
+[[plugins]]
+repo = 'jacoborus/tender.vim'
+[[plugins]]
+repo = 'hauleth/blame.vim'
+[[plugins]]
+repo = 'raphamorim/lucario'
+[[plugins]]
+repo = 'dikiaap/minimalist'
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+

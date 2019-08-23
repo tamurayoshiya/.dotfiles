@@ -2,9 +2,11 @@
 
 ## dependencies
 
-memo
-
 * vim
-    * ag
-    * python3
-    * rg
+    * common
+        * ag
+        * python3
+        * rg
+    * golang
+        * gopls
+            * ```go get -u golang.org/x/tools/cmd/gopls```
