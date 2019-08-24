@@ -26,8 +26,6 @@ repo = 'Shougo/neoyank.vim'
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-[[plugins]]
 repo = 'h1mesuke/unite-outline'
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
@@ -47,6 +45,8 @@ repo = 'vim-scripts/AnsiEsc.vim'
 repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'w0rp/ale'
+[[plugins]]
+repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -71,46 +71,6 @@ hook_post_update = '''
 repo = 'Shougo/denite.nvim'
 depends = ['neomru.vim']
 on_event = 'BufRead'
-hook_add = '''
-" Define mappings
-nnoremap [denite] <Nop>
-nmap <Space>f [denite]
-nnoremap <silent> [denite]f :<C-u> Denite file/rec<CR>
-nnoremap <silent> [denite]g :<C-u> Denite grep<CR>
-nnoremap <silent> [denite]b :<C-u> Denite buffer<CR>
-nnoremap <silent> [denite]m :<C-u> Denite file_mru<CR>
-nnoremap <silent> [denite]d :<C-u> Denite file<CR>
-nnoremap <silent> [denite]l :<C-u> Denite line<CR>
-nnoremap <silent> [denite]y :<C-u> Denite neoyank<CR>
-nnoremap <silent> [denite]o :<C-u> Denite outline<CR>
-nnoremap <silent> [denite]p :<C-u> Denite file_rec<CR>
-nnoremap <silent> [denite]h :<C-u> Denite command_history<CR>
-
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-	  nnoremap <silent><buffer><expr> <CR>      denite#do_map('do_action')
-	  nnoremap <silent><buffer><expr> d         denite#do_map('do_action', 'delete')
-	  nnoremap <silent><buffer><expr> p         denite#do_map('do_action', 'preview')
-	  nnoremap <silent><buffer><expr> q         denite#do_map('quit')
-	  nnoremap <silent><buffer><expr> <C-c>     denite#do_map('quit')
-	  nnoremap <silent><buffer><expr> i         denite#do_map('open_filter_buffer')
-	  nnoremap <silent><buffer><expr> <Space>   denite#do_map('toggle_select').'j'
-endfunction
-autocmd FileType denite-filter call s:denite_filter_my_settings()
-	function! s:denite_filter_my_settings() abort
-	  imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
-endfunction
-
-if executable('rg')
-    call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
-    call denite#custom#var('grep', 'command', ['rg'])
-    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep', '--no-heading'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', [])
-endif
-'''
 hook_post_source = '''
     call denite#custom#var('file_rec', 'command',
     \ ['pt', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', ''])
@@ -149,53 +109,33 @@ repo = 'prabirshrestha/async.vim'
 repo = 'prabirshrestha/vim-lsp'
 [[plugins]]
 repo =  'prabirshrestha/asyncomplete.vim'
-hook_add = '''
-    let g:asyncomplete_auto_popup = 0
-    imap <C-f> <Plug>(asyncomplete_force_refresh)
-    set completeopt-=preview
-    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-'''
 [[plugins]]
 repo =  'prabirshrestha/asyncomplete-lsp.vim'
 [[plugins]]
+repo =  'prabirshrestha/asyncomplete-file.vim'
+[[plugins]]
 repo =  'natebosch/vim-lsc'
+[[plugins]]
+repo =  'prabirshrestha/asyncomplete-neosnippet.vim'
+#[[plugins]]
+# https://github.com/prabirshrestha/vim-lsp/wiki/Servers-PHP
+#repo =  'felixfbecker/php-language-server'
+#hook_post_update = '''
+#if executable('php') && executable('composer')
+#    call system('composer install && composer run-script parse-stubs')
+#endif
+#'''
 
 # ---------------------------------------
-# gtags
+# code jump (gtags)
 # ---------------------------------------
 
 [[plugins]]
 repo = 'lighttiger2505/gtags.vim'
-hook_add = '''
-    " Options
-    let g:Gtags_Auto_Map = 0
-    let g:Gtags_OpenQuickfixWindow = 1
-    " Keymap
-    " Show definetion of function cousor word on quickfix
-    nmap <silent> K :<C-u>exe("Gtags ".expand('<cword>'))<CR>
-    " Show reference of cousor word on quickfix
-    nmap <silent> R :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>''
-'''
-
 [[plugins]]
 repo = 'jsfaint/gen_tags.vim'
-hook_add = '''
-    " Generate gtags in background
-    let g:gen_tags#gtags_auto_gen = 1
-    " Do not use cache dir, store tags in git dir
-    let g:gen_tags#use_cache_dir = 0
-'''
-
 [[plugins]]
 repo = 'ozelentok/denite-gtags'
-hook_add = '''
-    " Keymap
-    noremap [denite-gtags]  <Nop>
-    nmap ,t [denite-gtags]
-    nnoremap [denite-gtags]d :<C-u>DeniteCursorWord -buffer-name=gtags_def gtags_def<CR>
-    nnoremap [denite-gtags]r :<C-u>DeniteCursorWord -buffer-name=gtags_ref gtags_ref<CR>
-    nnoremap [denite-gtags]c :<C-u>DeniteCursorWord -buffer-name=gtags_context gtags_context<CR>
-'''
 
 # ---------------------------------------
 # themes
@@ -219,4 +159,14 @@ repo = 'raphamorim/lucario'
 repo = 'dikiaap/minimalist'
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
+[[plugins]]
+repo = 'sonph/onehalf'
+[[plugins]]
+repo = 'dracula/vim'
+[[plugins]]
+repo = 'gosukiwi/vim-atom-dark'
+[[plugins]]
+repo = 'kristijanhusak/vim-hybrid-material'
+[[plugins]]
+repo = 'connorholyday/vim-snazzy'
 

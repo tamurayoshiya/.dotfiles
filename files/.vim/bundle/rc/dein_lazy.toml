@@ -30,7 +30,6 @@ on_ft = ['javascript', 'javascript.jsx']
 
 
 # Language Support: TypeScript
-
 [[plugins]]
 repo  = 'Quramy/tsuquyomi'
 on_ft = ['typescript', 'typescript.tsx']
@@ -107,7 +106,6 @@ on_ft = ['clojure']
 [[plugins]]
 repo = 'tpope/vim-fireplace'
 on_ft = ['clojure']
-
 
 # Language Support: etc
 [[plugins]]

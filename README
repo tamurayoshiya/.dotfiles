@@ -1,12 +1,25 @@
 # .dotfiles
 
-## dependencies
+## requirements
 
-* vim
-    * common
-        * ag
-        * python3
-        * rg
+###  vim
+
+* common
+    * python3
+    * rg
+    * GNU global
+        * Pygments
+* language support
+    * php
+        * php
+        * composer
+        * composer global require "jetbrains/phpstorm-stubs:dev-master"
+            * JetBrains社製のPHPStormの関数情報
     * golang
+        * :GoInstallBinaries
         * gopls
             * ```go get -u golang.org/x/tools/cmd/gopls```
+    * elm
+        * npm install -g elm elm-test elm-oracle elm-format
+    * js/typescript
+        * npm install -g typescript typescript-language-server

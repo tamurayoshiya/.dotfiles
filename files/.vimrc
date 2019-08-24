@@ -1,8 +1,8 @@
 set encoding=utf-8
 
-" --------------------------------------------------------------
-" --------------------- dein.vim (install if not exits)
-" --------------------------------------------------------------
+" =======================================================
+" -------------------> dein.vim
+" =======================================================
 
 let s:dein_dir = $HOME . '/.vim/bundle'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -29,12 +29,14 @@ if dein#check_install()
   call dein#install()
 endif
 
-" --------------------------------------------------------------
-" --------------------- colors
-" --------------------------------------------------------------
+" =======================================================
+" -------------------> color
+" =======================================================
 
 syntax on
+
 " vim-go additional highlight
+" ※この位置に書かないとオリジナルのmolokaiのカラーにならない..
 hi def link   goVarDefs           Identifier
 let g:go_highlight_types = 1
 let g:go_highlight_functions = 1
@@ -44,11 +46,10 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 0
 let g:go_highlight_function_arguments = 1
-
 " https://github.com/hnakamur/vim-go-tutorial-ja#vimrc-%E3%81%AE%E6%94%B9%E5%96%84-4
 let g:rehash256 = 1
 let g:molokai_original = 1
-""
+
 "===== light theme
 "set background=light
 "colorscheme one
@@ -59,52 +60,35 @@ set background=dark
 "colorscheme libertine
 "colorscheme NeoSolarized
 "colorscheme iceberg
-colorscheme molokai " fatih/molokai 
+"colorscheme molokai
+"colorscheme hybrid_material
+"colorscheme snazzy
+colorscheme molokai
 
 " tab color
-highlight TabLineFill ctermfg=237 ctermbg=237
-
+highlight TabLineFill ctermfg=238 ctermbg=236
 " status line color
 highlight StatusLine ctermfg=243 ctermbg=236
 highlight StatusLineNC ctermfg=240 ctermbg=234
-
 " color of pane splitter
 set fillchars+=vert:\ 
 set foldcolumn=0
 highlight foldcolumn ctermbg=236 guibg=NONE
 highlight VertSplit ctermbg=236 guibg=NONE guifg=NONE
-
 " vim-indent-guides
 " 奇数インデントのカラー
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=NONE ctermbg=236
 " 偶数インデントのカラー
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=NONE ctermbg=235
-
 " alacrittyで背景半透明に
 highlight Normal ctermbg=none guibg=NONE
 " markdownのハイライトを有効にする
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" --------------------------------------------------------------
-" --------------------- indent
-" --------------------------------------------------------------
-
-augroup fileTypeIndent
-    autocmd!
-    autocmd BufNewFile,BufRead *.vue setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.pug setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.yml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.html setlocal tabstop=4 softtabstop=4 shiftwidth=4
-augroup END
-
-" --------------------------------------------------------------
-" --------------------- fundamentals
-" --------------------------------------------------------------
+" =======================================================
+" -------------------> fundamentals
+" =======================================================
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -242,9 +226,68 @@ inoremap <CR> <CR>x<BS>
 nnoremap o ox<BS>
 nnoremap O Ox<BS>
 
-" --------------------------------------------------------------
-" --------------------- tabs
-" --------------------------------------------------------------
+" clip board
+set clipboard+=unnamed
+
+" VimShowHlItem: Show highlight item name under a cursor
+command! VimShowHlItem echo synIDattr(synID(line("."), col("."), 1), "name")
+
+" =======================================================
+" -------------------> indent
+" =======================================================
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.vue setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.pug setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.yml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.html setlocal tabstop=4 softtabstop=4 shiftwidth=4
+augroup END
+
+"-------------------------------------
+" vim-indent-guides
+"-------------------------------------
+" vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
+let g:indent_guides_enable_on_vim_startup=1
+" ガイドをスタートするインデントの量
+let g:indent_guides_start_level=1
+" 自動カラーを無効にする
+let g:indent_guides_auto_colors=0
+" ハイライト色の変化の幅
+let g:indent_guides_color_change_percent = 100
+" ガイドの幅
+let g:indent_guides_guide_size = 1
+
+" =======================================================
+" -------------------> status line
+" =======================================================
+
+" ファイル名表示
+set statusline=%F
+" 変更チェック表示
+set statusline+=%m
+" 読み込み専用かどうか表示
+set statusline+=%r
+" ヘルプページなら[HELP]と表示
+set statusline+=%h
+" プレビューウインドウなら[Prevew]と表示
+set statusline+=%w
+" これ以降は右寄せ表示
+set statusline+=%=
+" file encoding
+set statusline+=[%{&fileencoding}]
+" 現在行数/全行数
+set statusline+=[row=%l/%L]
+" ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
+set laststatus=2 
+
+" =======================================================
+" -------------------> tab
+" =======================================================
 
 " Anywhere SID.
 function! s:SID_PREFIX()
@@ -291,32 +334,9 @@ map <silent> [Tag]n :tabnext<CR>
 " tp 前のタブ
 map <silent> [Tag]p :tabprevious<CR>
 
-" --------------------------------------------------------------
-" --------------------- status line
-" --------------------------------------------------------------
-
-" ファイル名表示
-set statusline=%F
-" 変更チェック表示
-set statusline+=%m
-" 読み込み専用かどうか表示
-set statusline+=%r
-" ヘルプページなら[HELP]と表示
-set statusline+=%h
-" プレビューウインドウなら[Prevew]と表示
-set statusline+=%w
-" これ以降は右寄せ表示
-set statusline+=%=
-" file encoding
-set statusline+=[%{&fileencoding}]
-" 現在行数/全行数
-set statusline+=[row=%l/%L]
-" ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
-set laststatus=2 
-
-" " --------------------------------------------------------------
-" " --------------------- denite.vim
-" " --------------------------------------------------------------
+" " =======================================================
+" " -------------------> denite.vim
+" " =======================================================
 
 call denite#custom#option('default', 'prompt', '>')
 call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
@@ -337,111 +357,45 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
       \ 'img/', 'fonts/'])
 call denite#custom#option('_', 'auto_resize', 'true')
 
-" --------------------------------------------------------------
-" --------------------- vim-indent-guides
-" --------------------------------------------------------------
+" Define mappings
+nnoremap [denite] <Nop>
+nmap <Space>f [denite]
+nnoremap <silent> [denite]f :<C-u> Denite file/rec<CR>
+nnoremap <silent> [denite]g :<C-u> Denite grep<CR>
+nnoremap <silent> [denite]b :<C-u> Denite buffer<CR>
+nnoremap <silent> [denite]m :<C-u> Denite file_mru<CR>
+nnoremap <silent> [denite]d :<C-u> Denite file<CR>
+nnoremap <silent> [denite]l :<C-u> Denite line<CR>
+nnoremap <silent> [denite]y :<C-u> Denite neoyank<CR>
+nnoremap <silent> [denite]o :<C-u> Denite outline<CR>
+nnoremap <silent> [denite]p :<C-u> Denite file_rec<CR>
+nnoremap <silent> [denite]h :<C-u> Denite command_history<CR>
+nnoremap <silent> [denite]c :<C-u> Denite colorscheme<CR>
 
-" vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
-let g:indent_guides_enable_on_vim_startup=1
-" ガイドをスタートするインデントの量
-let g:indent_guides_start_level=1
-" 自動カラーを無効にする
-let g:indent_guides_auto_colors=0
-" ハイライト色の変化の幅
-let g:indent_guides_color_change_percent = 100
-" ガイドの幅
-let g:indent_guides_guide_size = 1
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+	  nnoremap <silent><buffer><expr> <CR>      denite#do_map('do_action')
+	  nnoremap <silent><buffer><expr> d         denite#do_map('do_action', 'delete')
+	  nnoremap <silent><buffer><expr> p         denite#do_map('do_action', 'preview')
+	  nnoremap <silent><buffer><expr> q         denite#do_map('quit')
+	  nnoremap <silent><buffer><expr> <C-c>     denite#do_map('quit')
+	  nnoremap <silent><buffer><expr> i         denite#do_map('open_filter_buffer')
+	  nnoremap <silent><buffer><expr> <Space>   denite#do_map('toggle_select').'j'
+endfunction
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+	function! s:denite_filter_my_settings() abort
+	  imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
+endfunction
 
-" --------------------------------------------------------------
-" --------------------- neosnippet
-" --------------------------------------------------------------
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-    set conceallevel=2 concealcursor=i
+if executable('rg')
+    call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+    call denite#custom#var('grep', 'command', ['rg'])
+    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep', '--no-heading'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
 endif
-
-" 自分用 snippet ファイルの場所
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory='~/.dotfiles/files/.vim/snippets/'
-let g:neosnippet#disable_runtime_snippets = {'_' : 1}
-
-" --------------------------------------------------------------
-" --------------------- etc
-" --------------------------------------------------------------
-
-" emmet-vim (zencoding)
-let g:user_emmet_expandabbr_key = '<c-e>'
-let g:user_emmet_expandword_key = '<c-e>'
-
-" NERD TREE
-let g:NERDTreeWinPos = "right"
-nmap <C-i> :<C-u>NERDTreeToggle<CR>
-let NERDTreeShowHidden = 1
-let NERDTreeMinimalUI = 1
-
-highlight Directory guifg=#AAAAAA ctermfg=245
-
-" vim-gitgutter 
-let g:gitgutter_highlight_lines = 0
-let g:gitgutter_sign_removed = '-'
-highlight GitGutterAddLine gui=bold ctermbg=233
-highlight GitGutterChangeLine gui=bold ctermbg=233
-highlight GitGutterDeleteLine gui=bold ctermbg=52
-highlight GitGutterChangeDeleteLine gui=bold ctermbg=233
-highlight GitGutterAdd ctermbg=235 ctermfg=34
-highlight GitGutterChange ctermbg=235 ctermfg=3
-highlight GitGutterDelete ctermbg=235 ctermfg=124
-highlight GitGutterChangeDelete ctermbg=235 ctermfg=13
-
-"-------------------
-"vim-go
-"-------------------
-"
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
-
-"-------------------
-"slimv (lisp)
-"-------------------
-
-let g:slimv_repl_split = 4
-let g:slimv_repl_name = 'REPL'
-let g:slimv_repl_simple_eval = 0
-"let g:slimv_lisp = '/usr/bin/clisp'
-let g:slimv_impl = 'clisp'
-let g:slimv_preferred = 'clisp'
-let g:lisp_rainbow=1
-let g:paredit_electric_return = 0
-au FileType lisp IndentGuidesDisable
-au FileType lisp inoremap ' '
-
-"-------------------
-"ghcmod.vim (haskell)
-"-------------------
-
-autocmd BufWritePost *.hs GhcModCheckAndLintAsync
-let g:necoghc_enable_detailed_browse = 1
-hi ghcmodType ctermbg=lightcyan
-let g:ghcmod_type_highlight = 'ghcmodType'
-
-au BufNewFile,BufRead *.hs map <Leader>t :GhcModType<cr>
-au BufNewFile,BufRead *.hs map <Leader>tt :GhcModTypeClear<cr>
-let g:hoogle_search_count=15
-let g:hoogle_search_buf_name='Hoogle'
-au BufNewFile,BufRead *.hs map <silent> <leader>h :Hoogle<CR>
-au BufNewFile,BufRead *.hs map <buffer> <Leader>hh :HoogleClose<CR>
-
-au BufRead,BufNewFile *.qmu set filetype=qmu
 
 "-------------------
 " neomru
@@ -450,9 +404,9 @@ au BufRead,BufNewFile *.qmu set filetype=qmu
 let g:neomru#file_mru_limit = 200
 let g:neomru#directory_mru_limit = 200
 
-"-------------------
-" ale
-"-------------------
+" =======================================================
+" -------------------> linter (ale)
+" =======================================================
 
 " エラー行に表示するマーク
 let g:ale_sign_error = '=>'
@@ -498,31 +452,82 @@ let g:ale_set_highlights = 1
 highlight ALEErrorSign gui=bold ctermfg=15 ctermbg=160
 highlight ALEWarningSign gui=bold ctermfg=241
 
-"-------------------
-" other
-"-------------------
 
-let g:php_baselib       = 1
-let g:php_htmlInStrings = 1
+" =======================================================
+" -------------------> code jump (gtags)
+" =======================================================
 
-" tsx
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+"-------------------------------------
+" lighttiger2505/gtags.vim
+"-------------------------------------
+let g:Gtags_Auto_Map = 0
+let g:Gtags_OpenQuickfixWindow = 1
+" Show definetion of function cousor word on quickfix
+nmap <silent> K :<C-u>exe("Gtags ".expand('<cword>'))<CR>
+" Show reference of cousor word on quickfix
+nmap <silent> R :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>''
 
-" clip board
-set clipboard+=unnamed
+"-------------------------------------
+" jsfaint/gen_tags.vim
+"-------------------------------------
+" Generate gtags in background
+let g:gen_tags#gtags_auto_gen = 1
+" Do not use cache dir, store tags in git dir
+let g:gen_tags#use_cache_dir = 0
 
-" VimShowHlItem: Show highlight item name under a cursor
-command! VimShowHlItem echo synIDattr(synID(line("."), col("."), 1), "name")
+"-------------------------------------
+" ozelentok/denite-gtags
+"-------------------------------------
+noremap [denite-gtags]  <Nop>
+nmap ,t [denite-gtags]
+nnoremap [denite-gtags]d :<C-u>DeniteCursorWord -buffer-name=gtags_def gtags_def<CR>
+nnoremap [denite-gtags]r :<C-u>DeniteCursorWord -buffer-name=gtags_ref gtags_ref<CR>
+nnoremap [denite-gtags]c :<C-u>DeniteCursorWord -buffer-name=gtags_context gtags_context<CR>
 
-" Jenkinsfile
-au BufNewFile,BufRead Jenkinsfile setf groovy
+" =======================================================
+" -------------------> neosnippet
+" =======================================================
 
-" antlr4
-autocmd BufNewFile,BufRead *.g4  set filetype=antlr
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 
-" elm
-autocmd BufNewFile,BufRead *.elm  set filetype=elm
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
+" For snippet_complete marker.
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+endif
+
+" 自分用 snippet ファイルの場所
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory='~/.dotfiles/files/.vim/snippets/'
+let g:neosnippet#disable_runtime_snippets = {'_' : 1}
+
+" =======================================================
+" -------------------> completion
+" =======================================================
+
+"-------------------------------------
+" prabirshrestha/asyncomplete.vim
+"-------------------------------------
+let g:asyncomplete_auto_popup = 0
+imap <C-f> <Plug>(asyncomplete_force_refresh)
+set completeopt-=preview
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+let g:asyncomplete_enable_for_all = 1
+
+"-------------------------------------
+" vim-lsp
+"-------------------------------------
+" aleを使用するためlinterはoff
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_log_verbose = 1
+" logは不要
+"let g:lsp_log_file = expand('~/vim-lsp.log')
+"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 if executable('gopls')
   augroup LspGo
     au!
@@ -534,3 +539,104 @@ if executable('gopls')
     autocmd FileType go setlocal omnifunc=lsp#complete
   augroup END
 endif
+
+augroup MyAsyncomplete
+    autocmd!
+    "autocmd User lsp_setup call lsp#register_server({                                    
+    "\ 'name': 'php-language-server',                                            
+    "\ 'cmd': {server_info->['php', expand('~/.vim/bundle/repos/github.com/felixfbecker/php-language-server/bin/php-language-server.php')]},
+    "\ 'whitelist': ['php', 'php.test'],
+    "\ })
+    autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
+    \   'name': 'neosnippet',
+    \   'completor': function('asyncomplete#sources#neosnippet#completor'),
+    \   'whitelist': ['*'],
+    \ }))
+augroup END
+
+" =======================================================
+" -------------------> vim-gitgutter 
+" =======================================================
+
+let g:gitgutter_highlight_lines = 0
+let g:gitgutter_sign_removed = '-'
+highlight GitGutterAddLine gui=bold ctermbg=233
+highlight GitGutterChangeLine gui=bold ctermbg=233
+highlight GitGutterDeleteLine gui=bold ctermbg=52
+highlight GitGutterChangeDeleteLine gui=bold ctermbg=233
+highlight GitGutterAdd ctermbg=235 ctermfg=34
+highlight GitGutterChange ctermbg=235 ctermfg=3
+highlight GitGutterDelete ctermbg=235 ctermfg=124
+highlight GitGutterChangeDelete ctermbg=235 ctermfg=13
+
+
+" =======================================================
+" -------------------> NERD TREE
+" =======================================================
+
+let g:NERDTreeWinPos = "right"
+nmap <C-i> :<C-u>NERDTreeToggle<CR>
+let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI = 1
+highlight Directory guifg=#AAAAAA ctermfg=245 ctermbg=233
+
+" =======================================================
+" -------------------> Language Support
+" =======================================================
+
+"-------------------
+"emmet-vim (zencoding)
+"-------------------
+let g:user_emmet_expandabbr_key = '<c-e>'
+let g:user_emmet_expandword_key = '<c-e>'
+
+"-------------------
+"vim-go
+"-------------------
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+
+"-------------------
+"slimv (lisp)
+"-------------------
+let g:slimv_repl_split = 4
+let g:slimv_repl_name = 'REPL'
+let g:slimv_repl_simple_eval = 0
+"let g:slimv_lisp = '/usr/bin/clisp'
+let g:slimv_impl = 'clisp'
+let g:slimv_preferred = 'clisp'
+let g:lisp_rainbow=1
+let g:paredit_electric_return = 0
+au FileType lisp IndentGuidesDisable
+au FileType lisp inoremap ' '
+
+"-------------------
+"ghcmod.vim (haskell)
+"-------------------
+autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+let g:necoghc_enable_detailed_browse = 1
+hi ghcmodType ctermbg=lightcyan
+let g:ghcmod_type_highlight = 'ghcmodType'
+
+au BufNewFile,BufRead *.hs map <Leader>t :GhcModType<cr>
+au BufNewFile,BufRead *.hs map <Leader>tt :GhcModTypeClear<cr>
+let g:hoogle_search_count=15
+let g:hoogle_search_buf_name='Hoogle'
+au BufNewFile,BufRead *.hs map <silent> <leader>h :Hoogle<CR>
+au BufNewFile,BufRead *.hs map <buffer> <Leader>hh :HoogleClose<CR>
+
+au BufRead,BufNewFile *.qmu set filetype=qmu
+
+"php
+let g:php_baselib       = 1
+let g:php_htmlInStrings = 1
+
+" tsx
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+" Jenkinsfile
+au BufNewFile,BufRead Jenkinsfile setf groovy
+" antlr4
+autocmd BufNewFile,BufRead *.g4  set filetype=antlr
+" elm
+autocmd BufNewFile,BufRead *.elm  set filetype=elm
