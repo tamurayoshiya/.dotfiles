@@ -371,6 +371,8 @@ nnoremap <silent> [denite]o :<C-u> Denite outline<CR>
 nnoremap <silent> [denite]p :<C-u> Denite file_rec<CR>
 nnoremap <silent> [denite]h :<C-u> Denite command_history<CR>
 nnoremap <silent> [denite]c :<C-u> Denite colorscheme<CR>
+" denite-git
+nnoremap <silent> [denite]s :<C-u> Denite gitstatus<CR>
 
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort

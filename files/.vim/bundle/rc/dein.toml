@@ -125,6 +125,8 @@ repo =  'prabirshrestha/asyncomplete-neosnippet.vim'
 #    call system('composer install && composer run-script parse-stubs')
 #endif
 #'''
+[[plugins]]
+repo =  'chemzqm/denite-git'
 
 # ---------------------------------------
 # code jump (gtags)
