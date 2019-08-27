@@ -165,12 +165,12 @@ alias gbr="git branch"
 alias gpo="git push origin"
 alias gpom="git push origin master"
 
+## エイリアス - docker
+alias ds="docker ps"
+
 ## 上書き確認
 alias mv='mv -i'
 alias cp='cp -i'
-
-## git-archive-all
-alias git-archive-all='~/.dotfiles/git-archive-all'
 
 # cd && ll
 cd() {
