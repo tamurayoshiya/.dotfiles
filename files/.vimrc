@@ -642,3 +642,5 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 autocmd BufNewFile,BufRead *.g4  set filetype=antlr
 " elm
 autocmd BufNewFile,BufRead *.elm  set filetype=elm
+" reasonml
+autocmd BufNewFile,BufRead *.re set filetype=reasonml
