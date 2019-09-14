@@ -137,4 +137,4 @@ repo = 'ElmCast/elm-vim'
 on_ft = ['elm']
 [[plugins]]
 repo = 'reasonml-editor/vim-reason-plus'
-on_ft = ['reasonml']
+on_ft = ['reason']
