@@ -23,3 +23,6 @@
         * npm install -g elm elm-test elm-oracle elm-format
     * js/typescript
         * npm install -g typescript typescript-language-server
+    * vue
+        * https://github.com/posva/vim-vue
+            * npm i -g eslint eslint-plugin-vue

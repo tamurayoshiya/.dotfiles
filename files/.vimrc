@@ -642,3 +642,7 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 autocmd BufNewFile,BufRead *.g4  set filetype=antlr
 " elm
 autocmd BufNewFile,BufRead *.elm  set filetype=elm
+" vue
+let g:vue_disable_pre_processors=1
+autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.typescript.css

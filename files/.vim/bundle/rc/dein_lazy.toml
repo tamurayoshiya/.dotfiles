@@ -16,11 +16,11 @@ on_ft = ['vue']
 
 [[plugins]]
 repo = 'pangloss/vim-javascript'
-on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx']
+on_ft = ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx', 'vue']
 
 [[plugins]]
 repo = 'othree/yajs.vim'
-on_ft = ['javascript', 'javascript.jsx']
+on_ft = ['javascript', 'javascript.jsx', 'vue']
 [[plugins]]
 repo = 'othree/es.next.syntax.vim'
 on_ft = ['javascript', 'javascript.jsx']
