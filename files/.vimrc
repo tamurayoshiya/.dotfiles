@@ -431,13 +431,14 @@ let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
 let g:ale_keep_list_window_open = 0
-ret g:ale_reason_ls_executable='/Users/tamurayoshiya/.dotfiles/lib/reason-language-server/reason-language-server'
+let g:ale_reason_ls_executable='~/.dotfiles/lib/reason-language-server/reason-language-server'
 
 " 有効にするlinter
 let g:ale_linters = {
 \   'php': ['php', 'phpmd'],
 \   'go': ['gobuild', 'golint', 'gofmt'],
 \   'vue': ['tsserver'],
+\   'reason': ['reason-language-server'],
 \   'javascript': [],
 \   'typescript': ['tsserver'],
 \   'scss': []
@@ -527,7 +528,7 @@ let g:asyncomplete_enable_for_all = 1
 " vim-lsp
 "-------------------------------------
 " aleを使用するためlinterはoff
-let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_enabled = 0
 let g:lsp_log_verbose = 1
 " logは不要
 let g:lsp_log_file = expand('~/vim-lsp.log')
@@ -544,19 +545,29 @@ if executable('gopls')
   augroup END
 endif
 
-if executable('ocaml-language-server')
-    au User lsp_setup call lsp#register_server({
-      \ 'name': 'ocaml-language-server',
-      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'ocaml-language-server --stdio']},
-      \ 'whitelist': ['reason', 'ocaml'],
-      \ })
-endif
+""if executable('ocaml-language-server')
+""    augroup LspReason
+""        au!
+""        autocmd  User lsp_setup call lsp#register_server({
+""          \ 'name': 'ocaml-language-server',
+""          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'ocaml-language-server --stdio']},
+""          \ 'whitelist': ['reason', 'ocaml'],
+""          \ })
+""    augroup END
+""endif
 
-"au User lsp_setup call lsp#register_server({
-"    \ 'name': 'reason-language-server',
-"    \ 'cmd': ['/Users/tamurayoshiya/.dotfiles/lib/reason-language-server/reason-language-server'],
-"    \ 'whitelist': ['reason', 'merlin'],
-""    \})
+let reasonls = '~/.dotfiles/lib/reason-language-server/reason-language-server'
+if executable(reasonls)
+    augroup LspReason
+        au!
+        autocmd  User lsp_setup call lsp#register_server({
+            \ 'name': 'reason-language-server',
+            \ 'cmd': [reasonls],
+            \ 'whitelist': ['reason', 'merlin'],
+            \})
+    autocmd FileType reason setlocal omnifunc=lsp#complete 
+    augroup END
+endif
 
 augroup MyAsyncomplete
     autocmd!
