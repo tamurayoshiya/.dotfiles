@@ -431,6 +431,7 @@ let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
 let g:ale_keep_list_window_open = 0
+ret g:ale_reason_ls_executable='/Users/tamurayoshiya/.dotfiles/lib/reason-language-server/reason-language-server'
 
 " 有効にするlinter
 let g:ale_linters = {
@@ -441,6 +442,7 @@ let g:ale_linters = {
 \   'typescript': ['tsserver'],
 \   'scss': []
 \}
+
 "let g:ale_linter_aliases = {'vue': 'typescript'}
 "let g:ale_typescript_tsserver_use_global = 1
 " ALE用プレフィックス
@@ -525,11 +527,11 @@ let g:asyncomplete_enable_for_all = 1
 " vim-lsp
 "-------------------------------------
 " aleを使用するためlinterはoff
-let g:lsp_diagnostics_enabled = 0
+let g:lsp_diagnostics_enabled = 1
 let g:lsp_log_verbose = 1
 " logは不要
-"let g:lsp_log_file = expand('~/vim-lsp.log')
-"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+let g:lsp_log_file = expand('~/vim-lsp.log')
+let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 if executable('gopls')
   augroup LspGo
     au!
@@ -538,9 +540,23 @@ if executable('gopls')
         \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
         \ 'whitelist': ['go'],
         \ })
-    autocmd FileType go setlocal omnifunc=lsp#complete
+    autocmd FileType go setlocal omnifunc=lsp#complete 
   augroup END
 endif
+
+if executable('ocaml-language-server')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'ocaml-language-server',
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'ocaml-language-server --stdio']},
+      \ 'whitelist': ['reason', 'ocaml'],
+      \ })
+endif
+
+"au User lsp_setup call lsp#register_server({
+"    \ 'name': 'reason-language-server',
+"    \ 'cmd': ['/Users/tamurayoshiya/.dotfiles/lib/reason-language-server/reason-language-server'],
+"    \ 'whitelist': ['reason', 'merlin'],
+""    \})
 
 augroup MyAsyncomplete
     autocmd!
@@ -555,6 +571,7 @@ augroup MyAsyncomplete
     \   'whitelist': ['*'],
     \ }))
 augroup END
+
 
 " =======================================================
 " -------------------> vim-gitgutter 
