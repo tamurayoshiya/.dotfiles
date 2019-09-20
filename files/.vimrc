@@ -531,8 +531,8 @@ let g:asyncomplete_enable_for_all = 1
 let g:lsp_diagnostics_enabled = 0
 let g:lsp_log_verbose = 1
 " logは不要
-let g:lsp_log_file = expand('~/vim-lsp.log')
-let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+"let g:lsp_log_file = expand('~/vim-lsp.log')
+"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 if executable('gopls')
   augroup LspGo
     au!
