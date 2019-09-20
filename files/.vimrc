@@ -444,6 +444,13 @@ let g:ale_linters = {
 \   'scss': []
 \}
 
+" In ~/.vim/vimrc, or somewhere similar.
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'reason': ['refmt'],
+\}
+let g:ale_fix_on_save = 1
+
 "let g:ale_linter_aliases = {'vue': 'typescript'}
 "let g:ale_typescript_tsserver_use_global = 1
 " ALE用プレフィックス
