@@ -71,7 +71,6 @@ highlight TabLineFill ctermfg=238 ctermbg=236
 highlight StatusLine ctermfg=243 ctermbg=236
 highlight StatusLineNC ctermfg=240 ctermbg=234
 " color of pane splitter
-set fillchars+=vert:\ 
 set foldcolumn=0
 highlight foldcolumn ctermbg=236 guibg=NONE
 highlight VertSplit ctermbg=236 guibg=NONE guifg=NONE
@@ -133,7 +132,7 @@ set ignorecase
 set smartcase
 "インサートモードでバックスペースで削除出来るように
 set backspace=start,eol,indent
-" :W sudo saves the file 
+" :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 " Turn on the WiLd menu
@@ -144,7 +143,7 @@ set ruler
 " Highlight search results
 set hlsearch
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2"
 
@@ -246,6 +245,7 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.yml setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.html setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.re setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 "-------------------------------------
@@ -283,7 +283,7 @@ set statusline+=[%{&fileencoding}]
 " 現在行数/全行数
 set statusline+=[row=%l/%L]
 " ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
-set laststatus=2 
+set laststatus=2
 
 " =======================================================
 " -------------------> tab
@@ -548,7 +548,7 @@ if executable('gopls')
         \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
         \ 'whitelist': ['go'],
         \ })
-    autocmd FileType go setlocal omnifunc=lsp#complete 
+    autocmd FileType go setlocal omnifunc=lsp#complete
   augroup END
 endif
 
@@ -572,14 +572,14 @@ if executable(reasonls)
             \ 'cmd': [reasonls],
             \ 'whitelist': ['reason', 'merlin'],
             \})
-    autocmd FileType reason setlocal omnifunc=lsp#complete 
+    autocmd FileType reason setlocal omnifunc=lsp#complete
     augroup END
 endif
 
 augroup MyAsyncomplete
     autocmd!
-    "autocmd User lsp_setup call lsp#register_server({                                    
-    "\ 'name': 'php-language-server',                                            
+    "autocmd User lsp_setup call lsp#register_server({
+    "\ 'name': 'php-language-server',
     "\ 'cmd': {server_info->['php', expand('~/.vim/bundle/repos/github.com/felixfbecker/php-language-server/bin/php-language-server.php')]},
     "\ 'whitelist': ['php', 'php.test'],
     "\ })
@@ -592,7 +592,7 @@ augroup END
 
 
 " =======================================================
-" -------------------> vim-gitgutter 
+" -------------------> vim-gitgutter
 " =======================================================
 
 let g:gitgutter_highlight_lines = 0

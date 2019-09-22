@@ -28,7 +28,6 @@ on_ft = ['javascript', 'javascript.jsx']
 repo = 'othree/javascript-libraries-syntax.vim'
 on_ft = ['javascript', 'javascript.jsx']
 
-
 # Language Support: TypeScript
 [[plugins]]
 repo  = 'Quramy/tsuquyomi'
