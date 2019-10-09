@@ -135,5 +135,5 @@ on_ft = ['antlr']
 repo = 'ElmCast/elm-vim'
 on_ft = ['elm']
 [[plugins]]
-repo = 'reasonml-editor/vim-reason-plus'
+repo = 'jordwalke/vim-reasonml'
 on_ft = ['reason']
