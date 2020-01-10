@@ -431,7 +431,9 @@ let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
 let g:ale_keep_list_window_open = 0
-let g:ale_reason_ls_executable='~/.dotfiles/lib/reason-language-server/reason-language-server'
+
+" TODO: 絶対パスでないとダメなようだがマシン固有のパスを取り除く
+let g:ale_reason_ls_executable='/Users/tamurayoshiya/.dotfiles/lib/reason-language-server/reason-language-server'
 
 " 有効にするlinter
 let g:ale_linters = {
@@ -552,29 +554,29 @@ if executable('gopls')
   augroup END
 endif
 
-""if executable('ocaml-language-server')
-""    augroup LspReason
-""        au!
-""        autocmd  User lsp_setup call lsp#register_server({
-""          \ 'name': 'ocaml-language-server',
-""          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'ocaml-language-server --stdio']},
-""          \ 'whitelist': ['reason', 'ocaml'],
-""          \ })
-""    augroup END
-""endif
-
-let reasonls = '~/.dotfiles/lib/reason-language-server/reason-language-server'
-if executable(reasonls)
+if executable('ocaml-language-server')
     augroup LspReason
         au!
         autocmd  User lsp_setup call lsp#register_server({
-            \ 'name': 'reason-language-server',
-            \ 'cmd': [reasonls],
-            \ 'whitelist': ['reason', 'merlin'],
-            \})
-    autocmd FileType reason setlocal omnifunc=lsp#complete
+          \ 'name': 'ocaml-language-server',
+          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'ocaml-language-server --stdio']},
+          \ 'whitelist': ['reason', 'ocaml'],
+          \ })
     augroup END
 endif
+
+""let reasonls = '~/.dotfiles/lib/reason-language-server/reason-language-server'
+""if executable(reasonls)
+""    augroup LspReason
+""        au!
+""        autocmd  User lsp_setup call lsp#register_server({
+""            \ 'name': 'reason-language-server',
+""            \ 'cmd': [reasonls],
+""            \ 'whitelist': ['reason', 'merlin'],
+""            \})
+""    autocmd FileType reason setlocal omnifunc=lsp#complete
+""    augroup END
+""endif
 
 augroup MyAsyncomplete
     autocmd!

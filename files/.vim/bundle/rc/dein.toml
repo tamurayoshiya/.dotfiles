@@ -67,7 +67,7 @@ hook_post_update = '''
 # denite
 # ---------------------------------------
 
-[[plugins]]                               
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 depends = ['neomru.vim']
 on_event = 'BufRead'
@@ -171,4 +171,3 @@ repo = 'gosukiwi/vim-atom-dark'
 repo = 'kristijanhusak/vim-hybrid-material'
 [[plugins]]
 repo = 'connorholyday/vim-snazzy'
-
