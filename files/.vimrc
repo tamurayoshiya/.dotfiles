@@ -552,18 +552,18 @@ if executable('gopls')
   augroup END
 endif
 
-let reasonls = $HOME . '/.dotfiles/lib/reason-language-server/reason-language-server'
-if executable(reasonls)
-    augroup LspReason
-        au!
-        autocmd  User lsp_setup call lsp#register_server({
-            \ 'name': 'reason-language-server',
-            \ 'cmd': [reasonls],
-            \ 'whitelist': ['reason', 'merlin'],
-            \})
-    autocmd FileType reason setlocal omnifunc=lsp#complete
-    augroup END
-endif
+""let reasonls = $HOME . '/.dotfiles/lib/reason-language-server/reason-language-server'
+""if executable(reasonls)
+""    augroup LspReason
+""        au!
+""        autocmd  User lsp_setup call lsp#register_server({
+""            \ 'name': 'reason-language-server',
+""            \ 'cmd': [reasonls],
+""            \ 'whitelist': ['reason', 'merlin'],
+""            \})
+""    autocmd FileType reason setlocal omnifunc=lsp#complete
+""    augroup END
+""endif
 
 augroup MyAsyncomplete
     autocmd!
