@@ -478,7 +478,7 @@ let g:ale_fixers = {
 let g:coc_global_extensions = [
             \ 'coc-snippets',
             \ 'coc-tsserver',
-            \ 'coc-eslint',
+            \ 'coc-html',
             \ 'coc-prettier',
             \ 'coc-json',
             \ 'coc-phpls',
@@ -512,6 +512,8 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 "-------------------
 let g:user_emmet_expandabbr_key = '<c-e>'
 let g:user_emmet_expandword_key = '<c-e>'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,php,reason EmmetInstall
 
 "-------------------
 "vim-go
