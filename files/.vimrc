@@ -63,6 +63,7 @@ set background=dark
 "colorscheme molokai
 "colorscheme hybrid_material
 "colorscheme snazzy
+"colorscheme gruvbox
 colorscheme molokai
 
 " tab color
@@ -84,6 +85,8 @@ highlight Normal ctermbg=none guibg=NONE
 " markdownのハイライトを有効にする
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
+
+highlight Pmenu ctermbg=235 guibg=235
 
 " =======================================================
 " -------------------> fundamentals
@@ -498,14 +501,15 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nnoremap <silent> go  :<C-u>CocList diagnostics<cr>
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 "-------------------
 "emmet-vim (zencoding)

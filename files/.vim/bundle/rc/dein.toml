@@ -122,3 +122,5 @@ repo = 'gosukiwi/vim-atom-dark'
 repo = 'kristijanhusak/vim-hybrid-material'
 [[plugins]]
 repo = 'connorholyday/vim-snazzy'
+[[plugins]]
+repo = 'morhetz/gruvbox'
