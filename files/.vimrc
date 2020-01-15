@@ -458,6 +458,18 @@ highlight Directory guifg=#AAAAAA ctermfg=245 ctermbg=233
 " =======================================================
 
 "-------------------
+" ALE
+"-------------------
+
+" ale fixのみ使用する
+let g:ale_enabled = 0
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'reason': ['refmt'],
+\}
+
+"-------------------
 " coc.nvim
 "-------------------
 

@@ -47,6 +47,8 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'scrooloose/nerdtree'
 [[plugins]]
 repo = 'Xuyuanp/nerdtree-git-plugin'
+[[plugins]]
+repo = 'w0rp/ale'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
