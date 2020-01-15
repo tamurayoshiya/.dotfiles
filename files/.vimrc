@@ -191,8 +191,6 @@ inoremap <silent> jj <ESC>l
 inoremap <silent> <C-j> <ESC>
 "勝手に改行させない
 set formatoptions=q
-" coffeeの場合インデント2
-autocmd FileType coffee    setlocal sw=2 sts=2 ts=2 et
 " ファイル形式の検出の有効化する
 " ファイル形式別プラグインのロードを有効化する
 " ファイル形式別インデントのロードを有効化する
@@ -215,7 +213,7 @@ autocmd CursorMoved * set nopaste
 
 " set <Space> for Leader
 " http://postd.cc/how-to-boost-your-vim-productivity/
-let mapleader = "."
+"let mapleader = "."
 
 " http://qiita.com/szk3/items/e33df9acea5050f29a07
 set synmaxcol=1000
@@ -407,96 +405,6 @@ let g:neomru#file_mru_limit = 200
 let g:neomru#directory_mru_limit = 200
 
 " =======================================================
-" -------------------> linter (ale)
-" =======================================================
-
-" エラー行に表示するマーク
-let g:ale_sign_error = '=>'
-let g:ale_sign_warning = '>'
-" エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" エラー表示の列を常時表示
-let g:ale_sign_column_always = 1
-
-" ファイルを開いたときにlint実行
-let g:ale_lint_on_enter = 1
-" ファイルを保存したときにlint実行
-let g:ale_lint_on_save = 1
-" 編集中のlintはしない
-let g:ale_lint_on_text_changed = 'never'
-
-" lint結果をロケーションリストとQuickFixには表示しない
-" 出てると結構うざいしQuickFixを書き換えられるのは困る
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 0
-let g:ale_open_list = 0
-let g:ale_keep_list_window_open = 0
-let g:ale_reason_ls_executable = $HOME . '/.dotfiles/lib/reason-language-server/reason-language-server'
-
-" 有効にするlinter
-let g:ale_linters = {
-\   'php': ['php', 'phpmd'],
-\   'go': ['gobuild', 'golint', 'gofmt'],
-\   'vue': ['tsserver'],
-\   'reason': ['reason-language-server'],
-\   'javascript': [],
-\   'typescript': ['tsserver'],
-\   'scss': []
-\}
-
-" In ~/.vim/vimrc, or somewhere similar.
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'reason': ['refmt'],
-\}
-let g:ale_fix_on_save = 1
-
-"let g:ale_linter_aliases = {'vue': 'typescript'}
-"let g:ale_typescript_tsserver_use_global = 1
-" ALE用プレフィックス
-nmap [ale] <Nop>
-map <C-y> [ale]
-" エラー行にジャンプ
-nmap <silent> [ale]<C-P> <Plug>(ale_previous)
-nmap <silent> [ale]<C-N> <Plug>(ale_next)
-
-let g:ale_set_highlights = 1
-highlight ALEErrorSign gui=bold ctermfg=15 ctermbg=160
-highlight ALEWarningSign gui=bold ctermfg=241
-
-
-" =======================================================
-" -------------------> code jump (gtags)
-" =======================================================
-
-"-------------------------------------
-" lighttiger2505/gtags.vim
-"-------------------------------------
-let g:Gtags_Auto_Map = 0
-let g:Gtags_OpenQuickfixWindow = 1
-" Show definetion of function cousor word on quickfix
-nmap <silent> K :<C-u>exe("Gtags ".expand('<cword>'))<CR>
-" Show reference of cousor word on quickfix
-nmap <silent> R :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>''
-
-"-------------------------------------
-" jsfaint/gen_tags.vim
-"-------------------------------------
-" Generate gtags in background
-let g:gen_tags#gtags_auto_gen = 1
-" Do not use cache dir, store tags in git dir
-let g:gen_tags#use_cache_dir = 0
-
-"-------------------------------------
-" ozelentok/denite-gtags
-"-------------------------------------
-noremap [denite-gtags]  <Nop>
-nmap ,t [denite-gtags]
-nnoremap [denite-gtags]d :<C-u>DeniteCursorWord -buffer-name=gtags_def gtags_def<CR>
-nnoremap [denite-gtags]r :<C-u>DeniteCursorWord -buffer-name=gtags_ref gtags_ref<CR>
-nnoremap [denite-gtags]c :<C-u>DeniteCursorWord -buffer-name=gtags_context gtags_context<CR>
-
-" =======================================================
 " -------------------> neosnippet
 " =======================================================
 
@@ -517,67 +425,6 @@ endif
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.dotfiles/files/.vim/snippets/'
 let g:neosnippet#disable_runtime_snippets = {'_' : 1}
-
-" =======================================================
-" -------------------> completion
-" =======================================================
-
-"-------------------------------------
-" prabirshrestha/asyncomplete.vim
-"-------------------------------------
-let g:asyncomplete_auto_popup = 0
-imap <C-f> <Plug>(asyncomplete_force_refresh)
-set completeopt-=preview
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-let g:asyncomplete_enable_for_all = 1
-
-"-------------------------------------
-" vim-lsp
-"-------------------------------------
-" aleを使用するためlinterはoff
-let g:lsp_diagnostics_enabled = 0
-let g:lsp_log_verbose = 1
-" logは不要
-"let g:lsp_log_file = expand('~/vim-lsp.log')
-"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
-if executable('gopls')
-  augroup LspGo
-    au!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'go-lang',
-        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-        \ 'whitelist': ['go'],
-        \ })
-    autocmd FileType go setlocal omnifunc=lsp#complete
-  augroup END
-endif
-
-""let reasonls = $HOME . '/.dotfiles/lib/reason-language-server/reason-language-server'
-""if executable(reasonls)
-""    augroup LspReason
-""        au!
-""        autocmd  User lsp_setup call lsp#register_server({
-""            \ 'name': 'reason-language-server',
-""            \ 'cmd': [reasonls],
-""            \ 'whitelist': ['reason', 'merlin'],
-""            \})
-""    autocmd FileType reason setlocal omnifunc=lsp#complete
-""    augroup END
-""endif
-
-augroup MyAsyncomplete
-    autocmd!
-    "autocmd User lsp_setup call lsp#register_server({
-    "\ 'name': 'php-language-server',
-    "\ 'cmd': {server_info->['php', expand('~/.vim/bundle/repos/github.com/felixfbecker/php-language-server/bin/php-language-server.php')]},
-    "\ 'whitelist': ['php', 'php.test'],
-    "\ })
-    autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
-    \   'name': 'neosnippet',
-    \   'completor': function('asyncomplete#sources#neosnippet#completor'),
-    \   'whitelist': ['*'],
-    \ }))
-augroup END
 
 
 " =======================================================
@@ -609,6 +456,37 @@ highlight Directory guifg=#AAAAAA ctermfg=245 ctermbg=233
 " =======================================================
 " -------------------> Language Support
 " =======================================================
+
+"-------------------
+" coc.nvim
+"-------------------
+
+" プラグイン（自動でアップデートされる）
+" https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#update-extensions
+let g:coc_global_extensions = [
+            \ 'coc-snippets',
+            \ 'coc-tsserver',
+            \ 'coc-eslint',
+            \ 'coc-prettier',
+            \ 'coc-json',
+            \ 'coc-phpls',
+            \ 'coc-reason',
+            \ 'coc-go',
+\ ]
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gn <Plug>(coc-rename)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"<Paste>
 
 "-------------------
 "emmet-vim (zencoding)
@@ -670,3 +548,5 @@ autocmd BufNewFile,BufRead *.elm  set filetype=elm
 let g:vue_disable_pre_processors=1
 autocmd FileType vue syntax sync fromstart
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.typescript.css
+" coffee
+autocmd FileType coffee    setlocal sw=2 sts=2 ts=2 et

@@ -44,9 +44,9 @@ repo = 'vim-scripts/AnsiEsc.vim'
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 [[plugins]]
-repo = 'w0rp/ale'
-[[plugins]]
 repo = 'scrooloose/nerdtree'
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -62,6 +62,12 @@ hook_post_update = '''
     endif
     let g:dein#plugin.build = cmd
 '''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+on_i = 1
+merged = '0'
 
 # ---------------------------------------
 # denite
@@ -79,65 +85,8 @@ hook_post_source = '''
     call denite#custom#var('grep', 'default_opts', [])
     call denite#custom#var('grep', 'recursive_opts', [])
 '''
-
-# ---------------------------------------
-# deoplete and other completion plugins
-# ---------------------------------------
-
-#[[plugins]]
-#repo = 'Shougo/deoplete.nvim'
-#if = "has('nvim')"
-#on_i = 1
-#on_event = 'InsertCharPre'
-##hook_source = '''
-#  let g:deoplete#enable_at_startup = 1
-#  let g:deoplete#auto_complete_start_length = 1
-#  let g:deoplete#enable_camel_case = 0
-#  let g:deoplete#enable_ignore_case = 0
-#  let g:deoplete#enable_refresh_always = 1
-#  let g:deoplete#enable_smart_case = 1
-#  let g:deoplete#file#enable_buffer_path = 1
-#  let g:deoplete#max_list = 10000
-#  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-#        \ neosnippet#expandable_or_jumpable() ?
-#        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-#'''
-
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-[[plugins]]
-repo =  'prabirshrestha/asyncomplete.vim'
-[[plugins]]
-repo =  'prabirshrestha/asyncomplete-lsp.vim'
-[[plugins]]
-repo =  'prabirshrestha/asyncomplete-file.vim'
-[[plugins]]
-repo =  'natebosch/vim-lsc'
-[[plugins]]
-repo =  'prabirshrestha/asyncomplete-neosnippet.vim'
-#[[plugins]]
-# https://github.com/prabirshrestha/vim-lsp/wiki/Servers-PHP
-#repo =  'felixfbecker/php-language-server'
-#hook_post_update = '''
-#if executable('php') && executable('composer')
-#    call system('composer install && composer run-script parse-stubs')
-#endif
-#'''
 [[plugins]]
 repo =  'chemzqm/denite-git'
-
-# ---------------------------------------
-# code jump (gtags)
-# ---------------------------------------
-
-[[plugins]]
-repo = 'lighttiger2505/gtags.vim'
-[[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-[[plugins]]
-repo = 'ozelentok/denite-gtags'
 
 # ---------------------------------------
 # themes
