@@ -193,7 +193,8 @@ inoremap <silent> jj <ESC>l
 "インサートモードでcountrol + jを押下するとESC
 inoremap <silent> <C-j> <ESC>
 "勝手に改行させない
-set formatoptions=q
+"set formatoptions=q
+set formatoptions+=or
 " ファイル形式の検出の有効化する
 " ファイル形式別プラグインのロードを有効化する
 " ファイル形式別インデントのロードを有効化する
@@ -374,6 +375,7 @@ nnoremap <silent> [denite]h :<C-u> Denite command_history<CR>
 nnoremap <silent> [denite]c :<C-u> Denite colorscheme<CR>
 " denite-git
 nnoremap <silent> [denite]s :<C-u> Denite gitstatus<CR>
+nnoremap <silent> [denite]j :<C-u>DeniteCursorWord grep:.<CR>
 
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
@@ -454,6 +456,7 @@ let g:NERDTreeWinPos = "right"
 nmap <C-i> :<C-u>NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
+let NERDTreeShowBookmarks = 1
 highlight Directory guifg=#AAAAAA ctermfg=245 ctermbg=233
 
 " =======================================================
