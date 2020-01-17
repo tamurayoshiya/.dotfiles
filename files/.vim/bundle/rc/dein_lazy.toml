@@ -137,3 +137,6 @@ on_ft = ['elm']
 [[plugins]]
 repo = 'reasonml-editor/vim-reason-plus'
 on_ft = ['reason']
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = ['tf', 'terraform']

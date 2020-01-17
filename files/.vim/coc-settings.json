@@ -2,6 +2,13 @@
     "suggest.noselect": true,
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "languageserver": {
+        "reason": {
+            "command": "~/.dotfiles/lib/reason-language-server/reason-language-server-darwin",
+            "filetypes": ["reason"]
+        },
+        "terraform": {
+            "command": "~/.dotfiles/lib/terraform-lsp/terraform-lsp-darwin",
+            "filetypes": ["terraform"],
+        }
     },
-    "python.jediEnabled": false
 }

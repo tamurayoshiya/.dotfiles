@@ -488,7 +488,6 @@ let g:coc_global_extensions = [
             \ 'coc-prettier',
             \ 'coc-json',
             \ 'coc-phpls',
-            \ 'coc-reason',
             \ 'coc-go',
 \ ]
 
