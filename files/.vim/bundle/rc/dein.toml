@@ -95,32 +95,8 @@ repo =  'chemzqm/denite-git'
 # ---------------------------------------
 
 [[plugins]]
-repo = 'iCyMind/NeoSolarized'
-[[plugins]]
-repo = 'zcodes/vim-colors-basic'
-[[plugins]]
-repo = 'NLKNguyen/papercolor-theme'
-[[plugins]]
-repo = 'rakr/vim-one'
-[[plugins]]
-repo = 'jacoborus/tender.vim'
-[[plugins]]
-repo = 'hauleth/blame.vim'
-[[plugins]]
-repo = 'raphamorim/lucario'
-[[plugins]]
-repo = 'dikiaap/minimalist'
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
-[[plugins]]
-repo = 'sonph/onehalf'
-[[plugins]]
-repo = 'dracula/vim'
-[[plugins]]
-repo = 'gosukiwi/vim-atom-dark'
-[[plugins]]
 repo = 'kristijanhusak/vim-hybrid-material'
 [[plugins]]
-repo = 'connorholyday/vim-snazzy'
-[[plugins]]
 repo = 'morhetz/gruvbox'
+[[plugins]]
+repo = 'danilo-augusto/vim-afterglow'

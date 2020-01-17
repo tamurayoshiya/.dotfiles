@@ -56,15 +56,11 @@ let g:molokai_original = 1
 
 "===== dark theme
 set background=dark
-"colorscheme minimalist
-"colorscheme libertine
-"colorscheme NeoSolarized
-"colorscheme iceberg
 "colorscheme molokai
 "colorscheme hybrid_material
-"colorscheme snazzy
 "colorscheme gruvbox
-colorscheme molokai
+"colorscheme afterglow
+colorscheme afterglow
 
 " tab color
 highlight TabLineFill ctermfg=238 ctermbg=236
@@ -86,7 +82,7 @@ highlight Normal ctermbg=none guibg=NONE
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
-highlight Pmenu ctermbg=235 guibg=235
+highlight Pmenu ctermbg=237 guibg=237
 
 " =======================================================
 " -------------------> fundamentals
