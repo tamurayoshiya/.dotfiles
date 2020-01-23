@@ -60,7 +60,7 @@ set background=dark
 "colorscheme hybrid_material
 "colorscheme gruvbox
 "colorscheme afterglow
-colorscheme afterglow
+colorscheme hybrid_material
 
 " tab color
 highlight TabLineFill ctermfg=238 ctermbg=236
@@ -438,10 +438,10 @@ highlight GitGutterAddLine gui=bold ctermbg=233
 highlight GitGutterChangeLine gui=bold ctermbg=233
 highlight GitGutterDeleteLine gui=bold ctermbg=52
 highlight GitGutterChangeDeleteLine gui=bold ctermbg=233
-highlight GitGutterAdd ctermbg=235 ctermfg=34
-highlight GitGutterChange ctermbg=235 ctermfg=3
-highlight GitGutterDelete ctermbg=235 ctermfg=124
-highlight GitGutterChangeDelete ctermbg=235 ctermfg=13
+highlight GitGutterAdd ctermbg=none ctermfg=34
+highlight GitGutterChange ctermbg=none ctermfg=3
+highlight GitGutterDelete ctermbg=none ctermfg=124
+highlight GitGutterChangeDelete ctermbg=none ctermfg=13
 
 
 " =======================================================
