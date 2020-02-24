@@ -19,3 +19,10 @@ options word
 snippet style
 options word
     style={ReactDOMRe.Style.make(~fontSize="1rem", ())}
+
+snippet switch
+options word
+    switch(${1}) {
+    | Some(${2}) => ()
+    | None => ()
+    }
