@@ -11,5 +11,5 @@
             "filetypes": ["terraform"],
         }
     },
-    "coc.preferences.formatOnType": true
+    "coc.preferences.formatOnType": true,
 }
