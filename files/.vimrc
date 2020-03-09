@@ -172,18 +172,6 @@ nmap <C-/><C-/> :TComment
 set softtabstop=4
 set shiftwidth=4
 
-"閉じタグ補完
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-vnoremap { "zdi^V{<C-R>z}<ESC>
-vnoremap [ "zdi^V[<C-R>z]<ESC>
-vnoremap ( "zdi^V(<C-R>z)<ESC>
-vnoremap " "zdi^V"<C-R>z^V"<ESC>
-vnoremap ' "zdi'<C-R>z'<ESC>
-
 "インサートモードでjjを押下するとESC相当 + l相当
 inoremap <silent> jj <ESC>l
 "インサートモードでcountrol + jを押下するとESC
@@ -475,7 +463,7 @@ let g:ale_fixers = {
 " coc.nvim
 "-------------------
 
-" プラグイン（自動でアップデートされる）
+" プラグイン（自動アップデート）
 " https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#update-extensions
 let g:coc_global_extensions = [
             \ 'coc-snippets',
@@ -485,7 +473,13 @@ let g:coc_global_extensions = [
             \ 'coc-json',
             \ 'coc-phpls',
             \ 'coc-go',
+            \ 'coc-rls',
+            \ 'coc-pairs',
 \ ]
+
+" coc-pairs
+" https://qiita.com/maguro_tuna/items/70814d99aef8f1ddc8e9
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
