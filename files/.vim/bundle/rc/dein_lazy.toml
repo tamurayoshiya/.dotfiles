@@ -98,6 +98,14 @@ on_ft = ['haskell']
 repo = 'neovimhaskell/haskell-vim'
 on_ft = ['haskell']
 
+# Language Support: Rust
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+hook_add = '''
+let g:rustfmt_autosave = 1
+'''
+on_ft = ['rust']
+
 # Language Support: Clojure
 [[plugins]]
 repo = 'guns/vim-clojure-static'
