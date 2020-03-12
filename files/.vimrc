@@ -201,7 +201,7 @@ autocmd CursorMoved * set nopaste
 
 " set <Space> for Leader
 " http://postd.cc/how-to-boost-your-vim-productivity/
-"let mapleader = "."
+let mapleader = "."
 
 " http://qiita.com/szk3/items/e33df9acea5050f29a07
 set synmaxcol=1000

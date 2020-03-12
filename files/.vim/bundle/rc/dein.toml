@@ -74,6 +74,9 @@ merged = '0'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+[[plugins]]
+repo = 'pechorin/any-jump.vim'
+
 # ---------------------------------------
 # denite
 # ---------------------------------------

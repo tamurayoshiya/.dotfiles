@@ -10,9 +10,14 @@
 * rg
 * GNU global
     * Pygments
-    
+* any-jump
+    * https://github.com/pechorin/any-jump.vim
+    * ripgrep
+        * ```$ cargo install ripgrep --features pcre2```
+        * https://github.com/pechorin/any-jump.vim/issues/14#issuecomment-596218890
+
 #### language support
-    
+
 * php
     * php
     * composer
@@ -29,10 +34,10 @@
 * vue
     * https://github.com/posva/vim-vue
         * npm i -g eslint eslint-plugin-vue
-        
-        
+
+
 ##### ReasonML
-        
+
 ```
 $ npm i -g bs-platform
 $ brew install ocaml
@@ -41,4 +46,4 @@ $ opam init
 $ opam install merlin
 $ npm install -g reason-cli@latest-macos
 $ npm install -g ocaml-language-server
-``` 
+```
