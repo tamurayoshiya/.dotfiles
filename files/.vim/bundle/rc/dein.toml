@@ -49,6 +49,8 @@ repo = 'scrooloose/nerdtree'
 repo = 'Xuyuanp/nerdtree-git-plugin'
 [[plugins]]
 repo = 'w0rp/ale'
+[[plugins]]
+repo = 'ap/vim-css-color'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -100,6 +102,8 @@ repo =  'chemzqm/denite-git'
 # themes
 # ---------------------------------------
 
+[[plugins]]
+repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'kristijanhusak/vim-hybrid-material'
 [[plugins]]

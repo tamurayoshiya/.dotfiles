@@ -84,6 +84,16 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 highlight Pmenu ctermbg=237 guibg=237
 
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 " =======================================================
 " -------------------> fundamentals
 " =======================================================
