@@ -451,6 +451,7 @@ nmap <C-i> :<C-u>NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeShowBookmarks = 1
+let NERDTreeWinSize=36
 highlight Directory guifg=#AAAAAA ctermfg=245 ctermbg=233
 
 " =======================================================
