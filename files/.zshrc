@@ -300,7 +300,7 @@ function soft_rm()
         fnf=`date '+%y%m%d%H%M%S'`
         fnc="${fnf}_${fn2}"
         mv $file /tmp/.trash/$USER/$d/$fnc
-        
+
     done
 }
 alias rm="soft_rm"
@@ -321,4 +321,3 @@ if [ `which peco` ]; then
 	anyframe-init
 fi
 alias h=anyframe-widget-execute-history
-

@@ -1,0 +1,183 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/Users/tamurayoshiya/
+	..
+1587985775
+'b
+	/Users/tamurayoshiya/bin/
+	..
+1587985775
+'h
+	/Users/tamurayoshiya/
+	..
+1587985775
+'z
+	/Users/tamurayoshiya/.config/vifm
+	..
+1587985775
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/Users/tamurayoshiya/projects/ustedkouahkinn
+	ops
+3
+d/Users/tamurayoshiya/projects/ustedkouahkinn/ops
+	ansible
+1
+d/Users/tamurayoshiya/projects/ustedkouahkinn/ops/ansible
+	..
+0
+d/Users/tamurayoshiya/projects/ustedkouahkinn/ops
+	..
+0
+d/Users/tamurayoshiya/projects/ustedkouahkinn
+	..
+0
+d/Users/tamurayoshiya/projects
+	..
+0
+d/Users/tamurayoshiya
+	alacritty
+13
+d/Users/tamurayoshiya/alacritty
+	copypasta
+2
+d/Users/tamurayoshiya
+	alacritty
+13
+d/Users
+	tamurayoshiya
+3
+d/
+	home
+9
+d/home
+	..
+0
+d/
+	Users
+3
+d/Users
+	tamurayoshiya
+3
+d/Users/tamurayoshiya
+	alacritty
+13
+d/Users/tamurayoshiya/alacritty
+	copypasta
+2
+d/Users/tamurayoshiya/alacritty/copypasta
+	..
+0
+d/Users/tamurayoshiya/alacritty
+	copypasta
+2
+d/Users/tamurayoshiya
+	alacritty
+13
+d/Users/tamurayoshiya/alacritty
+	copypasta
+2
+d/Users/tamurayoshiya/alacritty/copypasta
+	..
+0
+d/Users/tamurayoshiya/alacritty
+	src
+9
+d/Users/tamurayoshiya/alacritty/src
+	..
+0
+d/Users/tamurayoshiya/alacritty
+	servo-freetype-proxy
+7
+d/Users/tamurayoshiya
+	projects
+14
+d/Users/tamurayoshiya/projects
+	kamikami
+13
+d/Users/tamurayoshiya/projects/kamikami
+	circle.yml
+7
+d/Users/tamurayoshiya/projects
+	kamikami
+13
+d/Users/tamurayoshiya/projects/kamikami
+	node_modules
+3
+d/Users/tamurayoshiya/projects/kamikami/node_modules
+	..
+0
+d/Users/tamurayoshiya/projects/kamikami
+	ops
+4
+d/Users/tamurayoshiya/projects/kamikami/ops
+	..
+0
+d/Users/tamurayoshiya/projects/kamikami
+	ops
+4
+d/Users/tamurayoshiya/projects/kamikami/ops
+	..
+0
+d/Users/tamurayoshiya/projects/kamikami
+	mcc.yml
+8
+d
+
+# Right window history (oldest to newest):
+D/Users/tamurayoshiya/projects/ustedkouahkinn
+	..
+0
+D/Users/tamurayoshiya/projects
+	ustedkouahkinn
+30
+D/Users/tamurayoshiya/projects/ustedkouahkinn
+	src
+4
+D/Users/tamurayoshiya/projects/ustedkouahkinn/src
+	base-cording
+1
+D
+
+# Command line history (oldest to newest):
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+pprovision-base.yml
+
+# Local filter history (oldest to newest):
+
+# Registers:
+""/Users/tamurayoshiya/.local/share/vifm/Trash/000_hosts(1).cfg
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+t/Users/tamurayoshiya/.local/share/vifm/Trash/000_hosts(1).cfg
+	/Users/tamurayoshiya/projects/ustedkouahkinn/ops/ansible/hosts(1).cfg
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0
