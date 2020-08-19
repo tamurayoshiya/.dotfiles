@@ -7,9 +7,8 @@
 #### common
 
 * python3
-* rg
-* GNU global
-    * Pygments
+* GNU global (brew install global)
+    * Pygments (pip3 install pygments)
 * any-jump
     * https://github.com/pechorin/any-jump.vim
     * ripgrep
