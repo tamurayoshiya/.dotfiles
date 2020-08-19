@@ -6,6 +6,8 @@ export LANG=ja_JP.UTF-8
 export PATH="/usr/local/mysql/bin:/sbin:$PATH"
 
 # oh-my-zsh
+# https://tyablog.net/2018/05/28/oh-my-zsh-warns-insecure-directories/
+export ZSH_DISABLE_COMPFIX=true
 ZSH=$HOME/.oh-my-zsh
 export DISABLE_AUTO_UPDATE="true"
 
