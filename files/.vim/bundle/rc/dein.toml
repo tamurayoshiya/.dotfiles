@@ -48,9 +48,10 @@ repo = 'scrooloose/nerdtree'
 [[plugins]]
 repo = 'Xuyuanp/nerdtree-git-plugin'
 [[plugins]]
-repo = 'w0rp/ale'
-[[plugins]]
 repo = 'ap/vim-css-color'
+# Ale fixのみ利用, ale_enabled=0
+[[plugins]]
+repo = 'w0rp/ale'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'

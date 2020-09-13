@@ -8,8 +8,9 @@
         },
         "terraform": {
             "command": "~/.dotfiles/lib/terraform-lsp/terraform-lsp-darwin",
-            "filetypes": ["terraform"],
+            "filetypes": ["terraform"]
         }
     },
     "coc.preferences.formatOnType": true,
+    "eslint.enable": false
 }

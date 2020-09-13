@@ -479,6 +479,7 @@ let g:ale_fixers = {
 " https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#update-extensions
 let g:coc_global_extensions = [
             \ 'coc-prettier',
+            \ 'coc-eslint',
             \ 'coc-snippets',
             \ 'coc-pairs',
             \ 'coc-html',
