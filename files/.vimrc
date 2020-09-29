@@ -526,7 +526,7 @@ endfunction
 let g:user_emmet_expandabbr_key = '<c-e>'
 let g:user_emmet_expandword_key = '<c-e>'
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,php,reason EmmetInstall
+autocmd FileType html,css,php,reason,vue EmmetInstall
 
 "-------------------
 "vim-go
