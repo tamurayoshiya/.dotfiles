@@ -169,7 +169,7 @@ alias gpom="git push origin master"
 
 ## エイリアス - docker
 alias ds="docker ps"
-alias stopemall="docker stop $(docker ps -q)"
+alias stopemall="docker ps -q | xargs docker stop"
 
 ## 上書き確認
 alias mv='mv -i'
