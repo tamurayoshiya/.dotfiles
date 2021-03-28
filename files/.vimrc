@@ -526,7 +526,8 @@ endfunction
 let g:user_emmet_expandabbr_key = '<c-e>'
 let g:user_emmet_expandword_key = '<c-e>'
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,php,reason,vue EmmetInstall
+autocmd FileType html,css,php,reason,rescript,vue EmmetInstall
+autocmd BufWritePost *.res RescriptFormat
 
 "-------------------
 "vim-go
@@ -565,6 +566,8 @@ au BufNewFile,BufRead *.hs map <silent> <leader>h :Hoogle<CR>
 au BufNewFile,BufRead *.hs map <buffer> <Leader>hh :HoogleClose<CR>
 
 au BufRead,BufNewFile *.qmu set filetype=qmu
+au BufRead,BufNewFile *.re set filetype=reason
+au BufRead,BufNewFile *.res set filetype=rescript
 
 "php
 let g:php_baselib       = 1

@@ -6,6 +6,13 @@
             "command": "~/.dotfiles/lib/reason-language-server/reason-language-server-darwin",
             "filetypes": ["reason"]
         },
+        "rescript": {
+            "enable": true,
+            "module": "~/.vim/bundle/repos/github.com/rescript-lang/vim-rescript/rescript-vscode/extension/server/out/server.js",
+            "args": ["--node-ipc"],
+            "filetypes": ["rescript"],
+            "rootPatterns": ["bsconfig.json"]
+        },
         "terraform": {
             "command": "~/.dotfiles/lib/terraform-lsp/terraform-lsp-darwin",
             "filetypes": ["terraform"]

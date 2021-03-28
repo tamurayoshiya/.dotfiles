@@ -650,7 +650,6 @@ key_bindings:
   - { key: Key0,     mods: Command|Shift,                 action: ResetFontSize    }
   - { key: Equals,   mods: Command|Shift,                 action: IncreaseFontSize }
   - { key: Key9,     mods: Command|Shift,                 action: IncreaseFontSize }
-  - { key: Subtract, mods: Command|Shift,                 action: DecreaseFontSize }
   - { key: Minus,    mods: Command|Shift,                 action: DecreaseFontSize }
 
   # (Windows only)
