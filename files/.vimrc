@@ -478,18 +478,16 @@ let g:ale_fixers = {
 " プラグイン（自動アップデート）
 " https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#update-extensions
 let g:coc_global_extensions = [
-            \ 'coc-prettier',
-            \ 'coc-eslint',
-            \ 'coc-snippets',
             \ 'coc-pairs',
+            "\ 'coc-prettier',
+            "\ 'coc-snippets',
+            "\ 'coc-emmet',
             \ 'coc-html',
             \ 'coc-css',
-            \ 'coc-emmet',
-            \ 'coc-xml',
             \ 'coc-yaml',
             \ 'coc-json',
             \ 'coc-tsserver',
-            "\ 'coc-phpls',
+            \ 'coc-phpls',
             \ 'coc-rls',
             \ 'coc-rust-analyzer',
 \ ]
