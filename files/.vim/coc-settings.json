@@ -19,5 +19,6 @@
         }
     },
     "coc.preferences.formatOnType": true,
+    "coc.preferences.formatOnSaveFiletypes": ["typescript", "markdown"],
     "eslint.enable": false
 }

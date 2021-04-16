@@ -465,11 +465,12 @@ highlight Directory guifg=#AAAAAA ctermfg=245 ctermbg=233
 
 " ale fixのみ使用する
 let g:ale_enabled = 0
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'reason': ['refmt'],
 \}
+nmap <silent> <C-j> <Plug>(ale_fix)
 
 "-------------------
 " coc.nvim
@@ -479,7 +480,7 @@ let g:ale_fixers = {
 " https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#update-extensions
 let g:coc_global_extensions = [
             \ 'coc-pairs',
-            "\ 'coc-prettier',
+            \ 'coc-prettier',
             "\ 'coc-snippets',
             "\ 'coc-emmet',
             \ 'coc-html',
