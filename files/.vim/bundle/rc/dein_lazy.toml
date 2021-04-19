@@ -54,6 +54,18 @@ hook_add = '''
 repo = 'StanAngeloff/php.vim'
 on_ft = ['php']
 
+# Language Support: Ruby
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = ['ruby']
+hook_add = '''
+    let g:endwise_no_mappings=1
+    augroup vimrc-ruby-settings
+    autocmd!
+    autocmd FileType ruby imap <expr> <CR> pumvisible() ? "\<C-Y>\<Plug>DiscretionaryEnd" : "\<CR>\<Plug>DiscretionaryEnd"
+    augroup END
+'''
+
 # Language Support: Go
 [[plugins]]
 repo = 'fatih/vim-go'
