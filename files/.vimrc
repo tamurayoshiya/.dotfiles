@@ -470,7 +470,7 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'reason': ['refmt'],
 \}
-nmap <silent> <C-j> <Plug>(ale_fix)
+nmap <silent> <C-a> <Plug>(ale_fix)
 
 "-------------------
 " coc.nvim
@@ -480,7 +480,7 @@ nmap <silent> <C-j> <Plug>(ale_fix)
 " https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#update-extensions
 let g:coc_global_extensions = [
             \ 'coc-pairs',
-            \ 'coc-prettier',
+            "\ 'coc-prettier',
             "\ 'coc-snippets',
             "\ 'coc-emmet',
             \ 'coc-html',
