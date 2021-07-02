@@ -480,6 +480,7 @@ nmap <silent> <C-a> <Plug>(ale_fix)
 " https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#update-extensions
 let g:coc_global_extensions = [
             \ 'coc-pairs',
+            \ 'coc-go',
             "\ 'coc-prettier',
             "\ 'coc-snippets',
             "\ 'coc-emmet',
