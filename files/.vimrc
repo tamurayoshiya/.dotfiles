@@ -569,6 +569,7 @@ au BufNewFile,BufRead *.hs map <buffer> <Leader>hh :HoogleClose<CR>
 au BufRead,BufNewFile *.qmu set filetype=qmu
 au BufRead,BufNewFile *.re set filetype=reason
 au BufRead,BufNewFile *.res set filetype=rescript
+au BufRead,BufNewFile *.hbs set filetype=html
 
 "php
 let g:php_baselib       = 1
