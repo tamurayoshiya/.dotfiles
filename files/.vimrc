@@ -482,7 +482,7 @@ nmap <silent> <C-a> <Plug>(ale_fix)
 let g:coc_global_extensions = [
             \ 'coc-pairs',
             \ 'coc-go',
-            "\ 'coc-prettier',
+            \ 'coc-prettier',
             "\ 'coc-snippets',
             "\ 'coc-emmet',
             \ 'coc-html',
