@@ -253,8 +253,8 @@ function _showMcc() {
 zle -N showMcc _showMcc
 bindkey '^N' showMcc
 
-# bin/menuスクリプトがある場合実行
-alias m='bin/menu'
+# bin/mccスクリプトがある場合実行
+alias m='bin/mcc'
 
 # ll を実行
 function doLL() {
