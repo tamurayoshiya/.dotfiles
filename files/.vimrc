@@ -528,7 +528,7 @@ endfunction
 let g:user_emmet_expandabbr_key = '<c-e>'
 let g:user_emmet_expandword_key = '<c-e>'
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,php,reason,rescript,vue EmmetInstall
+autocmd FileType html,css,php,reason,rescript,vue,typescriptreact,javascript.jsx EmmetInstall
 autocmd BufWritePost *.res RescriptFormat
 
 "-------------------
@@ -577,7 +577,7 @@ let g:php_baselib       = 1
 let g:php_htmlInStrings = 1
 
 " tsx
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 " Jenkinsfile
 au BufNewFile,BufRead Jenkinsfile setf groovy
 " antlr4

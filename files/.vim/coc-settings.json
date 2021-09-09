@@ -19,6 +19,6 @@
         }
     },
     "coc.preferences.formatOnType": true,
-    "coc.preferences.formatOnSaveFiletypes": ["typescript", "markdown"],
+    "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "markdown"],
     "eslint.enable": false
 }
