@@ -244,6 +244,7 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.yml setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.html setlocal tabstop=4 softtabstop=4 shiftwidth=4
     autocmd BufNewFile,BufRead *.re setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.qtpl setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 "-------------------------------------
@@ -483,6 +484,7 @@ let g:coc_global_extensions = [
             \ 'coc-pairs',
             \ 'coc-go',
             \ 'coc-prettier',
+            \ 'coc-svelte',
             "\ 'coc-snippets',
             "\ 'coc-emmet',
             \ 'coc-html',
@@ -571,6 +573,7 @@ au BufRead,BufNewFile *.qmu set filetype=qmu
 au BufRead,BufNewFile *.re set filetype=reason
 au BufRead,BufNewFile *.res set filetype=rescript
 au BufRead,BufNewFile *.hbs set filetype=html
+au BufRead,BufNewFile *.qtpl set filetype=html
 
 "php
 let g:php_baselib       = 1

@@ -51,6 +51,10 @@ on_ft = ['typescript', 'typescriptreact']
 repo = 'maxmellon/vim-jsx-pretty'
 on_ft = ['typescript', 'typescriptreact']
 
+[[plugins]] # Svelte.js
+repo = 'evanleck/vim-svelte'
+on_ft = ['svelte']
+
 # Language Support: PHP
 [[plugins]]
 repo = 'StanAngeloff/php.vim'
