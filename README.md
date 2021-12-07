@@ -38,10 +38,11 @@
 ##### ReasonML
 
 ```
-$ npm i -g bs-platform
+$ npm i -g bs-platform@6.2.1
 $ brew install ocaml
 $ brew install opam hg darcs
 $ opam init
+$ opam switch create 4.06.1
 $ opam install merlin
 $ npm install -g reason-cli@latest-macos
 $ npm install -g ocaml-language-server
