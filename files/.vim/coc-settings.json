@@ -19,6 +19,14 @@
         }
     },
     "coc.preferences.formatOnType": true,
-    "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "markdown"],
-    "eslint.enable": false
+    "coc.preferences.formatOnSaveFiletypes": [
+        "typescript", 
+        "typescriptreact", 
+        "markdown", 
+        "go"
+    ],
+    "eslint.enable": false,
+    "go.goplsOptions": {
+        "completeUnimported": true
+    }
 }

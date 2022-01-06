@@ -244,7 +244,7 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.yml setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.html setlocal tabstop=4 softtabstop=4 shiftwidth=4
     autocmd BufNewFile,BufRead *.re setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.qtpl setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.qtpl setlocal tabstop=4 softtabstop=4 shiftwidth=4
 augroup END
 
 "-------------------------------------
@@ -467,7 +467,7 @@ highlight Directory guifg=#AAAAAA ctermfg=245 ctermbg=233
 
 " ale fixのみ使用する
 let g:ale_enabled = 0
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'reason': ['refmt'],
@@ -494,6 +494,7 @@ let g:coc_global_extensions = [
             \ 'coc-tsserver',
             \ 'coc-phpls',
             \ 'coc-rls',
+            \ 'coc-python',
             \ 'coc-rust-analyzer',
             \ 'coc-solargraph',
 \ ]
@@ -523,6 +524,8 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
 "-------------------
 "emmet-vim (zencoding)
