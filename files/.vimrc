@@ -245,6 +245,7 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.html setlocal tabstop=4 softtabstop=4 shiftwidth=4
     autocmd BufNewFile,BufRead *.re setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.qtpl setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.pu setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 "-------------------------------------
