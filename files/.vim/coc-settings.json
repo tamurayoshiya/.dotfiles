@@ -28,5 +28,6 @@
     "eslint.enable": false,
     "go.goplsOptions": {
         "completeUnimported": true
-    }
+    },
+    "typescript.format.enabled": false
 }
