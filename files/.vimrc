@@ -451,7 +451,7 @@ highlight GitGutterChangeDelete ctermbg=none ctermfg=13
 " =======================================================
 
 let g:NERDTreeWinPos = "right"
-nmap <C-i> :<C-u>NERDTreeToggle<CR>
+map <Tab> :NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeShowBookmarks = 1
