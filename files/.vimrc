@@ -487,7 +487,7 @@ let g:coc_global_extensions = [
             \ 'coc-prettier',
             \ 'coc-svelte',
             "\ 'coc-snippets',
-            "\ 'coc-emmet',
+            \ 'coc-emmet',
             \ 'coc-html',
             \ 'coc-css',
             \ 'coc-yaml',
@@ -536,6 +536,7 @@ let g:user_emmet_expandword_key = '<c-e>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,php,reason,rescript,vue,typescriptreact,javascript.jsx EmmetInstall
 autocmd BufWritePost *.res RescriptFormat
+inoremap <C-e> <plug>(emmet-expand-abbr)
 
 "-------------------
 "vim-go
