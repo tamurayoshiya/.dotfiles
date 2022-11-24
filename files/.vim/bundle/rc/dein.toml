@@ -111,3 +111,16 @@ repo = 'kristijanhusak/vim-hybrid-material'
 repo = 'morhetz/gruvbox'
 [[plugins]]
 repo = 'danilo-augusto/vim-afterglow'
+
+
+# ---------------------------------------
+# fzf
+# ---------------------------------------
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+[[plugins]]
+repo = 'antoinemadec/coc-fzf'

@@ -367,7 +367,7 @@ nnoremap <silent> [denite]m :<C-u> Denite file_mru<CR>
 nnoremap <silent> [denite]d :<C-u> Denite file<CR>
 nnoremap <silent> [denite]l :<C-u> Denite line<CR>
 nnoremap <silent> [denite]y :<C-u> Denite neoyank<CR>
-nnoremap <silent> [denite]o :<C-u> CocList outline<CR>
+nnoremap <silent> [denite]o :<C-u> CocFzfList outline<CR>
 nnoremap <silent> [denite]p :<C-u> Denite file_rec<CR>
 nnoremap <silent> [denite]h :<C-u> Denite command_history<CR>
 nnoremap <silent> [denite]c :<C-u> Denite colorscheme<CR>
