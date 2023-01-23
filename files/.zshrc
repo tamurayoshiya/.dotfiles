@@ -315,10 +315,12 @@ if which rbenv > /dev/null 2>&1; then eval "$(rbenv init -)"; fi
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
 # direnv
-eval "$(direnv hook zsh)"
+if command -v direnv > /dev/null 2>&1; then
+    eval "$(direnv hook zsh)"
+fi
 
 # anyframe
-if [ `which peco` ]; then
+if command -v peco > /dev/null 2>&1; then
 	fpath=($HOME/.zsh/anyframe(N-/) $fpath)
 	autoload -Uz anyframe-init
 	anyframe-init
@@ -329,6 +331,6 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if [ `which gh` ]; then
+if command -v gh > /dev/null 2>&1; then
     eval "$(gh completion -s zsh)"
 fi
