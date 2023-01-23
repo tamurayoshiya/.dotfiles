@@ -174,3 +174,17 @@ on_ft = ['rescript']
 [[plugins]]
 repo = 'hashivim/vim-terraform'
 on_ft = ['tf', 'terraform']
+
+
+[[plugins]]
+repo = 'github/copilot.vim'
+on_cmd = 'Copilot'
+hook_source = '''
+  let g:copilot_enabled = v:true
+  imap <silent><script><expr> <C-K> copilot#Accept("\<CR>")
+  imap <C-a><C-s>   <Plug>(copilot-suggest)
+  imap <C-a><C-p>   <Plug>(copilot-previous)
+  imap <C-l>        <Plug>(copilot-next)
+  imap <C-a><C-j>   <Plug>(copilot-dismiss)
+  let g:copilot_no_tab_map = v:true
+'''
