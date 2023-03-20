@@ -82,7 +82,7 @@ highlight Normal ctermbg=none guibg=NONE
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
-highlight Pmenu ctermbg=237 guibg=237
+highlight Pmenu ctermbg=237 guibg=#555555
 
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
