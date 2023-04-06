@@ -598,3 +598,10 @@ autocmd FileType vue syntax sync fromstart
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.typescript.css
 " coffee
 autocmd FileType coffee    setlocal sw=2 sts=2 ts=2 et
+
+" GitHub Copilot
+noremap <F9> :call EnableCopilot()<CR>
+function! EnableCopilot()
+    let b:coc_suggest_disable = 1
+    :Copilot enable <CR>
+endfunction
