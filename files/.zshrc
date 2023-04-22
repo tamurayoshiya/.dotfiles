@@ -200,6 +200,9 @@ compctl -U -K _z_zsh_tab_completion z
 
 alias dockerkillall='docker kill $(docker ps -q)'
 
+# scp非推奨
+alias scp='rsync -avz -e ssh'
+
 # --------------------------------------------------------------
 # --------------------- 補完
 # --------------------------------------------------------------
