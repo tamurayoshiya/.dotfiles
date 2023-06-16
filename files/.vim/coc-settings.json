@@ -28,5 +28,8 @@
     "go.goplsOptions": {
         "completeUnimported": true
     },
-    "typescript.format.enabled": false
+    "typescript.format.enabled": false,
+    "rust-analyzer.inlayHints.enable": false,
+    "rust-analyzer.inlayHints.parameterHints.enable": false,
+    "rust-analyzer.inlayHints.typeHints.enable": false
 }
