@@ -496,7 +496,7 @@ let g:coc_global_extensions = [
             \ 'coc-phpls',
             \ 'coc-rls',
             \ 'coc-python',
-            " \ 'coc-rust-analyzer',
+            "\ 'coc-rust-analyzer',
             \ 'coc-solargraph',
 \ ]
 
