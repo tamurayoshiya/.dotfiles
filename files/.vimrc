@@ -604,3 +604,5 @@ function! EnableCopilot()
     let b:coc_suggest_disable = 1
     :Copilot enable <CR>
 endfunction
+
+autocmd VimEnter * Copilot enable

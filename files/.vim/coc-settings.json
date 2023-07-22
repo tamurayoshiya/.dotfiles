@@ -22,6 +22,7 @@
     "coc.preferences.formatOnSaveFiletypes": [
         "typescript",
         "typescriptreact",
+        "javascript",
         "go"
     ],
     "eslint.enable": false,
