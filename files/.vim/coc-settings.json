@@ -21,6 +21,7 @@
     "coc.preferences.formatOnType": true,
     "coc.preferences.formatOnSaveFiletypes": [
         "typescript",
+        "javascript",
         "typescriptreact",
         "javascript",
         "go"
@@ -32,5 +33,6 @@
     "typescript.format.enabled": false,
     "rust-analyzer.inlayHints.enable": false,
     "rust-analyzer.inlayHints.parameterHints.enable": false,
-    "rust-analyzer.inlayHints.typeHints.enable": false
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "snippets.ultisnips.pythonPrompt": false
 }
