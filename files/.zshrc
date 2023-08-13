@@ -165,7 +165,7 @@ alias gc="git commit -m"
 alias gdi="git diff"
 alias gbr="git branch"
 alias gpo="git push origin"
-alias gpom="git push origin master"
+alias gpom="git push origin HEAD"
 
 ## エイリアス - docker
 alias ds="docker ps"
