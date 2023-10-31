@@ -72,6 +72,11 @@ hook_add = '''
     augroup END
 '''
 
+# Language Support: prisma
+[[plugins]]
+repo = 'prisma/vim-prisma'
+on_ft = ['prisma']
+
 # Language Support: Go
 # [[plugins]]
 # repo = 'fatih/vim-go'

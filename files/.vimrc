@@ -81,6 +81,7 @@ highlight Normal ctermbg=none guibg=NONE
 " markdownのハイライトを有効にする
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.prisma set filetype=prisma
 
 highlight Pmenu ctermbg=237 guibg=#555555
 
