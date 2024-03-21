@@ -1,0 +1,25 @@
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Key9"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Command|Shift"
+
+[scrolling]
+history = 100000
+
+[window]
+opacity = 0.95

@@ -24,7 +24,7 @@
     ~/.config/nvim: files/.vim
     ~/.config/nvim/init.vim: files/.vimrc
     ~/.globalrc: files/.globalrc
-    ~/.alacritty.yml: files/.alacritty.yml
+    ~/.alacritty.toml: files/.alacritty.toml
 
 - shell:
     - [git submodule update --init, Installing submodules]
