@@ -25,7 +25,7 @@
 * golang
     * :GoInstallBinaries
     * gopls
-        * ```go get -u golang.org/x/tools/cmd/gopls```
+        * `go install golang.org/x/tools/gopls@latest`
 * elm
     * npm install -g elm elm-test elm-oracle elm-format
 * js/typescript
