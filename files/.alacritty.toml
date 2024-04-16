@@ -9,14 +9,9 @@ key = "Equals"
 mods = "Command|Shift"
 
 [[keyboard.bindings]]
-action = "IncreaseFontSize"
-key = "Key9"
-mods = "Command|Shift"
-
-[[keyboard.bindings]]
 action = "DecreaseFontSize"
 key = "Minus"
-mods = "Command|Shift"
+mods = "Command"
 
 [scrolling]
 history = 100000
