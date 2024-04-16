@@ -36,5 +36,6 @@
     "rust-analyzer.inlayHints.parameterHints.enable": false,
     "rust-analyzer.inlayHints.typeHints.enable": false,
     "snippets.ultisnips.pythonPrompt": false,
-    "svelte.enable-ts-plugin": false
+    "svelte.enable-ts-plugin": false,
+    "css.lint.unknownAtRules": "ignore"
 }

@@ -35,8 +35,6 @@ endif
 
 syntax on
 
-" vim-go additional highlight
-" ※この位置に書かないとオリジナルのmolokaiのカラーにならない..
 hi def link   goVarDefs           Identifier
 let g:go_highlight_types = 1
 let g:go_highlight_functions = 1
@@ -499,6 +497,7 @@ let g:coc_global_extensions = [
             \ 'coc-python',
             \ 'coc-rust-analyzer',
             \ 'coc-solargraph',
+            \ 'coc-tailwindcss',
 \ ]
 
 " coc-pairs

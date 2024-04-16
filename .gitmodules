@@ -1,9 +1,6 @@
 [submodule "lib/z"]
 	path = lib/z
 	url = https://github.com/rupa/z.git
-[submodule "dotbot"]
-	path = dotbot
-	url = https://github.com/anishathalye/dotbot
 [submodule "files/.vim/nerdtree_plugin"]
 	path = files/.vim/nerdtree_plugin
 	url = https://gist.github.com/414375.git
