@@ -10,3 +10,6 @@
 [submodule "files/.oh-my-zsh"]
 	path = files/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
