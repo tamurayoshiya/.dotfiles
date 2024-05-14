@@ -30,9 +30,6 @@ on_ft = ['javascript', 'javascript.jsx']
 
 # Language Support: TypeScript
 [[plugins]]
-repo  = 'Quramy/tsuquyomi'
-on_ft = ['typescript', 'typescriptreact']
-[[plugins]]
 repo  = 'jason0x43/vim-js-indent'
 on_ft = ['typescript', 'typescriptreact']
 
