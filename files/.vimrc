@@ -608,3 +608,5 @@ endfunction
 let g:copilot_filetypes = {'markdown': v:true}
 
 autocmd VimEnter * Copilot enable
+
+lua require("ts")
