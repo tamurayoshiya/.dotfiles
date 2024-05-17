@@ -609,4 +609,10 @@ let g:copilot_filetypes = {'markdown': v:true}
 
 autocmd VimEnter * Copilot enable
 
-lua require("ts")
+" lua require("ts")
+
+"ノーマルモードで
+"スペース2回でHover
+nmap <silent> <space><space> :<C-u>call CocAction('doHover')<cr>
+"スペースhでCocList
+nmap <silent> <space>h :<C-u>CocList<cr>
