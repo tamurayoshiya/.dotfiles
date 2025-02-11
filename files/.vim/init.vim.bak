@@ -54,11 +54,11 @@ let g:molokai_original = 1
 
 "===== dark theme
 set background=dark
-colorscheme molokai
+"colorscheme molokai
 "colorscheme hybrid_material
 "colorscheme gruvbox
 "colorscheme afterglow
-"colorscheme hybrid_material
+colorscheme hybrid_material
 
 " tab color
 highlight TabLineFill ctermfg=238 ctermbg=236
