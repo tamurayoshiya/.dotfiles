@@ -259,7 +259,7 @@ require("lazy").setup({
 
 					-- Rename the variable under your cursor.
 					--  Most Language Servers support renaming across files, etc.
-					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+					map("gn", vim.lsp.buf.rename, "[R]e[n]ame")
 
 					-- Execute a code action, usually your cursor needs to be on top of an error
 					-- or a suggestion from your LSP for this to activate.
@@ -610,6 +610,7 @@ require("lazy").setup({
 			})
 		end,
 	},
+
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -621,6 +622,7 @@ require("lazy").setup({
 				"diff",
 				"html",
 				"typescript",
+				"tsx",
 				"rust",
 				"lua",
 				"luadoc",
@@ -655,8 +657,9 @@ require("lazy").setup({
 
 	-- theme
 	{
-		"maxmx03/fluoromachine.nvim",
+		-- "olivercederborg/poimandres.nvim",
 		-- "scottmckendry/cyberdream.nvim",
+		"maxmx03/fluoromachine.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -771,6 +774,15 @@ require("lazy").setup({
 				end,
 			})
 		end,
+	},
+
+	-- autopairs
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+		-- use opts = {} for passing setup options
+		-- this is equivalent to setup({}) function
 	},
 })
 
