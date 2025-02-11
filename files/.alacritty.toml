@@ -17,4 +17,6 @@ mods = "Command"
 history = 100000
 
 [window]
-opacity = 0.95
+opacity = 0.60
+
+blur = true

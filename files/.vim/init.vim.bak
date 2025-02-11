@@ -614,5 +614,3 @@ autocmd VimEnter * Copilot enable
 "ノーマルモードで
 "スペース2回でHover
 nmap <silent> <space><space> :<C-u>call CocAction('doHover')<cr>
-"スペースhでCocList
-nmap <silent> <space>h :<C-u>CocList<cr>

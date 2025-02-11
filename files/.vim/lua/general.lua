@@ -1,39 +1,38 @@
 -- 自動読み込み・インデントなど
-vim.opt.autoread    = true
-vim.opt.autoindent  = true
-vim.opt.expandtab   = true
-vim.opt.hidden      = true
-vim.opt.incsearch   = true
-vim.opt.number      = true
-vim.opt.smartcase   = true
+vim.opt.autoread = true
+vim.opt.autoindent = true
+vim.opt.expandtab = true
+vim.opt.hidden = true
+vim.opt.incsearch = true
+vim.opt.number = true
+vim.opt.smartcase = true
 vim.opt.smartindent = true
-vim.opt.smarttab    = true
-vim.opt.ignorecase  = true
-vim.opt.backspace   = "start,eol,indent"
+vim.opt.smarttab = true
+vim.opt.ignorecase = true
+vim.opt.backspace = "start,eol,indent"
 
 -- バックアップ・Undo・スワップ用ディレクトリ
 vim.opt.backupdir = vim.fn.expand("$HOME/.vimbackup")
 vim.opt.directory = vim.fn.expand("$HOME/.vimbackup")
-vim.opt.undodir   = vim.fn.expand("~/.vimundo")
-vim.opt.undofile  = true
+vim.opt.undodir = vim.fn.expand("~/.vimundo")
+vim.opt.undofile = true
 
 -- ファイルダイアログ、ウィルド補完
-vim.opt.browsedir  = "buffer"
-vim.opt.wildmenu   = true
-vim.opt.wildmode   = "longest,list,full"
+vim.opt.wildmenu = true
+vim.opt.wildmode = "longest,list,full"
 
 -- その他の表示オプション
-vim.opt.ruler      = true
-vim.opt.hlsearch   = true
-vim.opt.showmatch  = true
-vim.opt.matchtime  = 2  -- ブレリンク時間 (単位: 1/10秒)
-vim.opt.listchars  = { eol = "$", tab = "> ", extends = "<" }
+vim.opt.ruler = true
+vim.opt.hlsearch = true
+vim.opt.showmatch = true
+vim.opt.matchtime = 2 -- ブレリンク時間 (単位: 1/10秒)
+vim.opt.listchars = { eol = "$", tab = "> ", extends = "<" }
 -- vim.opt.list   = true  -- 不可視文字を表示する場合はコメントアウトを解除
 
 -- タブ・インデント関連
-vim.opt.tabstop      = 4
-vim.opt.softtabstop  = 4
-vim.opt.shiftwidth   = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 
 -- 行末などでカーソル移動可能に
 vim.opt.whichwrap = "b,s,h,l,<,>,[,]"
@@ -71,7 +70,6 @@ vim.keymap.set("n", "<ESC><ESC>", ":nohlsearch<CR><ESC>", opts)
 -- Ctrl+/ を2回押してコメントアウト・解除
 vim.keymap.set("n", "<C-/><C-/>", ":TComment<CR>", opts)
 
-
 -- 自動インデント時にタブが2つ付くのを防ぐ
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
@@ -100,8 +98,8 @@ vim.api.nvim_set_keymap("n", ",i", ":<C-u>set paste<CR>i", { noremap = true })
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("CursorMoved", {
-    pattern = "*",
-    command = "set nopaste"
+	pattern = "*",
+	command = "set nopaste",
 })
 
 -- Leaderキーの設定
@@ -120,15 +118,14 @@ vim.opt.clipboard:append("unnamed")
 
 -- VimShowHlItem: カーソル下のハイライト名を表示
 vim.api.nvim_create_user_command("VimShowHlItem", function()
-    local synID = vim.fn.synID(vim.fn.line("."), vim.fn.col("."), 1)
-    local name = vim.fn.synIDattr(synID, "name")
-    print(name)
+	local synID = vim.fn.synID(vim.fn.line("."), vim.fn.col("."), 1)
+	local name = vim.fn.synIDattr(synID, "name")
+	print(name)
 end, {})
-
 
 -- SID_PREFIX関数の代替
 local function sid_prefix()
-  return debug.getinfo(1, "S").short_src -- `<sfile>` の代替
+	return debug.getinfo(1, "S").short_src -- `<sfile>` の代替
 end
 
 -- タブライン設定
@@ -140,7 +137,7 @@ vim.api.nvim_set_keymap("n", "t", "[Tag]", {})
 
 -- タブジャンプの設定
 for n = 1, 9 do
-  vim.api.nvim_set_keymap("n", "[Tag]" .. n, ":<C-u>tabnext " .. n .. "<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap("n", "[Tag]" .. n, ":<C-u>tabnext " .. n .. "<CR>", { noremap = true, silent = true })
 end
 
 -- タブ操作のマッピング
@@ -148,3 +145,17 @@ vim.api.nvim_set_keymap("n", "[Tag]c", ":tablast | tabnew<CR>", { noremap = true
 vim.api.nvim_set_keymap("n", "[Tag]x", ":tabclose<CR>", { noremap = true, silent = true }) -- タブを閉じる
 vim.api.nvim_set_keymap("n", "[Tag]n", ":tabnext<CR>", { noremap = true, silent = true }) -- 次のタブ
 vim.api.nvim_set_keymap("n", "[Tag]p", ":tabprevious<CR>", { noremap = true, silent = true }) -- 前のタブ
+
+-- swapfileを作成しないように設定
+vim.opt.swapfile = false
+
+-- indent
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "typescript", "typescriptreact" }, -- TypeScriptとTSXに適用
+	callback = function()
+		vim.bo.tabstop = 2 -- タブ幅を2に設定
+		vim.bo.shiftwidth = 2 -- 自動インデントの幅を2に設定
+		vim.bo.softtabstop = 2 -- 挿入モードでタブを2に設定
+		vim.bo.expandtab = true -- タブをスペースに変換
+	end,
+})
