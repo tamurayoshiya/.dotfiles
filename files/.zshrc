@@ -432,14 +432,6 @@ if command -v direnv > /dev/null 2>&1; then
     eval "$(direnv hook zsh)"
 fi
 
-# anyframe
-if command -v peco > /dev/null 2>&1; then
-	fpath=($HOME/.zsh/anyframe(N-/) $fpath)
-	autoload -Uz anyframe-init
-	anyframe-init
-fi
-alias h=anyframe-widget-execute-history
-
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
