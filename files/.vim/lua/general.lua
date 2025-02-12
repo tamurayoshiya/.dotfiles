@@ -1,46 +1,37 @@
--- 自動読み込み・インデントなど
-vim.opt.autoread = true
-vim.opt.autoindent = true
-vim.opt.expandtab = true
-vim.opt.hidden = true
-vim.opt.incsearch = true
-vim.opt.number = true
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.smarttab = true
-vim.opt.ignorecase = true
-vim.opt.backspace = "start,eol,indent"
+vim.opt.autoread = true -- ファイルが外部で変更された場合、自動的に読み直す
+vim.opt.autoindent = true -- 新しい行を挿入するときに、前の行のインデントを自動的に継承する
+vim.opt.expandtab = true -- タブをスペースに変換する
+vim.opt.hidden = true -- 編集中のバッファを保存せずに隠すことを許可する
+vim.opt.incsearch = true -- 検索中に一致する部分をリアルタイムでハイライトする
+vim.opt.number = true -- 行番号を表示する
+vim.opt.ignorecase = true -- 検索時に大文字小文字を無視する
+vim.opt.smartcase = true -- 検索時に小文字のみの場合は大文字小文字を区別しないが、大文字を含む場合は区別する
+vim.opt.smartindent = true -- 新しい行のインデントを文脈に応じて調整する
+vim.opt.smarttab = true -- タブキーの動作を現在のコンテキストに応じて調整する
+vim.opt.backspace = "start,eol,indent" -- バックスペースキーが行の開始、行末、インデントを削除できるようにする
+vim.opt.wildmenu = true -- コマンドライン補完時に、補完候補をメニュー形式で表示する
+vim.opt.wildmode = "longest,list,full" -- コマンドライン補完の挙動を指定する
+vim.opt.ruler = true -- ステータスラインにカーソルの行番号と列番号を表示する
+vim.opt.hlsearch = true -- 検索結果をハイライトする
+vim.opt.showmatch = true -- カッコの対応を表示する（例: `()`や`[]`など）
+vim.opt.matchtime = 2 --  -- 入力された文字列がマッチするまでにかかる時間
+vim.opt.listchars = { eol = "$", tab = "> ", extends = "<" } -- 不可視文字（改行、タブ、行の延長など）を視覚的に表示する文字を指定
+vim.opt.whichwrap = "b,s,h,l,<,>,[,]" -- 行末などでカーソル移動可能に
+vim.opt.compatible = false -- Vi互換モードをオフ
+vim.opt.swapfile = false -- swapfileを作成しないように設定
 
 -- バックアップ・Undo・スワップ用ディレクトリ
 vim.opt.backupdir = vim.fn.expand("$HOME/.vimbackup")
 vim.opt.directory = vim.fn.expand("$HOME/.vimbackup")
-vim.opt.undodir = vim.fn.expand("~/.vimundo")
+vim.opt.undodir = vim.fn.expand("$HOME/.vimundo")
 vim.opt.undofile = true
-
--- ファイルダイアログ、ウィルド補完
-vim.opt.wildmenu = true
-vim.opt.wildmode = "longest,list,full"
-
--- その他の表示オプション
-vim.opt.ruler = true
-vim.opt.hlsearch = true
-vim.opt.showmatch = true
-vim.opt.matchtime = 2 -- ブレリンク時間 (単位: 1/10秒)
-vim.opt.listchars = { eol = "$", tab = "> ", extends = "<" }
--- vim.opt.list   = true  -- 不可視文字を表示する場合はコメントアウトを解除
 
 -- タブ・インデント関連
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
--- 行末などでカーソル移動可能に
-vim.opt.whichwrap = "b,s,h,l,<,>,[,]"
-
--- Vi互換モードをオフ
-vim.opt.compatible = false
-
--- :W で sudo して保存 (permission-denied 対策)
+-- :W で sudo して保存 (permission-deniedの時など)
 vim.api.nvim_create_user_command("W", "w !sudo tee % > /dev/null", {})
 
 -----------------------------------
@@ -67,13 +58,6 @@ vim.keymap.set({ "n", "v" }, "<C-l>", "<C-W>l", opts)
 -- Esc を2回押してハイライト消去
 vim.keymap.set("n", "<ESC><ESC>", ":nohlsearch<CR><ESC>", opts)
 
--- Ctrl+/ を2回押してコメントアウト・解除
-vim.keymap.set("n", "<C-/><C-/>", ":TComment<CR>", opts)
-
--- 自動インデント時にタブが2つ付くのを防ぐ
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-
 -- インサートモードで jj を押下すると ESC 相当 + l 相当
 vim.api.nvim_set_keymap("i", "jj", "<ESC>l", { silent = true })
 
@@ -81,7 +65,6 @@ vim.api.nvim_set_keymap("i", "jj", "<ESC>l", { silent = true })
 vim.api.nvim_set_keymap("i", "<C-j>", "<ESC>", { silent = true })
 
 -- 勝手に改行させない
--- vim.o.formatoptions = vim.o.formatoptions:gsub("q", "")
 vim.opt.formatoptions:append("or")
 
 -- ファイル形式の検出、プラグインとインデントを有効化
@@ -101,9 +84,6 @@ vim.api.nvim_create_autocmd("CursorMoved", {
 	pattern = "*",
 	command = "set nopaste",
 })
-
--- Leaderキーの設定
-vim.g.mapleader = "."
 
 -- synmaxcolの設定
 vim.o.synmaxcol = 1000
@@ -146,10 +126,7 @@ vim.api.nvim_set_keymap("n", "[Tag]x", ":tabclose<CR>", { noremap = true, silent
 vim.api.nvim_set_keymap("n", "[Tag]n", ":tabnext<CR>", { noremap = true, silent = true }) -- 次のタブ
 vim.api.nvim_set_keymap("n", "[Tag]p", ":tabprevious<CR>", { noremap = true, silent = true }) -- 前のタブ
 
--- swapfileを作成しないように設定
-vim.opt.swapfile = false
-
--- indent
+-- TypeScriptのindent
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "typescript", "typescriptreact" }, -- TypeScriptとTSXに適用
 	callback = function()

@@ -10,21 +10,23 @@
     ~/.vim: files/.vim
     ~/.vimbackup: files/.vimbackup
     ~/.vimundo: files/.vimundo
-    ~/.vifm: files/.vifm
     ~/.gitignore: files/.gitignore
     ~/.tigrc: files/.tigrc
     ~/.tmux.conf: files/.tmux.conf
     ~/.vimrc: files/.vimrc
-    ~/.zlogin: files/.zlogin
-    ~/.zlogout: files/.zlogout
     ~/.zshenv: files/.zshenv
     ~/.zshrc: files/.zshrc
-    ~/.zsh: files/.zsh
-    ~/.oh-my-zsh: files/.oh-my-zsh
+    ~/.zimrc: files/.zimrc
     ~/.config/nvim: files/.vim
-    ~/.config/nvim/init.vim: files/.vimrc
     ~/.globalrc: files/.globalrc
     ~/.alacritty.toml: files/.alacritty.toml
 
 - shell:
-    - [git submodule update --init, Installing submodules]
+  -
+    description: Set zsh as the default shell
+    command: chsh -s $(which zsh)
+  -
+    description: Install Starship (https://starship.rs/)
+    command: "curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh"
+    stdin: true
+    stdout: true
