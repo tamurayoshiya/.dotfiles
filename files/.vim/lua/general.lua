@@ -136,3 +136,14 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.bo.expandtab = true -- タブをスペースに変換
 	end,
 })
+
+-- Markdownのindent
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown", -- Markdownに適用
+	callback = function()
+		vim.bo.tabstop = 2 -- タブ幅を2に設定
+		vim.bo.shiftwidth = 2 -- 自動インデントの幅を2に設定
+		vim.bo.softtabstop = 2 -- 挿入モードでタブを2に設定
+		vim.bo.expandtab = true -- タブをスペースに変換
+	end,
+})
