@@ -618,18 +618,22 @@ require("lazy").setup({
 
 	-- theme
 	{
-		-- "olivercederborg/poimandres.nvim",
-		-- "scottmckendry/cyberdream.nvim",
-		"maxmx03/fluoromachine.nvim",
+		-- olivercederborg/poimandres.nvim
+		-- scottmckendry/cyberdream.nvim
+		-- maxmx03/fluoromachine.nvim
+		-- folke/tokyonight.nvim
+		-- navarasu/onedark.nvim
+		-- projekt0n/github-nvim-theme
+		"scottmckendry/cyberdream.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("fluoromachine").setup({
-				glow = true,
-				theme = "fluoromachine",
-				transparent = true,
-			})
-			vim.cmd([[colorscheme fluoromachine]])
+			-- require("fluoromachine").setup({
+			-- 	glow = true,
+			-- 	theme = "fluoromachine",
+			-- 	transparent = true,
+			-- })
+			vim.cmd([[colorscheme cyberdream]])
 		end,
 	},
 
