@@ -54,7 +54,7 @@ let g:molokai_original = 1
 
 "===== dark theme
 set background=dark
-colorscheme molokai
+"colorscheme molokai
 "colorscheme hybrid_material
 "colorscheme gruvbox
 "colorscheme afterglow
