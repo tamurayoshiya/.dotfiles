@@ -14,11 +14,9 @@
     ~/.tigrc: files/.tigrc
     ~/.tmux.conf: files/.tmux.conf
     ~/.vimrc: files/.vimrc
-    ~/.zshenv: files/.zshenv
     ~/.zshrc: files/.zshrc
     ~/.zimrc: files/.zimrc
     ~/.config/nvim: files/.vim
-    ~/.globalrc: files/.globalrc
     ~/.alacritty.toml: files/.alacritty.toml
 
 - shell:
