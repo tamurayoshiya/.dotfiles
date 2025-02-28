@@ -628,11 +628,9 @@ require("lazy").setup({
 		lazy = false,
 		priority = 1000,
 		config = function()
-			-- require("fluoromachine").setup({
-			-- 	glow = true,
-			-- 	theme = "fluoromachine",
-			-- 	transparent = true,
-			-- })
+			require("cyberdream").setup({
+				transparent = true,
+			})
 			vim.cmd([[colorscheme cyberdream]])
 		end,
 	},
