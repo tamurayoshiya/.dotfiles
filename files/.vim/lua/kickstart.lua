@@ -720,6 +720,21 @@ require("lazy").setup({
 				view = {
 					side = "right",
 				},
+				filters = {
+					dotfiles = false,
+					git_ignored = false,
+					custom = {},
+					exclude = {},
+				},
+				actions = {
+					open_file = {
+						quit_on_open = true,
+						resize_window = false,
+						window_picker = {
+							enable = false,
+						},
+					},
+				},
 				on_attach = function(bufnr)
 					local api = require("nvim-tree.api")
 					local function opts(desc)
