@@ -312,7 +312,7 @@ if command -v direnv > /dev/null 2>&1; then
 fi
 
 # claude
-alias claude="env SHELL=/bin/bash claude"
+alias claude="claude \"Check CLAUDE.md first\""
 
 # ------------------------------
 # Completion
