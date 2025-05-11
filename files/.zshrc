@@ -234,6 +234,7 @@ alias stopemall="docker ps -q | xargs docker stop"
 alias dockerkillall='docker kill $(docker ps -q)'
 alias mv='mv -i'
 alias cp='cp -i'
+alias gwl='git worktree list'
 
 # cd && ll
 cd() {
