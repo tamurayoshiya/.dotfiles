@@ -312,9 +312,6 @@ if command -v direnv > /dev/null 2>&1; then
     eval "$(direnv hook zsh)"
 fi
 
-# claude
-alias claude="env SHELL=/bin/bash claude"
-
 # ------------------------------
 # Completion
 # ------------------------------
