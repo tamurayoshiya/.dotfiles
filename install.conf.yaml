@@ -18,6 +18,7 @@
     ~/.zimrc: files/.zimrc
     ~/.config/nvim: files/.vim
     ~/.alacritty.toml: files/.alacritty.toml
+    ~/.config/ghostty/config: files/ghostty/config
 
 - shell:
   -
