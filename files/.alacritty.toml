@@ -17,8 +17,8 @@ mods = "Command"
 history = 100000
 
 [window]
-opacity = 0.90
-blur = true
+opacity = 0.88
+blur = false
 
 [colors.primary]
 background = "#282c34"
