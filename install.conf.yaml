@@ -22,6 +22,14 @@
 
 - shell:
   -
+    description: Install TPM (Tmux Plugin Manager)
+    command: "test -d ~/.tmux/plugins/tpm || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+    stdout: true
+  -
+    description: Install tmux plugins via TPM
+    command: "~/.tmux/plugins/tpm/bin/install_plugins || true"
+    stdout: true
+  -
     description: Set zsh as the default shell
     command: chsh -s $(which zsh)
   -
