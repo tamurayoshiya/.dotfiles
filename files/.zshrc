@@ -313,6 +313,11 @@ if command -v direnv > /dev/null 2>&1; then
 fi
 
 # ------------------------------
+# Prompt (override gitster to show hostname)
+# ------------------------------
+PS1='%B%(?:%F{green}:%F{red})%{%G➜%} %F{blue}%m%f %F{white}$(prompt-pwd)${(e)git_info[prompt]}%f%b '
+
+# ------------------------------
 # Completion
 # ------------------------------
 
