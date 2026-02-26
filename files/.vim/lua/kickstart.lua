@@ -53,7 +53,7 @@ require("lazy").setup({
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
-		branch = "0.1.x",
+		branch = "master",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -356,7 +356,6 @@ require("lazy").setup({
 				cssls = {},
 				dockerls = {},
 				docker_compose_language_service = {},
-				gopls = {},
 				html = {},
 				jsonls = {},
 				marksman = {},
@@ -575,10 +574,11 @@ require("lazy").setup({
 
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
+		branch = "master",
 		build = ":TSUpdate",
-		config = function()
-			-- Install parsers. Highlighting and indentation are built into Neovim 0.10+.
-			require("nvim-treesitter.install").ensure_installed({
+		main = "nvim-treesitter.configs",
+		opts = {
+			ensure_installed = {
 				"bash",
 				"diff",
 				"html",
@@ -592,8 +592,15 @@ require("lazy").setup({
 				"query",
 				"vim",
 				"vimdoc",
-			})
-		end,
+			},
+			auto_install = false,
+			highlight = {
+				enable = true,
+			},
+			indent = {
+				enable = true,
+			},
+		},
 	},
 
 	-- -----------------------------------------------
