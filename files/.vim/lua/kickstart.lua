@@ -578,7 +578,7 @@ require("lazy").setup({
 		build = ":TSUpdate",
 		config = function()
 			-- Install parsers. Highlighting and indentation are built into Neovim 0.10+.
-			require("nvim-treesitter.install").install({
+			require("nvim-treesitter.install").ensure_installed({
 				"bash",
 				"diff",
 				"html",
