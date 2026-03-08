@@ -236,7 +236,7 @@ alias dockerkillall='docker kill $(docker ps -q)'
 alias mv='mv -i'
 alias cp='cp -i'
 alias gwl='git worktree list'
-alias cc='claude'
+alias c='claude'
 
 # cd && ll
 cd() {
