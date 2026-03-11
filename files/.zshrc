@@ -237,6 +237,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias gwl='git worktree list'
 alias c='claude'
+alias ca='claude --enable-auto-mode'
 
 
 # diff
