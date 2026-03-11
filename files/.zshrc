@@ -238,15 +238,6 @@ alias cp='cp -i'
 alias gwl='git worktree list'
 alias c='claude'
 
-# cd && ll
-cd() {
-    builtin cd "$@"
-}
-cdls ()
-{
-    \cd "$@" && ls -lh
-}
-alias cd="cdls"
 
 # diff
 if type nvim 2>/dev/null 1>/dev/null; then
