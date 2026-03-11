@@ -238,6 +238,7 @@ alias cp='cp -i'
 alias gwl='git worktree list'
 alias c='claude'
 alias ca='claude --enable-auto-mode'
+alias p='. ~/.dotfiles/scripts/p.sh'
 
 
 # diff
@@ -276,27 +277,32 @@ function gitStatus() {
 zle -N gitStatus
 bindkey '^G' gitStatus
 
-# soft_rm
-function soft_rm()
-{
-    if [ ! -d /tmp/.trash ] ; then
-        mkdir /tmp/.trash
-    fi
-    if [ ! -d /tmp/.trash/$USER ] ; then
-        mkdir /tmp/.trash/$USER
-    fi
-    d="`date +%Y%m%d`"
-    if [ ! -d /tmp/.trash/$USER/$d ] ; then
-        mkdir /tmp/.trash/$USER/$d
-    fi
-    for file in $@
-    do
-        fn=$file
-        fn2=${fn//\//___}
-        fnf=`date '+%y%m%d%H%M%S'`
-        fnc="${fnf}_${fn2}"
-        mv $file /tmp/.trash/$USER/$d/$fnc
+# soft_rm: move files to trash instead of deleting
+soft_rm() {
+    local force=0
+    local files=()
 
+    for arg in "$@"; do
+        case "$arg" in
+            -*) case "$arg" in *f*) force=1 ;; esac ;;
+            *) files+=("$arg") ;;
+        esac
+    done
+
+    if [ ${#files[@]} -eq 0 ]; then
+        [ "$force" -eq 0 ] && echo "rm: missing operand" >&2
+        return $((1 - force))
+    fi
+
+    local trash="/tmp/.trash/$USER/$(date +%Y%m%d)"
+    mkdir -p "$trash"
+
+    for file in "${files[@]}"; do
+        if [ ! -e "$file" ] && [ ! -L "$file" ]; then
+            [ "$force" -eq 0 ] && echo "rm: '$file': No such file or directory" >&2
+            continue
+        fi
+        mv "$file" "$trash/$(date '+%H%M%S')_${file//\//__}"
     done
 }
 alias rm="soft_rm"
