@@ -239,6 +239,7 @@ alias gwl='git worktree list'
 alias c='claude'
 alias ca='claude --enable-auto-mode'
 alias p='. ~/.dotfiles/scripts/p.sh'
+alias .dotfiles='cd ~/.dotfiles'
 
 
 # diff
