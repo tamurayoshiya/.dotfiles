@@ -172,16 +172,16 @@ setopt auto_param_slash
 setopt correct
 setopt noautoremoveslash
 
-# 補完候補のカーソル選択を有効に
+# Enable cursor selection for completion candidates
 zstyle ':completion:*:default' menu select=1
 
-# 補完候補の色づけ
+# Colorize completion candidates
 export LSCOLORS=ExFxCxdxBxegedabagacad
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 export ZLS_COLORS=$LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-# sudo に対して環境変数 PATH を継承させる設定
+# Preserve PATH when using sudo
 alias sudo='sudo env PATH=$PATH'
 
 # cdr
@@ -324,7 +324,7 @@ PS1='%B%(?:%F{green}:%F{red})%{%G➜%} %F{blue}%m%f %F{white}$(prompt-pwd)${(e)g
 
 zstyle ':completion:*:default' menu select=2
 
-# 補完関数の表示を強化する
+# Enhanced completion display
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
 zstyle ':completion:*:messages' format '%F{YELLOW}%d'$DEFAULT
@@ -333,21 +333,21 @@ zstyle ':completion:*:descriptions' format '%F{YELLOW}completing %B%d%b'$DEFAULT
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:descriptions' format '%F{yellow}Completing %B%d%b%f'$DEFAULT
 
-# マッチ種別を別々に表示
+# Show match types separately
 zstyle ':completion:*' group-name ''
 
-# セパレータを設定する
+# Set separator
 zstyle ':completion:*' list-separator '-->'
 zstyle ':completion:*:manuals' separate-sections true
 
-# 名前で色を付けるようにする
+# Enable named colors
 autoload colors
 colors
 
-# LS_COLORSを設定しておく
+# Set LS_COLORS
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
-# ファイル補完候補に色を付ける
+# Colorize file completion candidates
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # fnm
